@@ -14,6 +14,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button tourButton;
+    private Button deliveryButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
             openActivity(TourActivity.class);
         });
 
+        deliveryButton = findViewById(R.id.deliveryButton);
+        deliveryButton.setOnClickListener((v)-> {
+            openActivity(DeliveryActivity.class);
+        });
+
     }
 
 
@@ -32,4 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Intent obj = new Intent(this,a);
         startActivity(obj);
     }
+
+
+
+    public void startTitle(){}
+
 }

@@ -6,9 +6,13 @@
         android:angle = "0"
         android:startColor = "#0E0E0E"
         android:centerColor = "#151515"
-        android:endColor = "#111111" />
+        android:endColor = "#151515"
+        />
 
     <corners
-        android:radius = "40dp"></corners>
-
+        android:radius = "40dp"
+        ></corners>
+    <stroke
+        android:width="3dp"
+        android:color="#F8F5F5" />
 </shape>
