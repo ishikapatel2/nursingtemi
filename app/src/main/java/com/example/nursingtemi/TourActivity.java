@@ -86,7 +86,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
 
             // Begin the tour
             Robot.getInstance().setVolume(3);
-            Robot.getInstance().speak(TtsRequest.create("Please follow me around the premiscense and scan the QR code at each stop", false));
+            Robot.getInstance().speak(TtsRequest.create("Please follow me around the premiscense and learn each station", false));
 //            TODO: remove text animation stuff
 //            startTextAnimation("This is an example string of info text for the center for digital humanities upcoming demo on Friday");
             this.goToStop();
