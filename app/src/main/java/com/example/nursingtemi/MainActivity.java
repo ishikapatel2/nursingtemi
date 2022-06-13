@@ -17,6 +17,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private Button tourButton;
     private Button deliveryButton;
+    private Button surveyButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,13 @@ public class MainActivity extends AppCompatActivity {
             openActivity(DeliveryActivity.class);
         });
 
+        surveyButton = findViewById(R.id.surveyButton);
+        surveyButton.setOnClickListener((v)->
+                openActivity(SurveyActivity.class));
+
     }
+
+
 
 
     public void openActivity(Class a){
