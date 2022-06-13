@@ -4,9 +4,9 @@
     <gradient
         android:type = "linear"
         android:angle = "0"
-        android:startColor = "#0E0E0E"
-        android:centerColor = "#151515"
-        android:endColor = "#151515"
+        android:startColor = "#03A9F4"
+        android:centerColor = "#03A9F4"
+        android:endColor = "#1B6788"
         />
 
     <corners
@@ -14,5 +14,5 @@
         ></corners>
     <stroke
         android:width="3dp"
-        android:color="#F8F5F5" />
+        android:color="#03A9F4" />
 </shape>

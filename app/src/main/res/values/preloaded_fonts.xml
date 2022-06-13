@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/anton</item>
+        <item>@font/arbutus_slab</item>
+        <item>@font/averia_libre_light</item>
+        <item>@font/chewy</item>
+        <item>@font/creepster</item>
+        <item>@font/diplomata</item>
+        <item>@font/faster_one</item>
+        <item>@font/monofett</item>
+        <item>@font/mystery_quest</item>
+        <item>@font/permanent_marker</item>
+        <item>@font/slackey</item>
+        <item>@font/sonsie_one</item>
+        <item>@font/sulphur_point_bold</item>
+        <item>@font/syncopate</item>
+        <item>@font/ultra</item>
+    </array>
+</resources>
