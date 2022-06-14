@@ -25,7 +25,7 @@ public class DeliveryActivity extends AppCompatActivity {
 
     public void deliverStation(){
         Robot.getInstance().setVolume(3);
-        Robot.getInstance().speak(TtsRequest.create("What would you like to deliver? ", false));
+        Robot.getInstance().speak(TtsRequest.create("Place your item on my pad. Then place Confirm to Continue.", false));
 
 
     }
