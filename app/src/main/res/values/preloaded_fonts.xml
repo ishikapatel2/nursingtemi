@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/</item>
         <item>@font/anton</item>
         <item>@font/arbutus_slab</item>
         <item>@font/averia_libre_light</item>
+        <item>@font/beth_ellen</item>
         <item>@font/chewy</item>
         <item>@font/creepster</item>
         <item>@font/diplomata</item>

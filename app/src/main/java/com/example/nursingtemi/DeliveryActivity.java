@@ -9,8 +9,11 @@ import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.widget.Button;
 
 public class DeliveryActivity extends AppCompatActivity {
+
+    private Button confirmButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
