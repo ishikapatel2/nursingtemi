@@ -8,6 +8,8 @@ import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothA2dp;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         surveyButton = findViewById(R.id.surveyButton);
         surveyButton.setOnClickListener((v)->
                 openActivity(SurveyActivity.class));
+        
 
     }
 

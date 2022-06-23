@@ -7,31 +7,33 @@
     tools:context=".DeliveryActivity"
     android:background="@drawable/gradient_list">
 
+
     <Button
-        android:id="@+id/confirm_button"
-        android:layout_width="320dp"
-        android:layout_height="237dp"
+        android:id="@+id/button3"
+        android:layout_width="127dp"
+        android:layout_height="58dp"
         android:background="@drawable/gradient"
         android:text="Confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.81" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="693dp"
+        android:layout_height="166dp"
+        android:fontFamily="@font/sonsie_one"
+        android:gravity="center"
+        android:text="Press Button once item is placed"
+        android:textColor="@color/white"
         android:textSize="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="1137dp"
-        android:layout_height="363dp"
-        android:fontFamily="@font/sulphur_point_bold"
-        android:gravity="center_horizontal"
-        android:text="Select Confirm When Object is Placed"
-        android:textColor="@color/white"
-        android:textSize="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintVertical_bias="0.27" />
 </androidx.constraintlayout.widget.ConstraintLayout>
