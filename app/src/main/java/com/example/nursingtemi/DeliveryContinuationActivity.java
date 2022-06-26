@@ -25,6 +25,11 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
 
     private ListView locations;
     private List<String> locationLists;
+    private final TourLocation[] locationList = {
+            new TourLocation("VR Station", "vr station"),
+            new TourLocation("Graduate Student Station", "grad desk"),
+            new TourLocation("Dr. Carter's Desk", "carter desk")
+    };
 
 
     @Override
@@ -33,9 +38,13 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         setContentView(R.layout.activity_delivery_continuation);
         locations = findViewById(R.id.listView);
         locationLists = new ArrayList<>();
-        locationLists.add("VR Station");
-        locationLists.add("Graduate Student Station");
-        locationLists.add("Dr. Carter's Desk");
+
+        for (int i = 0; i < locationList.length; i++){
+            locationLists.add(locationList[i].getTitle());
+        }
+        //locationLists.add(locationList[0]);
+        //locationLists.add("Graduate Student Station");
+        //locationLists.add("Dr. Carter's Desk");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,locationLists);
         locations.setAdapter(arrayAdapter);
@@ -43,7 +52,12 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         locations.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(DeliveryContinuationActivity.this,"Clicked item " + i + locationLists.get(i).toString(),Toast.LENGTH_SHORT).show();
+              //  Robot.getInstance().goTo(locationLists.get(i).toString());
+                Robot.getInstance().setVolume(3);
+                Robot.getInstance().goTo(locationList[i].getLocation());
+               // Robot.getInstance().speak(TtsRequest.create("Made it to the delivery destination. Happy sunday, motherfucker", false));
+
+                //Toast.makeText(DeliveryContinuationActivity.this,"Clicked item " + i + locationLists.get(i).toString(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -52,8 +66,6 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
 
 
     }
-
-
 
     @Override
     protected void onStart() {
@@ -66,6 +78,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         super.onStop();
         Robot.getInstance().removeOnRobotReadyListener(this);
     }
+
     @Override
     public void onRobotReady(boolean isReady) {
         if (isReady) {

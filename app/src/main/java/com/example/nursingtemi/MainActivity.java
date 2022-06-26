@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 
@@ -21,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
     private Button tourButton;
     private Button deliveryButton;
     private Button surveyButton;
+    private Button exitButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         animationBackground();
 
@@ -39,8 +42,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         surveyButton = findViewById(R.id.surveyButton);
-        surveyButton.setOnClickListener((v)->
-                openActivity(SurveyActivity.class));
+        surveyButton.setOnClickListener((v)-> {
+            openActivity(SurveyActivity.class);
+        });
+
+        exitButton = findViewById(R.id.exitButton);
+        exitButton.setOnClickListener((v) ->{
+            finishAffinity();
+            System.exit(0);
+        });
     }
 
 

@@ -26,6 +26,9 @@
             android:name=".TourActivity"
             android:exported="false" />
         <activity
+            android:name=".DeliveryContinuationActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
