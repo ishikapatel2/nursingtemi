@@ -58,11 +58,12 @@
         app:layout_constraintVertical_bias="0.725" />
 
     <Button
-        android:id="@+id/deliveryButton3"
+        android:id="@+id/infoButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
+        android:onClick="openInformation"
         android:text="Info"
         android:textColor="@color/white"
         android:textSize="20sp"

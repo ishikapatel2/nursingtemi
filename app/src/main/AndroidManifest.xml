@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Nursingtemi"
         tools:targetApi="31">
         <activity
-            android:name=".DeliveryContinuationActivity"
+            android:name=".InfoActivity"
             android:exported="false" />
         <activity
             android:name=".SurveyActivity"
