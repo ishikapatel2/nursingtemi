@@ -2,7 +2,9 @@ package com.example.nursingtemi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
@@ -24,17 +27,15 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     //    private TextView infoTextView;
     private ImageView qrCodeImageView;
     private Button continueButton;
-    private int curLoc = 0;
+    private static int curLoc;
 
     private final TourLocation[] locations = {
 
 
-            /*
-            new TourLocation("VR Station", "vr station", R.drawable.qr_vr),
-            new TourLocation("Graduate Student Station", "grad desk", R.drawable.qr_grad_student),
-            new TourLocation("Dr. Carter's Desk", "carter desk", R.drawable.qr_carter)
 
-             */
+            new TourLocation("VR Station", "vr station"),
+            new TourLocation("Graduate Student Station", "grad desk"),
+            new TourLocation("Dr. Carter's Desk", "carter desk")
     };
     private static final String HOME_BASE_LOCATION = "home base";
 
@@ -42,13 +43,22 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour);
-        /*
-        titleTextView = findViewById(R.id.location_title);
-        qrCodeImageView = findViewById(R.id.qr_code);
-//        infoTextView = findViewById(R.id.info_text_view);
-        continueButton = findViewById(R.id.continue_button);
 
-         */
+        titleTextView = findViewById(R.id.locationText);
+        continueButton = findViewById(R.id.continueButton);
+
+
+        continueButton.setOnClickListener((v)->{
+            if (curLoc == locations.length){
+                Robot.getInstance().speak(TtsRequest.create("Thank you for participating in the tour of the hospital. Returning to home base", false));
+                Robot.getInstance().goTo(HOME_BASE_LOCATION);
+            }
+            else {
+               // Toast.makeText(this, locations[curLoc].getLocation(), Toast.LENGTH_LONG).show();
+                Robot.getInstance().goTo(locations[curLoc].getLocation());
+                curLoc++;
+            }
+                });
     }
 
     @Override
@@ -63,22 +73,6 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
         Robot.getInstance().removeOnRobotReadyListener(this);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Set options menu to have exit icon
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.action_finish_tour) {
-//            finish();
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
     @Override
     public void onRobotReady(boolean isReady) {
         if (isReady) {
@@ -86,13 +80,21 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
 
             // Begin the tour
             Robot.getInstance().setVolume(3);
-            Robot.getInstance().speak(TtsRequest.create("Please follow me around the premiscense and learn each station", false));
-//            TODO: remove text animation stuff
-//            startTextAnimation("This is an example string of info text for the center for digital humanities upcoming demo on Friday");
-            this.goToStop();
+            Robot.getInstance().speak(TtsRequest.create("Please follow me around the premiscense.", false));
+            Robot.getInstance().goTo(locations[curLoc].getLocation());
+           curLoc++;
+           // this.goToStop();
         }
     }
 
+    public void animationBackground(){
+        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
+    }
+    /*
     private void goToStop() {
         // Temporarily remove click listener
         continueButton.setOnClickListener(null);
@@ -103,7 +105,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
 
         // Set location and QR code
         titleTextView.setText(location.getTitle());
-        qrCodeImageView.setImageDrawable(location.getQr(getResources()));
+      //  qrCodeImageView.setImageDrawable(location.getQr(getResources()));
 
         // Set up continue button for next stop
         ++this.curLoc;

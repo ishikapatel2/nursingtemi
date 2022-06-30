@@ -13,18 +13,17 @@ public class TourLocation {
     /** Name of the location, as stored in the Temi */
     private String location;
     /** Drawable ID of the QR code to show at this location */
-    private int qrId;
+     private int qrId;
 
     /**
      * Creates a new tour location
      * @param title is the title to display at this location
      * @param locationName is the name of the location in Temi
-     * @param qrId is the ID of the QR code drawable
      */
-    public TourLocation(String title, String locationName, int qrId) {
+    public TourLocation(String title, String locationName) {
         this.title = title;
         this.location = locationName;
-        this.qrId = qrId;
+        //this.qrId = qrId;
     }
 
     /**

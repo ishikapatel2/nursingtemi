@@ -8,28 +8,13 @@
     android:id = "@+id/constraintLayout"
     tools:context=".MainActivity">
 
-
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/sonsie_one"
-        android:text="Hi, I'm Temi"
-        android:textColor="#FFFFFF"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.194" />
-
     <Button
         android:id="@+id/tourButton"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="168dp"
+        android:layout_height="135dp"
         android:background="@drawable/gradient"
-        android:text="Tour"
         android:fontFamily="@font/chewy"
+        android:text="Tour"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:cornerRadius="30dp"
@@ -38,12 +23,12 @@
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+        app:layout_constraintVertical_bias="0.657" />
 
     <Button
         android:id="@+id/deliveryButton"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="168dp"
+        android:layout_height="135dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="Delivery"
@@ -52,15 +37,15 @@
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+        app:layout_constraintVertical_bias="0.656" />
 
     <Button
         android:id="@+id/infoButton"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="168dp"
+        android:layout_height="135dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:onClick="openInformation"
@@ -70,15 +55,15 @@
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+        app:layout_constraintVertical_bias="0.656" />
 
     <Button
         android:id="@+id/surveyButton"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="168dp"
+        android:layout_height="135dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="Survey"
@@ -87,10 +72,41 @@
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.626"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+        app:layout_constraintVertical_bias="0.656" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="700dp"
+        android:layout_height="361dp"
+        android:fontFamily="@font/chewy"
+        android:gravity="center_horizontal"
+        android:text="Welcome to the College of Nursing"
+        android:textColor="@color/white"
+        android:textSize="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="168dp"
+        android:layout_height="135dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/chewy"
+        android:text="Exit"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.656" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
