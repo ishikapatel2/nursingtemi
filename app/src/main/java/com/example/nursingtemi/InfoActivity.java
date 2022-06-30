@@ -19,4 +19,8 @@ public class InfoActivity extends AppCompatActivity {
         Intent websiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.nursing.arizona.edu/welcome"));
         startActivity(websiteIntent);
     }
+
+
+
+    // Random Comment
 }
