@@ -41,7 +41,6 @@
         android:layout_height="48dp"
         android:background="#429DC1"
         android:fontFamily="@font/arbutus_slab"
-        android:onClick="nursingWebsite"
         android:text="Visit Our Website!"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
