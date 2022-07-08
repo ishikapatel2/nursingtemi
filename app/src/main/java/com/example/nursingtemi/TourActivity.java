@@ -31,11 +31,57 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
 
     private final TourLocation[] locations = {
 
-
-
             new TourLocation("VR Station", "vr station"),
             new TourLocation("Graduate Student Station", "grad desk"),
-            new TourLocation("Dr. Carter's Desk", "carter desk")
+            new TourLocation("Dr. Carter's Desk", "carter desk"),
+
+            new TourLocation("Sim Room 364", "sim room 364"),
+            new TourLocation("Sim Room 366", "sim room 366"),
+            new TourLocation("Sim Room 368", "sim room 368"),
+            new TourLocation("Sim Room 369", "sim room 369"),
+            new TourLocation("Sim Room 371", "sim room 371"),
+
+            new TourLocation("Ctrl Room 365", "ctrl room 365"),
+            new TourLocation("Ctrl Room 367", "ctrl room 367"),
+            new TourLocation("Ctrl Room 370", "ctrl room 370"),
+            new TourLocation("Debriefing 372", "debriefing 372"),
+            new TourLocation("Debriefing 373", "debriefing 373"),
+
+            new TourLocation("Corridor C361", "corridor C361"),
+            new TourLocation("Corridor C301", "corridor C301"),
+            new TourLocation("Corridor C300G", "corridor C300G"),
+            new TourLocation("Corridor C329", "corridor C329"),
+
+            new TourLocation("Conference Room 321", "conf room 321"),
+            new TourLocation("Open Study 303", "open study 303"),
+            new TourLocation("Open Study 335", "open study 335"),
+            new TourLocation("Exam Rooms", "exam rooms"),
+            new TourLocation("Offices", "offices"),
+            new TourLocation("Sim Office", "sim office"),
+            new TourLocation("Stair 2", "stair 2"),
+            new TourLocation("Open Interaction", "open interaction"),
+            new TourLocation("Restrooms", "restrooms"),
+            new TourLocation("Elevators", "elevators"),
+            new TourLocation("Medication Room 360", "medication room"),
+            new TourLocation("Nurses Station 361", "nurses station"),
+
+            new TourLocation("Workroom 329", "workroom 329"),
+            new TourLocation("Workroom 330", "workroom 330"),
+            new TourLocation("Compressor", "compressor"),
+            new TourLocation("Storage 352", "storage 352"),
+            new TourLocation("Storage 311", "storage 311"),
+            new TourLocation("Storage 310", "storage 310"),
+            new TourLocation("Janitor/Storage 315", "janitor/storage"),
+            new TourLocation("Learning Lab 302", "learning lab 302"),
+            new TourLocation("Learning Lab 301", "learning lab 301"),
+            new TourLocation("Lavender Lounge 333", "lavender lounge"),
+            new TourLocation("Learning Lounge 304", "learning lounge"),
+
+
+
+
+
+
     };
     private static final String HOME_BASE_LOCATION = "home base";
 
