@@ -20,7 +20,7 @@ import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
 public class TourActivity extends AppCompatActivity implements OnRobotReadyListener {
-    // attributes
+    //ttributes
     private Handler handler;
     private Runnable textLoop;
     private TextView titleTextView;
