@@ -1,23 +1,24 @@
 package com.example.nursingtemi;
 
+import android.os.Bundle;
+import android.webkit.WebView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-
 public class InfoActivity extends AppCompatActivity {
+
+    WebView ourBrow;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-    }
 
-    public void nursingWebsite(View view) {
-        Intent websiteIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.nursing.arizona.edu/welcome"));
-        startActivity(websiteIntent);
+        ourBrow = (WebView) findViewById(R.id.webView);
+        ourBrow.getSettings().setJavaScriptEnabled(true);
+        ourBrow.loadUrl("https://www.nursing.arizona.edu/simulated-learning");
+
     }
 
 
