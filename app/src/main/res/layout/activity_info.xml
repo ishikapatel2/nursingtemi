@@ -15,21 +15,21 @@
         android:fontFamily="@font/ultra"
         android:text="Information"
         android:textColor="@color/black"
-        android:textSize="55sp"
+        android:textSize="80sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128" />
+        app:layout_constraintVertical_bias="0.137" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="670dp"
-        android:layout_height="326dp"
+        android:layout_width="860dp"
+        android:layout_height="428dp"
         android:text="Inserting relevant information summary."
         android:textColor="#009688"
-        android:textSize="24sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -52,10 +52,14 @@
 
     <WebView
         android:id="@+id/webView"
-        android:layout_width="247dp"
-        android:layout_height="53dp"
-        tools:layout_editor_absoluteX="251dp"
-        tools:layout_editor_absoluteY="576dp" />
+        android:layout_width="334dp"
+        android:layout_height="83dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.862" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
