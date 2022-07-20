@@ -2,11 +2,9 @@ package com.example.nursingtemi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
-
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -16,14 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyListener{
 
     private Button confirmButton;
-    public String Location;
     private ListView locations;
     private List<String> locationLists;
 
