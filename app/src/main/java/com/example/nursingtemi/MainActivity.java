@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private Button deliveryButton;
     private Button surveyButton;
     private Button exitButton;
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         tourButton = findViewById(R.id.tourButton);
+
         tourButton.setOnClickListener((v) -> {
             openActivity(TourActivity.class);
         });
@@ -54,15 +58,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-
-
     public void openActivity(Class a){
         Intent obj = new Intent(this,a);
         startActivity(obj);
     }
-
-
 
     public void animationBackground(){
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);

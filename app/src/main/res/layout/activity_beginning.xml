@@ -8,31 +8,16 @@
     android:id="@id/constraintLayout"
     tools:context=".BeginningActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="254dp"
-        android:layout_height="81dp"
-        android:gravity="center_horizontal"
-        android:text="Hello!"
-        android:fontFamily="@font/syncopate"
-        android:textColor="@color/white"
-        android:textSize="44sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="762dp"
         android:layout_height="345dp"
-        android:fontFamily="@font/syncopate"
+        android:fontFamily="@font/chewy"
         android:gravity="center_horizontal"
-        android:text="Welcome to the University of Arizona's College of Nursing"
+        android:text="Welcome to the Gilbert Simulation Center!"
         android:textColor="@color/white"
-        android:textSize="60sp"
+        android:textSize="80sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.553"
@@ -41,17 +26,29 @@
 
     <Button
         android:id="@+id/startButton"
+        android:layout_width="246dp"
+        android:layout_height="79dp"
+        android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="Start"
         android:textColor="@color/white"
-        android:textSize="60dp"
-        android:background="@drawable/gradient"
-        android:layout_width="246dp"
-        android:layout_height="79dp"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.84" />
+        app:layout_constraintVertical_bias="0.843" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="248dp"
+        android:layout_height="158dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.665" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,8 +22,6 @@ import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
 public class TourActivity extends AppCompatActivity implements OnRobotReadyListener {
 
-
-
     //Attributes
     private Handler handler;
     private Runnable textLoop;
@@ -30,6 +29,9 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     private ImageView qrCodeImageView;
     private Button continueButton;
     private static int curLoc;
+    private TextView text;
+    private TextView message;
+    private ImageView backButton;
 
     private final TourLocation[] locations = {
 
@@ -38,8 +40,23 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             //new TourLocation("Dr. Carter's Desk", "carter desk"),
 
 
-            new TourLocation("Debriefing 372", "debriefing 372"),
+            new TourLocation("Debriefing 372", "debriefing 372", "This is one of our debriefing rooms."),
             /*
+            new TourLocation("Skills Lab","skills lab 334", "This is our skills lab where we ..."),
+
+            Skills lab 334
+            Interactive lab 351
+            Offices
+            Conferrence room 321
+            Learning lab 301
+            Learning lab 302
+            Debriefing 374
+            Debriefing 373
+            Debriefing 372
+            Control room 375
+            Simulation room 376
+            Simulation 371
+
             new TourLocation("Debriefing 373", "debriefing 373"),
             new TourLocation("Debriefing 374", "debriefing 374"),
             new TourLocation("Skills lab 334", "skills lab 334"),
@@ -106,11 +123,20 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_tour);
 
         titleTextView = findViewById(R.id.locationText);
         continueButton = findViewById(R.id.continueButton);
+        text = findViewById(R.id.description);
+        backButton = findViewById(R.id.backButton);
 
+        text.setText(locations[curLoc].getLocation());
+
+        backButton.setOnClickListener((v) ->{
+            Intent obj = new Intent(this, MainActivity.class);
+            startActivity(obj);
+        });
 
         continueButton.setOnClickListener((v)->{
             if (curLoc == locations.length){
@@ -118,11 +144,11 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
                 Robot.getInstance().goTo(HOME_BASE_LOCATION);
             }
             else {
-               // Toast.makeText(this, locations[curLoc].getLocation(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, locations[curLoc].getLocation(), Toast.LENGTH_LONG).show();
                 Robot.getInstance().goTo(locations[curLoc].getLocation());
                 curLoc++;
             }
-                });
+        });
 
     }
 

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -22,15 +23,26 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
     private Button confirmButton;
     private ListView locations;
     private List<String> locationLists;
+    private ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_delivery);
+
         confirmButton = findViewById(R.id.confirm_button);
         locations = findViewById(R.id.locationList);
+        backButton = findViewById(R.id.backButton);
         locations.setVisibility(View.INVISIBLE);
+
         animationBackground();
+
+        backButton.setOnClickListener((v) ->{
+            Intent obj = new Intent(this, MainActivity.class);
+            startActivity(obj);
+        });
+
         confirmButton.setOnClickListener((v) ->{
             Intent obj = new Intent(this,DeliveryContinuationActivity.class);
             startActivity(obj);

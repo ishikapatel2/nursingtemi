@@ -35,8 +35,10 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_delivery_continuation);
         locations = findViewById(R.id.listView);
+
         locationLists = new ArrayList<>();
 
         for (int i = 0; i < locationList.length; i++){
