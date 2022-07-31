@@ -1,38 +1,23 @@
 package com.example.nursingtemi;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
+import java.util.Objects;
+
 public class TourActivity extends AppCompatActivity implements OnRobotReadyListener {
 
     //Attributes
-    private Handler handler;
-    private Runnable textLoop;
-    private TextView titleTextView;
-    private ImageView qrCodeImageView;
-    private Button continueButton;
     private static int curLoc;
-    private TextView text;
-    private TextView message;
-    private ImageView backButton;
-
     private final TourLocation[] locations = {
 
             //new TourLocation("VR Station", "vr station"),
@@ -112,24 +97,19 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             Control room 375
             Simulation room 376
             Simulation 371
-
-
 */
-
-
     };
     private static final String HOME_BASE_LOCATION = "home base";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_tour);
 
-        titleTextView = findViewById(R.id.locationText);
-        continueButton = findViewById(R.id.continueButton);
-        text = findViewById(R.id.description);
-        backButton = findViewById(R.id.backButton);
+        Button continueButton = findViewById(R.id.continueButton);
+        TextView text = findViewById(R.id.description);
+        ImageView backButton = findViewById(R.id.backButton);
 
         text.setText(locations[curLoc].getLocation());
 
@@ -149,7 +129,6 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
                 curLoc++;
             }
         });
-
     }
 
     @Override
@@ -168,22 +147,11 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     public void onRobotReady(boolean isReady) {
         if (isReady) {
             Robot.getInstance().hideTopBar();
-
-            // Begin the tour
             Robot.getInstance().setVolume(3);
             Robot.getInstance().speak(TtsRequest.create("Please follow me around the premiscense.", false));
             Robot.getInstance().goTo(locations[curLoc].getLocation());
            curLoc++;
-           // this.goToStop();
         }
-    }
-
-    public void animationBackground(){
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
-        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2500);
-        animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();
     }
 
 }

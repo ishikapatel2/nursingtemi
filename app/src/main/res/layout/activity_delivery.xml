@@ -14,9 +14,9 @@
         android:layout_height="79dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Confirm"
+        android:text="@string/confirm"
         android:textColor="@color/white"
-        android:textSize="60dp"
+        android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
@@ -30,9 +30,9 @@
         android:layout_height="226dp"
         android:fontFamily="@font/sonsie_one"
         android:gravity="center"
-        android:text="Press Button once item is placed"
+        android:text="@string/deliveryInstruction"
         android:textColor="@color/white"
-        android:textSize="45dp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
@@ -61,5 +61,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/arrow" />
+        app:srcCompat="@drawable/arrow"
+        tools:ignore="ContentDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>

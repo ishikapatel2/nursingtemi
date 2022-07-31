@@ -9,31 +9,22 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyListener{
-
-    private Button confirmButton;
-    private ListView locations;
-    private List<String> locationLists;
-    private ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery);
 
-        confirmButton = findViewById(R.id.confirm_button);
-        locations = findViewById(R.id.locationList);
-        backButton = findViewById(R.id.backButton);
+        Button confirmButton = findViewById(R.id.confirm_button);
+        ListView locations = findViewById(R.id.locationList);
+        ImageView backButton = findViewById(R.id.backButton);
         locations.setVisibility(View.INVISIBLE);
 
         animationBackground();
@@ -48,7 +39,6 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             startActivity(obj);
         });
     }
-
 
     @Override
     protected void onStart() {
@@ -69,29 +59,7 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             Robot.getInstance().speak(TtsRequest.create("Place the item on me, then press confirm to continue", false));
         }
     }
-
-    public void continueProcess(){
-        confirmButton.setVisibility(View.INVISIBLE);
-        locationLists = new ArrayList<>();
-        locationLists.add("VR Station");
-        locationLists.add("Graduate Student Station");
-        locationLists.add("Dr. Carter's Desk");
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,locationLists);
-        locations.setAdapter(arrayAdapter);
-
-        locations.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(DeliveryActivity.this,"Clicked item " + i + locationLists.get(i).toString(),Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Robot.getInstance().setVolume(3);
-        Robot.getInstance().speak(TtsRequest.create("Where would you like for me to go", false));
-
-    }
-    public void animationBackground()
+        public void animationBackground()
     {
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();

@@ -53,13 +53,14 @@
         app:layout_constraintVertical_bias="0.972" />
 
     <WebView
-        android:id = "@+id/webviewButton"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        tools:layout_editor_absoluteX="954dp"
-        tools:layout_editor_absoluteY="554dp"
-        tools:ignore="MissingConstraints"
-        />
+        android:id="@+id/webviewButton"
+        android:layout_width="2050dp"
+        android:layout_height="625dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

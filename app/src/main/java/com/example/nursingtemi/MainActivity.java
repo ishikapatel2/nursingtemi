@@ -2,56 +2,32 @@ package com.example.nursingtemi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.robotemi.sdk.Robot;
-import com.robotemi.sdk.TtsRequest;
-import com.robotemi.sdk.listeners.OnRobotReadyListener;
-
-import android.app.Activity;
-import android.bluetooth.BluetoothA2dp;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.ProgressBar;
-
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    private Button tourButton;
-    private Button deliveryButton;
-    private Button surveyButton;
-    private Button exitButton;
-    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
         animationBackground();
 
+        Button tourButton = findViewById(R.id.tourButton);
+        tourButton.setOnClickListener((v) -> openActivity(TourActivity.class));
 
-        tourButton = findViewById(R.id.tourButton);
+        Button deliveryButton = findViewById(R.id.deliveryButton);
+        deliveryButton.setOnClickListener((v)-> openActivity(DeliveryActivity.class));
 
-        tourButton.setOnClickListener((v) -> {
-            openActivity(TourActivity.class);
-        });
+        Button surveyButton = findViewById(R.id.surveyButton);
+        surveyButton.setOnClickListener((v)-> openActivity(SurveyActivity.class));
 
-        deliveryButton = findViewById(R.id.deliveryButton);
-        deliveryButton.setOnClickListener((v)-> {
-            openActivity(DeliveryActivity.class);
-        });
-
-        surveyButton = findViewById(R.id.surveyButton);
-        surveyButton.setOnClickListener((v)-> {
-            openActivity(SurveyActivity.class);
-        });
-
-        exitButton = findViewById(R.id.exitButton);
+        Button exitButton = findViewById(R.id.exitButton);
         exitButton.setOnClickListener((v) ->{
             finishAffinity();
             System.exit(0);
