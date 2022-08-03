@@ -59,7 +59,7 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             Robot.getInstance().speak(TtsRequest.create("Place the item on me, then press confirm to continue", false));
         }
     }
-        public void animationBackground()
+    public void animationBackground()
     {
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();

@@ -37,4 +37,4 @@ public class BeginningActivity extends AppCompatActivity {
        startActivity(obj);
    }
 
-}
+}0
