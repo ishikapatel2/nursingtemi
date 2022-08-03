@@ -23,21 +23,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.03" />
 
-    <Button
-        android:id="@+id/urlButton"
-        android:layout_width="270dp"
-        android:layout_height="48dp"
-        android:background="#429DC1"
-        android:fontFamily="@font/arbutus_slab"
-        android:text="Visit Our Website!"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.909" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="605dp"
@@ -48,6 +33,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <WebView
+        android:id="@+id/urlButton"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:background="#77ADC3"
+        android:fontFamily="@font/arbutus_slab"
+        android:text="Visit Our Website!"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.909" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
