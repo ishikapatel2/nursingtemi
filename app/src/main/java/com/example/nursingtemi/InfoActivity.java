@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +21,8 @@ public class InfoActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_info);
         webView = findViewById(R.id.urlButton);
-        webView.setVisibility(View.INVISIBLE);
-
-        webView.setOnClickListener((v)->{
-            webView.setVisibility(View.VISIBLE);
-            webView.getSettings().setJavaScriptEnabled(true);
-            webView.loadUrl("https://www.nursing.arizona.edu/simulated-learning");
-        });
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://www.nursing.arizona.edu/simulated-learning");
     }
+
 }
