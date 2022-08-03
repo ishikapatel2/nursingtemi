@@ -22,6 +22,8 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         webView = findViewById(R.id.urlButton);
         webView.setWebViewClient(new WebViewClient());
+        webView.setVisibility(View.INVISIBLE);
+
         webView.loadUrl("https://www.nursing.arizona.edu/simulated-learning");
     }
 
