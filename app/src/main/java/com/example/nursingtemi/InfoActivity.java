@@ -20,30 +20,8 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_info);
-        //webView = findViewById(R.id.urlButton);
-       // webView.setWebViewClient(new WebViewClient());
-        //webView.setVisibility(View.INVISIBLE);
-
-
-
-        //webView.loadUrl("https://www.nursing.arizona.edu/simulated-learning");
-
-        final Button button = (Button)findViewById(R.id.urlButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                button.setVisibility(View.GONE);
-                webView.setVisibility(View.VISIBLE);
-                webView = (WebView) findViewById(R.id.webView);
-                webView.getSettings().setJavaScriptEnabled(true);
-                webView.loadUrl("https://www.nursing.arizona.edu/simulated-learning");
-            }
-        });
-
-
-
-
-
+        webView = (WebView) findViewById(R.id.webView1);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("https://www.nursing.arizona.edu/simulated-learning");
     }
-
 }
