@@ -20,6 +20,8 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_info);
+    }
+    public void open(View view) {
         webView = (WebView) findViewById(R.id.webView1);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://www.nursing.arizona.edu/simulated-learning");
