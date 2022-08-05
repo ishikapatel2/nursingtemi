@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_list"
+    android:onClick="open"
     tools:context=".InfoActivity">
 
     <TextView
@@ -39,6 +40,7 @@
         android:layout_width="220dp"
         android:layout_height="65dp"
         android:background="#60C7D5"
+        android:onClick="open"
         android:text="VISIT OUR WEBSITE!"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
