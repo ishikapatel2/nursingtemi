@@ -25,6 +25,10 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
         ListView locations = findViewById(R.id.listView);
+
+
+
+        DeliveryItem item = (DeliveryItem) getIntent().getSerializableExtra("item");
         List<String> locationLists = new ArrayList<>();
 
         for (TourLocation tourLocation : locationList) {
@@ -37,7 +41,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         locations.setOnItemClickListener((adapterView, view, i, l) -> {
             Robot.getInstance().setVolume(3);
             Robot.getInstance().goTo(locationList[i].getLocation());
-            Robot.getInstance().speak(TtsRequest.create("Made it to the delivery destination.", false));
+            Robot.getInstance().speak(TtsRequest.create("Hello, we were ordered to deliver " + item.getQuantity() + " " + item.getItem() + " to this location.", false));
         });
         Robot.getInstance().setVolume(3);
         Robot.getInstance().speak(TtsRequest.create("Where would you like for me to go", false));
