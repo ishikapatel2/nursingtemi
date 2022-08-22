@@ -51,7 +51,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,locationLists);
         locations.setAdapter(arrayAdapter);
 
-        Robot.getInstance().setVolume(3);
+        Robot.getInstance( ).setVolume(3);
         Robot.getInstance().speak(TtsRequest.create("Where would you like for me to go", false));
 
         locations.setOnItemClickListener((adapterView, view, i, l) -> {
