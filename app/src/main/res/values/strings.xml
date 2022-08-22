@@ -1,13 +1,13 @@
 <resources>
-    <string name = "app_name">nursingtemi</string>
-    <string name = "title">What would you like me to do?</string>
-    <string name = "tour">Tour</string>
-    <string name = "delivery">Delivery</string>
-    <string name = "survey">Survey</string>
-    <string name = "info">Info</string>
-    <string name = "exit">Exit</string>
-    <string name = "start">Start</string>
-    <string name = "welcome">Welcome to the Gilbert Simulation Center!</string>
-    <string name = "deliveryInstruction">Press Button once item is placed</string>
-    <string name = "confirm">Confirm</string>
+    <string name="app_name">nursingtemi</string>
+    <string name="title">What would you like me to do?</string>
+    <string name="tour">Tour</string>
+    <string name="delivery">Delivery</string>
+    <string name="survey">Survey</string>
+    <string name="info">Info</string>
+    <string name="exit">Exit</string>
+    <string name="start">Start</string>
+    <string name="welcome">Welcome to the Gilbert Simulation Center!</string>
+    <string name="deliveryInstruction">Press Button once item is placed</string>
+    <string name="confirm">Confirm</string>
 </resources>

@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
-
 import java.util.Objects;
 
 public class TourActivity extends AppCompatActivity implements OnRobotReadyListener {
@@ -24,10 +23,38 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             //new TourLocation("Graduate Student Station", "grad desk"),
             //new TourLocation("Dr. Carter's Desk", "carter desk"),
 
+            new TourLocation("Control room 365", "control room 365"),
+            new TourLocation("Simulation room 366", "simulation room 366"),
+            new TourLocation("Simulation room 368", "simulation room 368"),
+            new TourLocation("Simulation room 369", "simulation room 369"),
+            new TourLocation("Control Room 370", "control room 370"),
+            new TourLocation("Simulation Room 371", "simulation room 371"),
+            new TourLocation("Debriefing 372", "debriefing 372"),
+            new TourLocation("Debriefing 373", "debriefing 373"),
+            new TourLocation("Debriefing 374", "debriefing 374"),
+            new TourLocation("Control Room 375", "control room 375"),
+            new TourLocation("Simulation Room 376", "simulation room 376"),
+            new TourLocation("Learning Lab 301", "learning lab 301"),
+            new TourLocation("Learning Lab 302", "learning lab 302"),
+            new TourLocation("Interactive lab 351","interactive lab 351"),
+            new TourLocation("Offices", "offices"),
+            new TourLocation("Skills lab 334", "skills lab 334"),
 
-            new TourLocation("Debriefing 372", "debriefing 372", "This is one of our debriefing rooms."),
+
+
+
             /*
-            new TourLocation("Skills Lab","skills lab 334", "This is our skills lab where we ..."),
+            new TourLocation("Corridor C361", "corridor C361"),
+            new TourLocation("Corridor C301", "corridor C301"),
+            new TourLocation("Corridor C300G", "corridor C300G"),
+            new TourLocation("Corridor C329", "corridor C329"),
+
+            new TourLocation("Conference Room 321", "conf room 321"),
+            new TourLocation("Open Study 303", "open study 303"),
+            new TourLocation("Open Study 335", "open study 335"),
+            new TourLocation("Exam Rooms", "exam rooms"),
+            new TourLocation("Offices", "offices"),
+            new TourLocation("Sim Office", "sim office"),
 
             Skills lab 334
             Interactive lab 351
