@@ -5,8 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".DeliveryContinuationActivity">
 
-    <ListView
-        android:id="@+id/listView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+    </ScrollView>
+
 </RelativeLayout>

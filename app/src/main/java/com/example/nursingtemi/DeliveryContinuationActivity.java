@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -33,6 +34,8 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             new TourLocation("Simulation Room 371", "simulation room 371"),
             new TourLocation("Simulation Room 376", "simulation room 376"),
             new TourLocation("Skills lab 334", "skills lab 334"),
+            new TourLocation("SAFAFdasf", "AFSFSAfaSFAF"),
+            new TourLocation("AFASFASFASF", "ASFDasfasf"),
     };
 
     @Override
@@ -43,12 +46,16 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         ListView locations = findViewById(R.id.listView);
         DeliveryItem item = (DeliveryItem) getIntent().getSerializableExtra("item");
         List<String> locationLists = new ArrayList<>();
+        Log.d("Starting to add", "tour locations");
 
         for (TourLocation tourLocation : locationList) {
             locationLists.add(tourLocation.getTitle());
+            Log.d("Added tour location", tourLocation.getTitle());
         }
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,locationLists);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,locationLists);
+        Log.d("item count", String.valueOf(arrayAdapter.getCount()));
+        Log.d("array items", arrayAdapter.toString());
         locations.setAdapter(arrayAdapter);
 
         Robot.getInstance( ).setVolume(3);
@@ -65,8 +72,6 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             //TODO Talk to Gavin about wanting to Temi to talk right after it reaches the location to deliver
             //Robot.getInstance().speak(TtsRequest.create("Hello, we were ordered to deliver " + item.getQuantity() + " items of " + item.getItem() + " to this location.", false));
         });
-
-
     }
 
     @Override
