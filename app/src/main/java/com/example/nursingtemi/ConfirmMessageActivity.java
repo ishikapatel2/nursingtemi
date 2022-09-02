@@ -9,10 +9,12 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
-public class ConfirmMessageActivity extends AppCompatActivity {
+public class ConfirmMessageActivity extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_confirm_message);

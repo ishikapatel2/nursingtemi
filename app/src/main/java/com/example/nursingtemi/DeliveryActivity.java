@@ -8,12 +8,9 @@ import com.robotemi.sdk.listeners.OnRobotReadyListener;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-
-import java.io.Serializable;
 import java.util.Objects;
 
 public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyListener
@@ -66,6 +63,7 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
         super.onStop();
         Robot.getInstance().removeOnRobotReadyListener(this);
     }
+
     @Override
     public void onRobotReady(boolean isReady)
     {

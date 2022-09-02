@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(obj);
     }
 
-    public void animationBackground(){
+    public void animationBackground()
+    {
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2500);

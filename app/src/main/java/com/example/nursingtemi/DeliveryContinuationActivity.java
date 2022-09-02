@@ -34,8 +34,6 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             new TourLocation("Simulation Room 371", "simulation room 371"),
             new TourLocation("Simulation Room 376", "simulation room 376"),
             new TourLocation("Skills lab 334", "skills lab 334"),
-            new TourLocation("SAFAFdasf", "AFSFSAfaSFAF"),
-            new TourLocation("AFASFASFASF", "ASFDasfasf"),
     };
 
     @Override
