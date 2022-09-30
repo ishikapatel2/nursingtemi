@@ -1,7 +1,6 @@
 package com.example.nursingtemi;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,6 +66,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             Intent intent = new Intent(this,ConfirmMessageActivity.class);
             intent.putExtra("item",item);
             startActivity(intent);
+
             //TODO Talk to Gavin about wanting to Temi to talk right after it reaches the location to deliver
             //Robot.getInstance().speak(TtsRequest.create("Hello, we were ordered to deliver " + item.getQuantity() + " items of " + item.getItem() + " to this location.", false));
         });

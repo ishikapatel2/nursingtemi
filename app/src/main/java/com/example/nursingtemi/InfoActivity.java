@@ -1,12 +1,8 @@
 package com.example.nursingtemi;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,8 +18,9 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         webView = (WebView) findViewById(R.id.webView1);
         webView.setVisibility(View.GONE);
-
     }
+
+
     public void open(View view) {
         webView = (WebView) findViewById(R.id.webView1);
         webView.setVisibility(View.VISIBLE);
