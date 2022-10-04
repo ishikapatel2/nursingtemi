@@ -9,7 +9,7 @@
         />
 
     <corners
-        android:radius = "40dp"
+        android:radius = "50dp"
         ></corners>
     <stroke
         android:width="3dp"
