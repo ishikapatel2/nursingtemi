@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".TourActivity"
     android:id="@+id/constraintLayout"
-    android:background="@drawable/gradient_list">
+    android:background="#0C234B">
 
     <TextView
         android:id="@+id/locationText"
@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Location"
         android:textColor="@color/white"
+        android:fontFamily="@font/chewy"
         android:textSize="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +28,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue"
+        android:textColor="@color/white"
+        android:fontFamily="@font/chewy"
+        android:background="@drawable/gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
@@ -51,15 +55,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/backButton"

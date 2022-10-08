@@ -156,6 +156,8 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
                 curLoc++;
             }
         });
+
+
     }
 
     @Override
