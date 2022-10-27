@@ -174,6 +174,8 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
 
     @Override
     public void onRobotReady(boolean isReady) {
+
+
         if (isReady) {
             Robot.getInstance().hideTopBar();
             Robot.getInstance().setVolume(3);

@@ -15,7 +15,6 @@ import java.util.Objects;
 
 public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyListener
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -83,6 +82,9 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
         animationDrawable.start();
     }
 
+    /*
+     * Checks if any fields are empty before confirming the delivery
+     */
     public boolean emptyCredentials(EditText item, EditText quantity)
     {
         if  ( (item.getText().toString().isEmpty()) && (quantity.getText().toString().isEmpty()) )

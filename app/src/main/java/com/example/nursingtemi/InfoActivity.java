@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class InfoActivity extends AppCompatActivity {
 
-
     private WebView webView;
 
     @Override

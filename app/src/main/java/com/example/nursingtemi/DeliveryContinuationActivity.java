@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
@@ -40,6 +42,9 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
+
+        addTouchListener();
+
         ListView locations = findViewById(R.id.listView);
         DeliveryItem item = (DeliveryItem) getIntent().getSerializableExtra("item");
         List<String> locationLists = new ArrayList<>();
@@ -71,6 +76,29 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             //Robot.getInstance().speak(TtsRequest.create("Hello, we were ordered to deliver " + item.getQuantity() + " items of " + item.getItem() + " to this location.", false));
         });
     }
+
+
+    private void addTouchListener(){
+        ImageView map = (ImageView) findViewById(R.id.mapView);
+        map.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                float x = motionEvent.getX();
+                float y = motionEvent.getY();
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+
+                }
+
+
+
+                return false;
+            }
+        });
+
+
+
+    }
+
 
     @Override
     protected void onStart() {
