@@ -16,10 +16,124 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="26dp"
         app:srcCompat="@drawable/map" />
+
+    <Button
+        android:id="@+id/zone6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="321dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="647dp"
+        android:layout_marginBottom="308dp"
+        android:backgroundTint="#FBFBFB"
+        android:fontFamily="monospace"
+        android:text="Zone 6"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/zone3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="353dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="615dp"
+        android:layout_marginBottom="197dp"
+        android:backgroundTint="#FBFBFB"
+        android:fontFamily="monospace"
+        android:text="Zone 3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/zone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="207dp"
+        android:layout_marginEnd="792dp"
+        android:layout_marginBottom="370dp"
+        android:backgroundTint="#FBFBFB"
+        android:fontFamily="monospace"
+        android:text="Zone 1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/zone4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="730dp"
+        android:layout_marginTop="381dp"
+        android:layout_marginEnd="238dp"
+        android:layout_marginBottom="196dp"
+        android:backgroundTint="#FBFBFB"
+        android:fontFamily="monospace"
+        android:text="Zone 4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/zone5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="435dp"
+        android:layout_marginTop="173dp"
+        android:layout_marginEnd="533dp"
+        android:layout_marginBottom="404dp"
+        android:backgroundTint="#FBFBFB"
+        android:fontFamily="monospace"
+        android:text="Zone 5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/zone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="175dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="793dp"
+        android:layout_marginBottom="197dp"
+        android:backgroundTint="#FBFBFB"
+        android:fontFamily="monospace"
+        android:text="Zone 2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000000" />
 
 </RelativeLayout>

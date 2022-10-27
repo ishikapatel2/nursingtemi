@@ -2,11 +2,12 @@ package com.example.nursingtemi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import com.robotemi.sdk.Robot;
@@ -37,13 +38,52 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             new TourLocation("Skills lab 334", "skills lab 334"),
     };
 
+    private ImageView mapView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
 
-        addTouchListener();
+        Button zone1 = findViewById(R.id.zone1);
+        mapView = findViewById(R.id.mapView)
+
+        zone1.setOnClickListener((v) -> {
+            mapView.setVisibility(View.INVISIBLE);
+            mapView = findViewById(R.drawable.zone1.jpg);
+        });
+
+        Button zone2 = findViewById(R.id.zone2);
+        zone2.setOnClickListener((v) -> {
+            mapView.setVisibility(View.INVISIBLE);
+            mapView = findViewById(R.drawable.zone2.jpg);
+
+        });
+
+        Button zone3 = findViewById(R.id.zone3);
+        zone3.setOnClickListener((v) -> {
+            mapView.setVisibility(View.INVISIBLE);
+            mapView = findViewById(R.drawable.zone3.jpg);
+        });
+
+        Button zone4 = findViewById(R.id.zone4);
+        zone4.setOnClickListener((v) -> {
+            mapView.setVisibility(View.INVISIBLE);
+            mapView = findViewById(R.drawable.zone4.jpg);
+        });
+
+        Button zone5 = findViewById(R.id.zone5);
+        zone5.setOnClickListener((v) -> openActivity(Zone5Activity.class));
+
+        Button zone6 = findViewById(R.id.zone6);
+        zone6.setOnClickListener((v) -> openActivity(Zone6Activity.class));
+
+
+
+
+
+
 
         ListView locations = findViewById(R.id.listView);
         DeliveryItem item = (DeliveryItem) getIntent().getSerializableExtra("item");
@@ -66,7 +106,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         locations.setOnItemClickListener((adapterView, view, i, l) -> {
             Robot.getInstance().goTo(locationList[i].getLocation());
             locations.setVisibility(View.INVISIBLE);
-            //Robot.getInstance().setVolume(3);
+            Robot.getInstance().setVolume(3);
 
             Intent intent = new Intent(this,ConfirmMessageActivity.class);
             intent.putExtra("item",item);
@@ -76,29 +116,6 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             //Robot.getInstance().speak(TtsRequest.create("Hello, we were ordered to deliver " + item.getQuantity() + " items of " + item.getItem() + " to this location.", false));
         });
     }
-
-
-    private void addTouchListener(){
-        ImageView map = (ImageView) findViewById(R.id.mapView);
-        map.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                float x = motionEvent.getX();
-                float y = motionEvent.getY();
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-
-                }
-
-
-
-                return false;
-            }
-        });
-
-
-
-    }
-
 
     @Override
     protected void onStart() {
