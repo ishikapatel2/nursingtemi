@@ -47,37 +47,42 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         setContentView(R.layout.activity_delivery_continuation);
 
         Button zone1 = findViewById(R.id.zone1);
-        mapView = findViewById(R.id.mapView)
+        mapView = findViewById(R.id.mapView);
 
         zone1.setOnClickListener((v) -> {
-            mapView.setVisibility(View.INVISIBLE);
-            mapView = findViewById(R.drawable.zone1.jpg);
+            //mapView.setVisibility(View.INVISIBLE);
+            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone1));
         });
 
         Button zone2 = findViewById(R.id.zone2);
         zone2.setOnClickListener((v) -> {
             mapView.setVisibility(View.INVISIBLE);
-            mapView = findViewById(R.drawable.zone2.jpg);
+            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone2));
 
         });
 
         Button zone3 = findViewById(R.id.zone3);
         zone3.setOnClickListener((v) -> {
             mapView.setVisibility(View.INVISIBLE);
-            mapView = findViewById(R.drawable.zone3.jpg);
+            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone3));
         });
 
         Button zone4 = findViewById(R.id.zone4);
         zone4.setOnClickListener((v) -> {
             mapView.setVisibility(View.INVISIBLE);
-            mapView = findViewById(R.drawable.zone4.jpg);
+            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone4));
         });
 
         Button zone5 = findViewById(R.id.zone5);
-        zone5.setOnClickListener((v) -> openActivity(Zone5Activity.class));
+        zone5.setOnClickListener((v) -> {
+
+           // mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone5));
+        });
 
         Button zone6 = findViewById(R.id.zone6);
-        zone6.setOnClickListener((v) -> openActivity(Zone6Activity.class));
+        zone6.setOnClickListener((v) -> {
+           // mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone6));
+        });
 
 
 
@@ -85,6 +90,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
 
 
 
+        /*
         ListView locations = findViewById(R.id.listView);
         DeliveryItem item = (DeliveryItem) getIntent().getSerializableExtra("item");
         List<String> locationLists = new ArrayList<>();
@@ -115,6 +121,8 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             //TODO Talk to Gavin about wanting to Temi to talk right after it reaches the location to deliver
             //Robot.getInstance().speak(TtsRequest.create("Hello, we were ordered to deliver " + item.getQuantity() + " items of " + item.getItem() + " to this location.", false));
         });
+
+         */
     }
 
     @Override

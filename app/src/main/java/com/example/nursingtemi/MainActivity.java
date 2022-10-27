@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
-        animationBackground();
+
 
         Button tourButton = findViewById(R.id.tourButton);
         tourButton.setOnClickListener((v) -> openActivity(TourActivity.class));
@@ -39,14 +39,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(obj);
     }
 
-    public void animationBackground()
-    {
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
-        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2500);
-        animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();
-    }
+
 
     public void openInformation (View v) {
         Intent obj = new Intent(this, InfoActivity.class);

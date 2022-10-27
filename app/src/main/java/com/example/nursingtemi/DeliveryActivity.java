@@ -27,8 +27,6 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
         EditText quantity = findViewById(R.id.quantity);
         ImageView backButton = findViewById(R.id.backButton);
 
-        animationBackground();
-
         backButton.setOnClickListener((v) ->
         {
             Intent obj = new Intent(this, MainActivity.class);
@@ -73,14 +71,7 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             Robot.getInstance().speak(TtsRequest.create("Place the item on me, then press confirm to continue", false));
         }
     }
-    public void animationBackground()
-    {
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
-        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2500);
-        animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();
-    }
+
 
     /*
      * Checks if any fields are empty before confirming the delivery
