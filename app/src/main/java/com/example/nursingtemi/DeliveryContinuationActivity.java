@@ -68,6 +68,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         });
 
         Button zone5 = findViewById(R.id.zone5);
+
         zone5.setOnClickListener((v) -> {
             mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone5));
         });
