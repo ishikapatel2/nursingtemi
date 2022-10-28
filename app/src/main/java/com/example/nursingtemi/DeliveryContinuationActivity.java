@@ -46,34 +46,34 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
 
-        Button zone1 = findViewById(R.id.zone1);
+        Button zone1 = (Button) findViewById(R.id.zone1);
         mapView = findViewById(R.id.mapView);
         zone1.setOnClickListener((v) -> {
             mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone1));
         });
 
-        Button zone2 = findViewById(R.id.zone2);
+        Button zone2 = (Button) findViewById(R.id.zone2);
         zone2.setOnClickListener((v) -> {
             mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone2));
         });
 
-        Button zone3 = findViewById(R.id.zone3);
+        Button zone3 = (Button) findViewById(R.id.zone3);
         zone3.setOnClickListener((v) -> {
             mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone3));
         });
 
-        Button zone4 = findViewById(R.id.zone4);
+        Button zone4 = (Button) findViewById(R.id.zone4);
         zone4.setOnClickListener((v) -> {
             mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone4));
         });
 
-        Button zone5 = findViewById(R.id.zone5);
+        Button zone5 = (Button) findViewById(R.id.zone5);
 
         zone5.setOnClickListener((v) -> {
             mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone5));
         });
 
-        Button zone6 = findViewById(R.id.zone6);
+        Button zone6 = (Button) findViewById(R.id.zone6);
         zone6.setOnClickListener((v) -> {
             mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone6));
         });
