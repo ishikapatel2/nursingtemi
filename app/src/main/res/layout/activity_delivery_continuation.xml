@@ -16,44 +16,45 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="30dp"
         app:srcCompat="@drawable/map" />
 
     <Button
         android:id="@+id/zone6"
-        android:layout_width="76dp"
-        android:layout_height="132dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="254dp"
-        android:layout_marginEnd="728dp"
-        android:layout_marginBottom="366dp"
+        android:layout_marginStart="579dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="449dp"
+        android:layout_marginBottom="308dp"
         android:background="@drawable/zonebutton6"
         android:fontFamily="monospace"
         android:text="Zone 6"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/zone3"
-        android:layout_width="99dp"
-        android:layout_height="138dp"
+        android:layout_width="89dp"
+        android:layout_height="39dp"
 
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="336dp"
-        android:layout_marginTop="410dp"
-        android:layout_marginEnd="669dp"
-        android:layout_marginBottom="204dp"
-        android:background="@drawable/zonebutton3"
+        android:layout_marginStart="723dp"
+        android:layout_marginTop="378dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="208dp"
+        android:background="@drawable/zonebutton4"
         android:fontFamily="monospace"
         android:text="Zone 3"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -132,5 +133,7 @@
         android:text="Zone 2"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white" />
+
+
 
 </RelativeLayout>
