@@ -1,6 +1,5 @@
 package com.example.nursingtemi;
 
-import android.widget.EditText;
 
 import java.io.Serializable;
 

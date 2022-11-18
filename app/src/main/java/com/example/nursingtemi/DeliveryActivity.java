@@ -108,6 +108,8 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
                 + FORM_COL + " TEXT,"
                 + GENERIC_COL + " TEXT,"
                 + EHR_COL + "TEXT)";
+
+
     }
 
     /*

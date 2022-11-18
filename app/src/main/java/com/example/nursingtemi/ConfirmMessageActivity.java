@@ -1,12 +1,10 @@
 package com.example.nursingtemi;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.Objects;
 
 public class ConfirmMessageActivity extends AppCompatActivity

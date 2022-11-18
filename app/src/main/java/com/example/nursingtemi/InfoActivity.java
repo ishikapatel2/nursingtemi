@@ -3,7 +3,6 @@ package com.example.nursingtemi;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class InfoActivity extends AppCompatActivity {

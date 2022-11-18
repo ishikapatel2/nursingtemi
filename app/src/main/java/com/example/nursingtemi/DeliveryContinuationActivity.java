@@ -1,24 +1,18 @@
 package com.example.nursingtemi;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class DeliveryContinuationActivity extends AppCompatActivity implements OnRobotReadyListener {
 
+
+    // soon, make a table on SQLite, which has every single room
     private final TourLocation[] locationList = {
             new TourLocation("Control room 365", "control room 365"),
             new TourLocation("Control Room 370", "control room 370"),
