@@ -1,4 +1,4 @@
-package com.example.nursingtemi;
+package com.example.nursingtemi.classes;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_list"
     android:onClick="open"
-    tools:context=".InfoActivity">
+    tools:context=".screens.InfoActivity">
 
     <TextView
         android:id="@+id/textView"

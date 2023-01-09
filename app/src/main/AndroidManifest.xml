@@ -20,34 +20,34 @@
             android:name="com.robotemi.sdk.metadata.SKILL"
             android:value="@string/app_name" />
         <activity
-            android:name=".ConfirmMessageActivity"
+            android:name=".screens.ConfirmMessageActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".screens.MainActivity"/>
         <activity
-            android:name=".InfoActivity"
+            android:name=".screens.InfoActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".screens.MainActivity"/>
         <activity
-            android:name=".SurveyActivity"
+            android:name=".screens.SurveyActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".screens.MainActivity"/>
         <activity
-            android:name=".DeliveryActivity"
+            android:name=".screens.DeliveryActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".screens.MainActivity"/>
         <activity
-            android:name=".TourActivity"
+            android:name=".screens.TourActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".screens.MainActivity"/>
         <activity
-            android:name=".DeliveryContinuationActivity"
+            android:name=".screens.DeliveryContinuationActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".screens.MainActivity"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".screens.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".BeginningActivity"
+            android:name=".screens.BeginningActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,9 +1,11 @@
-package com.example.nursingtemi;
+package com.example.nursingtemi.screens;
 
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.nursingtemi.R;
 
 public class InfoActivity extends AppCompatActivity {
 

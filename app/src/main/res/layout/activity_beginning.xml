@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#0C234B"
     android:id="@id/constraintLayout"
-    tools:context=".BeginningActivity">
+    tools:context=".screens.BeginningActivity">
 
 
     <TextView

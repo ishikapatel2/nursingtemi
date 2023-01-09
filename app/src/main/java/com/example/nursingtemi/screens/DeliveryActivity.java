@@ -1,10 +1,15 @@
-package com.example.nursingtemi;
+package com.example.nursingtemi.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.nursingtemi.classes.DeliveryItem;
+import com.example.nursingtemi.R;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,10 +45,13 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
 
     // private variable is for our ehr barcode column.
     private static final String EHR_COL = "barcode";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        handleServer();
+       // SQLiteDatabase db;
+
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery);
@@ -65,9 +73,11 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             {
                 DeliveryItem deliveryItem = new DeliveryItem(item.getText().toString(),quantity.getText().toString());
 
-                Intent obj = new Intent(this,DeliveryContinuationActivity.class);
+                Intent obj = new Intent(this, DeliveryContinuationActivity.class);
                 obj.putExtra("item", deliveryItem);
+
                 startActivity(obj);
+
             }
 
         });
@@ -99,17 +109,24 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
     }
 
 
-    public void handleServer () {
+    public void handleServer (SQLiteDatabase db) {
 
-        String query = "CREATE TABLE " + TABLE_NAME + " ("
-                + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + BRAND_COL + " TEXT,"
-                + CONCENTRATION_COL + " TEXT,"
-                + FORM_COL + " TEXT,"
-                + GENERIC_COL + " TEXT,"
-                + EHR_COL + "TEXT)";
+      try {
+          String query = "CREATE TABLE " + TABLE_NAME + " ("
+                  + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                  + BRAND_COL + " TEXT," 
+                  + CONCENTRATION_COL + " TEXT,"
+                  + FORM_COL + " TEXT,"
+                  + GENERIC_COL + " TEXT,"
+                  + EHR_COL + "TEXT)";
 
+          db.execSQL(query);
 
+      }
+      catch (  SQLiteDatabaseLockedException s)
+      {
+          System.err.println("Item is not placed in databases");
+      }
     }
 
     /*

@@ -1,10 +1,14 @@
-package com.example.nursingtemi;
+package com.example.nursingtemi.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.nursingtemi.classes.DeliveryItem;
+import com.example.nursingtemi.R;
+
 import java.util.Objects;
 
 public class ConfirmMessageActivity extends AppCompatActivity
@@ -14,7 +18,7 @@ public class ConfirmMessageActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        Objects.requireNonNull(getSupportActionBar()).hide()    ;
         setContentView(R.layout.activity_confirm_message);
 
         TextView message = findViewById(R.id.textMessage);
@@ -23,7 +27,7 @@ public class ConfirmMessageActivity extends AppCompatActivity
         message.setText("Hello, we were ordered to give " + item.getQuantity() + ", " + item.getItem() + "to this room.");
 
         returnButton.setOnClickListener((v)->{
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
     }

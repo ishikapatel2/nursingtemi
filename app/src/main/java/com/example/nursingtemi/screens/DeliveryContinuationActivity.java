@@ -1,9 +1,12 @@
-package com.example.nursingtemi;
+package com.example.nursingtemi.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.nursingtemi.R;
+import com.example.nursingtemi.classes.TourLocation;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
