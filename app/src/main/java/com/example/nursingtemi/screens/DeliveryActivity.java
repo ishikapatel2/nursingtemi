@@ -72,7 +72,6 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             if (!emptyCredentials(item,quantity))
             {
                 DeliveryItem deliveryItem = new DeliveryItem(item.getText().toString(),quantity.getText().toString());
-
                 Intent obj = new Intent(this, DeliveryContinuationActivity.class);
                 obj.putExtra("item", deliveryItem);
 

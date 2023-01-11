@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.nursingtemi.R;
 import com.example.nursingtemi.classes.TourLocation;
 import com.robotemi.sdk.Robot;
@@ -42,7 +41,6 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             new TourLocation("Interactive lab 351","interactive lab 351"),
             new TourLocation("Offices", "offices"),
             new TourLocation("Skills lab 334", "skills lab 334"),
-
     };
     private static final String HOME_BASE_LOCATION = "home base";
 
@@ -90,7 +88,6 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
 
     @Override
     public void onRobotReady(boolean isReady) {
-
 
         if (isReady) {
             Robot.getInstance().hideTopBar();
