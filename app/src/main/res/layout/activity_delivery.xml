@@ -55,6 +55,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <EditText
         android:id="@+id/quantity"
         android:layout_width="372dp"
@@ -94,6 +96,7 @@
         android:inputType="textPersonName"
         android:hint="Name of Sender"
         android:textSize="20dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:fontFamily="@font/chewy"
 

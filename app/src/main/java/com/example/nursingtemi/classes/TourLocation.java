@@ -26,6 +26,8 @@ public class TourLocation {
     public TourLocation(String title, String locationName) {
         this.title = title;
         this.location = locationName;
+
+        removeDashes();
     }
 
     /**
@@ -40,6 +42,16 @@ public class TourLocation {
         this.message = message;
     }
 
+    /**
+     *
+     */
+     void removeDashes(){
+          String temp = title.replace("-","-");
+          title = temp;
+
+          temp = location.replace("-"," ");
+          location = temp;
+     }
     /**
      * Gets the title to display
      * @return location title
