@@ -12,19 +12,28 @@ import com.example.nursingtemi.classes.TourLocation;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Objects;
 
 public class TourActivity extends AppCompatActivity implements OnRobotReadyListener {
 
     //Attributes
     private static int curLoc;
-    private final TourLocation[] locations = {
+    private  TourLocation[] locations
+    = {
 
-            //new TourLocation("VR Station", "vr station"),
-            //new TourLocation("Graduate Student Station", "grad desk"),
-            //new TourLocation("Dr. Carter's Desk", "carter desk"),
-
+            new TourLocation("VR Station", "vr station"),
+            new TourLocation("Graduate Student Station", "grad desk"),
+            new TourLocation("Dr Carter's Desk", "dr carter desk"),
+    };
             // soon, make a table on SQLite that keeps track of the rooms
+
+            /*
             new TourLocation("Control room 365", "control room 365"),
             new TourLocation("Simulation room 366", "simulation room 366"),
             new TourLocation("Simulation room 368", "simulation room 368"),
@@ -41,11 +50,14 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             new TourLocation("Interactive lab 351","interactive lab 351"),
             new TourLocation("Offices", "offices"),
             new TourLocation("Skills lab 334", "skills lab 334"),
-    };
+
+                 };
+  */
     private static final String HOME_BASE_LOCATION = "home base";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_tour);
@@ -73,6 +85,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             }
         });
     }
+
 
     @Override
     protected void onStart() {

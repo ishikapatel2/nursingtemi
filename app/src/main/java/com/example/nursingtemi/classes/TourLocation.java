@@ -27,7 +27,7 @@ public class TourLocation {
         this.title = title;
         this.location = locationName;
 
-        removeDashes();
+        //removeDashes();
     }
 
     /**

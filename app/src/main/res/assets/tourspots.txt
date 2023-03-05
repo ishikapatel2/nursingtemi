@@ -1,16 +1,3 @@
-Control room 365 control room 365
-Simulation room 366 simulation room 366
-Simulation room 368 simulation room 368
-Simulation room 369 simulation room 369
-Control Room 370 control room 370
-Simulation Room 371 simulation room 371
-Debriefing 372 debriefing 372
-Debriefing 373 debriefing 373
-Debriefing 374 debriefing 374
-Control Room 375 control room 375
-Simulation Room 376 simulation room 376
-Learning Lab 301 learning lab 301
-Learning Lab 302 learning lab 302
-Interactive lab 351 interactive lab 351
-Offices offices
-Skills lab 334 skills lab 334
+VR-Station vr-station
+Graduate-Student-Station grad-desk
+Dr-Carter-Desk dr-carter-desk
