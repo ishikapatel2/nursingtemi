@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/map" />
+        app:srcCompat="@drawable/map_layout" />
 
     <Button
         android:id="@+id/zone6"
