@@ -40,9 +40,9 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
 
-        Button zone1 = (Button) findViewById(R.id.zone1);
+        Button rm366 = (Button) findViewById(R.id.room366);
         mapView = findViewById(R.id.mapView);
-        zone1.setOnClickListener((v) -> {
+        rm366.setOnClickListener((v) -> {
             mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone1));
         });
 
