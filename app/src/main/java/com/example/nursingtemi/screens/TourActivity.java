@@ -27,32 +27,49 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     private  TourLocation[] locations
     = {
 
-            new TourLocation("VR Station", "vr station"),
-            new TourLocation("Graduate Student Station", "grad desk"),
-            new TourLocation("Dr Carter's Desk", "dr carter desk"),
-    };
+
+            new TourLocation("VR Station", "vr station","Space for 2 patient simulators. Can be used for home health, long-term or acute care. Equipped with hospital furniture, patient bed-side monitor, simulated medical headwall, medical equipment, simulated EHR and bar-code scanner, and video/audio media system."),
+            new TourLocation("Graduate Student Station", "grad desk","6 outpatient clinic exam rooms surrounding a central learning lab equipped with multi-media presentation resources. Each exam room is furnished with an exam table and physical assessment equipment. The entire space includes cameras, speakers and microphones that are part of the video/audio media system."),
+            new TourLocation("Dr Carter's Desk", "dr carter desk","Flexible, interactive environment where presentations are provided on multiple large screens and live demonstrations along with opportunities to practice skills. Patient simulators, skills-task trainers and medical equipment is set-up according to scheduled activities."),
+
+
+
             // soon, make a table on SQLite that keeps track of the rooms
 
             /*
-            new TourLocation("Control room 365", "control room 365"),
-            new TourLocation("Simulation room 366", "simulation room 366"),
-            new TourLocation("Simulation room 368", "simulation room 368"),
-            new TourLocation("Simulation room 369", "simulation room 369"),
-            new TourLocation("Control Room 370", "control room 370"),
-            new TourLocation("Simulation Room 371", "simulation room 371"),
-            new TourLocation("Debriefing 372", "debriefing 372"),
-            new TourLocation("Debriefing 373", "debriefing 373"),
-            new TourLocation("Debriefing 374", "debriefing 374"),
-            new TourLocation("Control Room 375", "control room 375"),
-            new TourLocation("Simulation Room 376", "simulation room 376"),
-            new TourLocation("Learning Lab 301", "learning lab 301"),
-            new TourLocation("Learning Lab 302", "learning lab 302"),
-            new TourLocation("Interactive lab 351","interactive lab 351"),
-            new TourLocation("Offices", "offices"),
-            new TourLocation("Skills lab 334", "skills lab 334"),
-
+            new TourLocation("Control room 365", "control room 365",
+                    "Used by the Simulation Team to provide simulation-based activities."),
+            new TourLocation("Simulation room 366", "simulation room 366",
+                    "Space for 2 patient simulators. Can be used for home health, long-term or acute care. Equipped with hospital furniture, patient bed-side monitor, simulated medical headwall, medical equipment, simulated EHR and bar-code scanner, and video/audio media system."),
+            new TourLocation("Simulation room 368", "simulation room 368",
+                    "Simulated hospital room equipped with hospital furniture, patient bed-side monitor, simulated medical headwall, medical equipment, simulated EHR and bar-code scanner, and video/audio media system."),
+            new TourLocation("Simulation room 369", "simulation room 369"
+            ,"Simulated hospital room equipped with hospital furniture, patient bed-side monitor, simulated medical headwall, medical equipment, simulated EHR and bar-code scanner, and video/audio media system."),
+            new TourLocation("Control Room 370", "control room 370",
+                    "Used by the Simulation Team to provide simulation-based activities."),
+            new TourLocation("Simulation Room 371", "simulation room 371",
+                    "Simulated hospital room equipped with hospital furniture, patient bed-side monitor, simulated medical headwall, medical equipment, simulated EHR and bar-code scanner, and video/audio media system."),
+            new TourLocation("Debriefing 372", "debriefing 372",
+                    "Comfortable safe space to observe other students during simulations and to discuss what was learned to apply to care of actual patients in the future."),
+            new TourLocation("Debriefing 373", "debriefing 373",
+                    "Comfortable safe space to observe other students during simulations and to discuss what was learned to apply to care of actual patients in the future."),
+            new TourLocation("Debriefing 374", "debriefing 374",
+                    "Comfortable safe space to observe other students during simulations and to discuss what was learned to apply to care of actual patients in the future."),
+            new TourLocation("Control Room 375", "control room 375",
+                    "Used by the Simulation Team to provide simulation-based activities."),
+            new TourLocation("Simulation Room 376", "simulation room 376",
+                    "Simulated hospital room equipped with hospital furniture, patient bed-side monitor, simulated medical headwall, medical equipment, simulated EHR and bar-code scanner, and video/audio media system."),
+            new TourLocation("Learning Lab 301", "learning lab 301",
+                    "Flexible, interactive environment where presentations are provided on multiple large screens and live demonstrations along with opportunities to practice skills. Patient simulators, skills-task trainers and medical equipment is set-up according to scheduled activities."),
+            new TourLocation("Learning Lab 302", "learning lab 302",
+                    "Flexible, interactive environment where presentations are provided on multiple large screens and live demonstrations along with opportunities to practice skills. Patient simulators, skills-task trainers and medical equipment is set-up according to scheduled activities."),
+            new TourLocation("Interactive lab 351","interactive lab 351",
+                    "6 outpatient clinic exam rooms surrounding a central learning lab equipped with multi-media presentation resources. Each exam room is furnished with an exam table and physical assessment equipment. The entire space includes cameras, speakers and microphones that are part of the video/audio media system."),
+            new TourLocation("Offices", "offices", "Display Text"),
+            new TourLocation("Skills lab 334", "skills lab 334","8 bed skills lab equipped with hospital furniture, simulated medical headwall, medical equipment, simulated EHR and bar-code scanner, and video/audio media system."),
+                */
                  };
-  */
+
     private static final String HOME_BASE_LOCATION = "home base";
 
     @Override
@@ -81,6 +98,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             else {
                 Toast.makeText(this, locations[curLoc].getLocation(), Toast.LENGTH_LONG).show();
                 Robot.getInstance().goTo(locations[curLoc].getLocation());
+                text.setText(locations[curLoc].getMessage());
                 curLoc++;
             }
         });
