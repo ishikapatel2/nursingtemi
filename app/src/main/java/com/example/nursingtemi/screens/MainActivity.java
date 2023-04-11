@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         Button surveyButton = findViewById(R.id.surveyButton);
         surveyButton.setOnClickListener((v)-> openActivity(SurveyActivity.class));
 
+        Button safetyButton = findViewById(R.id.safetyButton);
+        safetyButton.setOnClickListener((v)-> openActivity(SafetyProceduresActivity.class));
+
+
         Button exitButton = findViewById(R.id.exitButton);
         exitButton.setOnClickListener((v) ->{
             finishAffinity();

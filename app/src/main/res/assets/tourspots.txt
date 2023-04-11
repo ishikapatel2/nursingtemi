@@ -1,3 +1,0 @@
-VR-Station vr-station
-Graduate-Student-Station grad-desk
-Dr-Carter-Desk dr-carter-desk

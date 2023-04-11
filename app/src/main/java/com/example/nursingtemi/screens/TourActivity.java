@@ -12,12 +12,6 @@ import com.example.nursingtemi.classes.TourLocation;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Objects;
 
 public class TourActivity extends AppCompatActivity implements OnRobotReadyListener {
@@ -27,11 +21,9 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     private  TourLocation[] locations
     = {
 
-
             new TourLocation("VR Station", "vr station","Space for 2 patient simulators. Can be used for home health, long-term or acute care. Equipped with hospital furniture, patient bed-side monitor, simulated medical headwall, medical equipment, simulated EHR and bar-code scanner, and video/audio media system."),
-            new TourLocation("Graduate Student Station", "grad desk","6 outpatient clinic exam rooms surrounding a central learning lab equipped with multi-media presentation resources. Each exam room is furnished with an exam table and physical assessment equipment. The entire space includes cameras, speakers and microphones that are part of the video/audio media system."),
-            new TourLocation("Dr Carter's Desk", "dr carter desk","Flexible, interactive environment where presentations are provided on multiple large screens and live demonstrations along with opportunities to practice skills. Patient simulators, skills-task trainers and medical equipment is set-up according to scheduled activities."),
-
+            new TourLocation("Graduate Student Station", "graduate student station","6 outpatient clinic exam rooms surrounding a central learning lab equipped with multi-media presentation resources. Each exam room is furnished with an exam table and physical assessment equipment. The entire space includes cameras, speakers and microphones that are part of the video/audio media system."),
+            new TourLocation("Dr Carter's Desk", "dr carter's desk","Flexible, interactive environment where presentations are provided on multiple large screens and live demonstrations along with opportunities to practice skills. Patient simulators, skills-task trainers and medical equipment is set-up according to scheduled activities."),
 
 
             // soon, make a table on SQLite that keeps track of the rooms
@@ -79,11 +71,14 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_tour);
 
-        Button continueButton = findViewById(R.id.continueButton);
         TextView text = findViewById(R.id.description);
+        TextView locationText = findViewById(R.id.locationText);
+        Button continueButton = findViewById(R.id.continueButton);
         ImageView backButton = findViewById(R.id.backButton);
 
-        text.setText(locations[curLoc].getLocation());
+        locationText.setText("Location: " + locations[curLoc].getTitle());
+        text.setText(locations[curLoc].getMessage());
+
 
         backButton.setOnClickListener((v) ->{
             Intent obj = new Intent(this, MainActivity.class);
@@ -98,6 +93,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             else {
                 Toast.makeText(this, locations[curLoc].getLocation(), Toast.LENGTH_LONG).show();
                 Robot.getInstance().goTo(locations[curLoc].getLocation());
+                locationText.setText("Location: " + locations[curLoc].getTitle());
                 text.setText(locations[curLoc].getMessage());
                 curLoc++;
             }

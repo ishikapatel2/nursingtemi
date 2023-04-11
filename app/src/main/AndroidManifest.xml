@@ -40,6 +40,10 @@
             android:exported="false"
             android:parentActivityName=".screens.MainActivity"/>
         <activity
+            android:name=".screens.SafetyProceduresActivity"
+            android:exported="false"
+            android:parentActivityName=".screens.MainActivity"/>
+        <activity
             android:name=".screens.DeliveryContinuationActivity"
             android:exported="false"
             android:parentActivityName=".screens.MainActivity"/>

@@ -24,7 +24,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/circle_shape"
-                android:contentDescription="@string/mask_description"/>
+                android:contentDescription="West Stairs"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/circle_shape"
-                android:contentDescription="@string/wash_hands_description"/>
+                android:contentDescription="East Stairs,North"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/circle_shape"
-                android:contentDescription="@string/wash_hands_description"/>
+                android:contentDescription="East Stairs, South"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -88,7 +88,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/circle_shape"
-                android:contentDescription="@string/wash_hands_description"/>
+                android:contentDescription="Elevators"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -109,7 +109,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/circle_shape"
-                android:contentDescription="@string/wash_hands_description"/>
+                android:contentDescription="Fire Extinguisher"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/circle_shape"
-                android:contentDescription="@string/wash_hands_description"/>
+                android:contentDescription="First Aid Kit"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -152,7 +152,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@drawable/circle_shape"
-                android:contentDescription="@string/wash_hands_description"/>
+                android:contentDescription="Home Base"/>
 
             <TextView
                 android:layout_width="wrap_content"
