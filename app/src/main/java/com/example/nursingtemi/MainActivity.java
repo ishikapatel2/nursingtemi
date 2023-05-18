@@ -37,13 +37,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(obj);
     }
 
-
-
-    public void openInformation (View v) {
-        Intent obj = new Intent(this, InfoActivity.class);
-        startActivity(obj);
-    }
-
 }
 
 

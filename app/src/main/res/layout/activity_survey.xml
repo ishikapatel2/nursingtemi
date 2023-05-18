@@ -4,6 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyActivity"
     android:background="@drawable/tourwallpaper"
-    />
+    tools:context=".SurveyActivity">
+
+    <ImageView
+        android:id="@+id/backButton2"
+        android:layout_width="150dp"
+        android:layout_height="73dp"
+        app:srcCompat="@drawable/arrow"
+        tools:layout_editor_absoluteX="-34dp"
+        tools:layout_editor_absoluteY="2dp"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

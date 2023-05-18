@@ -2,11 +2,19 @@ package com.example.nursingtemi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class DeliveryContinuationActivity extends AppCompatActivity implements OnRobotReadyListener {
@@ -32,7 +40,9 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             new TourLocation("Skills lab 334", "skills lab 334"),
     };
 
-    private ImageView mapView;
+
+
+    private String[] locations = {"Location 1", "Location 2", "Location 3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,37 +50,64 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
 
-        Button rm366 = (Button) findViewById(R.id.room366);
-        mapView = findViewById(R.id.mapView);
-        rm366.setOnClickListener((v) -> {
-            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone1));
+        ListView listView = findViewById(R.id.listview);
+        List<String> list = new ArrayList<>();
+        list.add("Room 363");
+        list.add("Room 364");
+        list.add("Room 365");
+        list.add("Room 366");
+        list.add("Room 367");
+        list.add("Room 368");
+        list.add("Room 369");
+        list.add("Room 370");
+        list.add("Room 371");
+        list.add("Room 372");
+        list.add("Room 373");
+        list.add("Room 374");
+        list.add("Room 375");
+        list.add("Room 376");
+        list.add("Room 360");
+        list.add("Room 334");
+        list.add("Room 333");
+        list.add("Room 374");
+        list.add("Room 329");
+        list.add("Room 328");
+        list.add("Room 327");
+        list.add("Room 326");
+        list.add("Room 325");
+        list.add("Room 324");
+        list.add("Room 323");
+        list.add("Room 322");
+        list.add("Room 321");
+        list.add("Room 329");
+        list.add("Room 330");
+        list.add("Room 331");
+        list.add("Room 351");
+        list.add("Room 301");
+        list.add("Room 302");
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // Get the selected location from the list of mapped locations
+                TourLocation selectedLocation = locationList[position];
+
+                // Instructs Temi to go to the selected location
+                Robot.getInstance().goTo(selectedLocation.getLocation());
+
+                
+
+            }
         });
 
-        Button zone2 = (Button) findViewById(R.id.zone2);
-        zone2.setOnClickListener((v) -> {
-            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone2));
-        });
 
-        Button zone3 = (Button) findViewById(R.id.zone3);
-        zone3.setOnClickListener((v) -> {
-            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone3));
-        });
 
-        Button zone4 = (Button) findViewById(R.id.zone4);
-        zone4.setOnClickListener((v) -> {
-            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone4));
-        });
+    }
 
-        Button zone5 = (Button) findViewById(R.id.zone5);
-
-        zone5.setOnClickListener((v) -> {
-            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone5));
-        });
-
-        Button zone6 = (Button) findViewById(R.id.zone6);
-        zone6.setOnClickListener((v) -> {
-            mapView.setImageDrawable(getResources().getDrawable(R.drawable.zone6));
-        });
 
 
 
@@ -110,7 +147,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         });
 
          */
-    }
+
 
     @Override
     protected void onStart() {

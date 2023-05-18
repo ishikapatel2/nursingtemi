@@ -22,10 +22,6 @@
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".InfoActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
-        <activity
             android:name=".SurveyActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>

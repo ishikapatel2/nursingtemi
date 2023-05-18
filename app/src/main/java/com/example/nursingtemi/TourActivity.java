@@ -19,9 +19,6 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     private static int curLoc;
     private final TourLocation[] locations = {
 
-            //new TourLocation("VR Station", "vr station"),
-            //new TourLocation("Graduate Student Station", "grad desk"),
-            //new TourLocation("Dr. Carter's Desk", "carter desk"),
 
             // soon, make a table on SQLite that keeps track of the rooms
             new TourLocation("Control room 365", "control room 365"),

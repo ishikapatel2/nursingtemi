@@ -69,7 +69,7 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
                 DeliveryItem deliveryItem = new DeliveryItem(item.getText().toString(),quantity.getText().toString());
 
                 Intent obj = new Intent(this,DeliveryContinuationActivity.class);
-                obj.putExtra("item", deliveryItem);
+                //obj.putExtra("item", deliveryItem);
                 startActivity(obj);
             }
 
@@ -111,8 +111,6 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
                 + FORM_COL + " TEXT,"
                 + GENERIC_COL + " TEXT,"
                 + EHR_COL + "TEXT)";
-
-
     }
 
     /*
@@ -124,27 +122,22 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
         {
                 item.setError("Please fill this field");
                 quantity.setError("Please fill this field");
-
                 return true;
         }
         else
         {
-
             if (item.getText().toString().isEmpty())
             {
                 item.setError("Please fill this field");
-
                 return true;
             }
 
             if (quantity.getText().toString().isEmpty())
             {
                 quantity.setError("Please fill this field");
-
                 return true;
             }
         }
-
         return false;
     }
 }
