@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
 
-
         Button tourButton = findViewById(R.id.tourButton);
         tourButton.setOnClickListener((v) -> openActivity(TourActivity.class));
 

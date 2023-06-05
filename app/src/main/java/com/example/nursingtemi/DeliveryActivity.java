@@ -62,12 +62,15 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             startActivity(obj);
         });
 
+        // when the confirm button is pressed
         confirmButton.setOnClickListener((v) ->
         {
+            // makes sure all information has been given before confirming delivery
             if (!emptyCredentials(item,quantity))
             {
                 DeliveryItem deliveryItem = new DeliveryItem(item.getText().toString(),quantity.getText().toString());
 
+                // start delivery continuation activity
                 Intent obj = new Intent(this,DeliveryContinuationActivity.class);
                 //obj.putExtra("item", deliveryItem);
                 startActivity(obj);

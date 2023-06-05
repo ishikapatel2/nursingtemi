@@ -14,7 +14,7 @@
         android:fontFamily="@font/chewy"
         android:text=""
         android:textColor="@color/white"
-        android:textSize="65dp"
+        android:textSize="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"

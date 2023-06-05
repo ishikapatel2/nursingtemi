@@ -19,6 +19,7 @@ public class ConfirmMessageActivity extends AppCompatActivity
 
         TextView message = findViewById(R.id.textMessage);
         Button returnButton = findViewById(R.id.returnButton);
+
         DeliveryItem item = (DeliveryItem) getIntent().getSerializableExtra("item");
         message.setText("Hello, we were ordered to give " + item.getQuantity() + ", " + item.getItem() + "to this room.");
 

@@ -1,16 +1,22 @@
 package com.example.nursingtemi;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
+import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
 import java.util.ArrayList;
@@ -19,11 +25,11 @@ import java.util.Objects;
 
 public class DeliveryContinuationActivity extends AppCompatActivity implements OnRobotReadyListener {
 
-
-    // soon, make a table on SQLite, which has every single room
-    private final TourLocation[] locationList = {
+    private final TourLocation[] locations = {
             new TourLocation("Control room 365", "control room 365"),
+            new TourLocation("Control room 367", "control room 367"),
             new TourLocation("Control Room 370", "control room 370"),
+            new TourLocation("Conference Room 321", "conference room 321"),
             new TourLocation("Control Room 375", "control room 375"),
             new TourLocation("Debriefing 372", "debriefing 372"),
             new TourLocation("Debriefing 373", "debriefing 373"),
@@ -31,18 +37,25 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             new TourLocation("Interactive lab 351","interactive lab 351"),
             new TourLocation("Learning Lab 301", "learning lab 301"),
             new TourLocation("Learning Lab 302", "learning lab 302"),
-            new TourLocation("Offices", "offices"),
+            new TourLocation("Simulation room 363", "simulation room 363"),
+            new TourLocation("Simulation room 364", "simulation room 364"),
             new TourLocation("Simulation room 366", "simulation room 366"),
             new TourLocation("Simulation room 368", "simulation room 368"),
             new TourLocation("Simulation room 369", "simulation room 369"),
             new TourLocation("Simulation Room 371", "simulation room 371"),
             new TourLocation("Simulation Room 376", "simulation room 376"),
             new TourLocation("Skills lab 334", "skills lab 334"),
+            new TourLocation("Meeting Room 333", "meeting room 333"),
+            new TourLocation("Office 326", "office 326"),
+            new TourLocation("Office 322", "office 322"),
+            new TourLocation("Office 328", "office 328"),
+            new TourLocation("Office 323", "office 323"),
+            new TourLocation("Office 331", "office 331"),
+            new TourLocation("Office 324", "office 324"),
+            new TourLocation("Office 325", "office 325"),
+            new TourLocation("Office 330", "office 330"),
+            new TourLocation("Office 327", "office 327"),
     };
-
-
-
-    private String[] locations = {"Location 1", "Location 2", "Location 3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,87 +65,64 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
 
         ListView listView = findViewById(R.id.listview);
         List<String> list = new ArrayList<>();
-        list.add("Room 363");
-        list.add("Room 364");
-        list.add("Room 365");
-        list.add("Room 366");
-        list.add("Room 367");
-        list.add("Room 368");
-        list.add("Room 369");
-        list.add("Room 370");
-        list.add("Room 371");
-        list.add("Room 372");
-        list.add("Room 373");
-        list.add("Room 374");
-        list.add("Room 375");
-        list.add("Room 376");
-        list.add("Room 360");
-        list.add("Room 334");
-        list.add("Room 333");
-        list.add("Room 374");
-        list.add("Room 329");
-        list.add("Room 328");
-        list.add("Room 327");
-        list.add("Room 326");
-        list.add("Room 325");
-        list.add("Room 324");
-        list.add("Room 323");
-        list.add("Room 322");
-        list.add("Room 321");
-        list.add("Room 329");
-        list.add("Room 330");
-        list.add("Room 331");
-        list.add("Room 351");
-        list.add("Room 301");
-        list.add("Room 302");
+        list.add("simulation room 363");
+        list.add("simulation room 364");
+        list.add("control room 365");
+        list.add("simulation room 366");
+        list.add("control room 367");
+        list.add("simulation room 368");
+        list.add("simulation room 369");
+        list.add("control room 370");
+        list.add("simulation room 371");
+        list.add("debriefing 372");
+        list.add("debriefing 373");
+        list.add("debriefing 374");
+        list.add("control room 375");
+        list.add("simulation room 376");
+        list.add("skills lab 334");
+        list.add("meeting room 333");
+        list.add("office 328");
+        list.add("office 327");
+        list.add("office 326");
+        list.add("office 325");
+        list.add("office 324");
+        list.add("office 323");
+        list.add("office 322");
+        list.add("conference room 321");
+        list.add("office 330");
+        list.add("office 331");
+        list.add("interactive lab 351");
+        list.add("learning lab 301");
+        list.add("learning lab 302");
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, list);
-        listView.setAdapter(arrayAdapter);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedLocation = (String) parent.getItemAtPosition(position);
 
-                // Get the selected location from the list of mapped locations
-                TourLocation selectedLocation = locationList[position];
 
-                // Instructs Temi to go to the selected location
-                Robot.getInstance().goTo(selectedLocation.getLocation());
 
-                
+
+                Robot.getInstance().goTo(selectedLocation);
+
+                Toast.makeText(DeliveryContinuationActivity.this, "Recording in Progress. Please do not touch.", Toast.LENGTH_SHORT).show();
+
 
             }
         });
 
-
+        //Intent intent = new Intent(DeliveryContinuationActivity.this, ConfirmMessageActivity.class);
+        //startActivity(intent);
 
     }
 
 
 
 
-
-
-
         /*
-        ListView locations = findViewById(R.id.listView);
-        DeliveryItem item = (DeliveryItem) getIntent().getSerializableExtra("item");
-        List<String> locationLists = new ArrayList<>();
-        Log.d("Starting to add", "tour locations");
-
-        for (TourLocation tourLocation : locationList) {
-            locationLists.add(tourLocation.getTitle());
-            Log.d("Added tour location", tourLocation.getTitle());
-        }
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,locationLists);
-        Log.d("item count", String.valueOf(arrayAdapter.getCount()));
-        Log.d("array items", arrayAdapter.toString());
-        locations.setAdapter(arrayAdapter);
-
-        Robot.getInstance( ).setVolume(3);
-        Robot.getInstance().speak(TtsRequest.create("Where would you like for me to go", false));
-
         locations.setOnItemClickListener((adapterView, view, i, l) -> {
             Robot.getInstance().goTo(locationList[i].getLocation());
             locations.setVisibility(View.INVISIBLE);
@@ -142,7 +132,6 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             intent.putExtra("item",item);
             startActivity(intent);
 
-            //TODO Talk to Gavin about wanting to Temi to talk right after it reaches the location to deliver
             //Robot.getInstance().speak(TtsRequest.create("Hello, we were ordered to deliver " + item.getQuantity() + " items of " + item.getItem() + " to this location.", false));
         });
 
@@ -153,6 +142,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
     protected void onStart() {
         super.onStart();
         Robot.getInstance().addOnRobotReadyListener(this);
+
     }
 
     @Override

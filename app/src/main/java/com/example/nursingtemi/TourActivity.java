@@ -19,7 +19,6 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
     private static int curLoc;
     private final TourLocation[] locations = {
 
-
             // soon, make a table on SQLite that keeps track of the rooms
             new TourLocation("Control room 365", "control room 365"),
             new TourLocation("Simulation room 366", "simulation room 366"),
@@ -37,8 +36,8 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             new TourLocation("Interactive lab 351","interactive lab 351"),
             new TourLocation("Offices", "offices"),
             new TourLocation("Skills lab 334", "skills lab 334"),
-
     };
+
     private static final String HOME_BASE_LOCATION = "home base";
 
     @Override
@@ -85,12 +84,10 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
 
     @Override
     public void onRobotReady(boolean isReady) {
-
-
         if (isReady) {
             Robot.getInstance().hideTopBar();
             Robot.getInstance().setVolume(3);
-            Robot.getInstance().speak(TtsRequest.create("Please follow me around the premiscense.", false));
+            Robot.getInstance().speak(TtsRequest.create("Please follow me around the premises.", false));
             Robot.getInstance().goTo(locations[curLoc].getLocation());
            curLoc++;
         }
