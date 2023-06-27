@@ -10,4 +10,6 @@
     <string name="welcome">Welcome to the Gilbert Simulation Center!</string>
     <string name="deliveryInstruction">Press Button once item is placed</string>
     <string name="confirm">Confirm</string>
+
+
 </resources>

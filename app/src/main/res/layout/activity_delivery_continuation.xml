@@ -1,21 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0C234B"
     tools:context=".DeliveryContinuationActivity">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listview"
-    />
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="150dp"
+            android:layout_height="73dp"
+            app:srcCompat="@drawable/arrow"
+            tools:layout_editor_absoluteX="-34dp"
+            tools:layout_editor_absoluteY="2dp"
+            tools:ignore="MissingConstraints" />
+
+        <Spinner
+            android:id="@+id/spin"
+            android:background="@drawable/gradient"
+            android:layout_width="574dp"
+            android:layout_height="65dp"
+
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.139" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="1261dp"
+            android:layout_height="637dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.86"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.943">
+
+                <ImageView
+                    android:id="@+id/zoomable_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="matrix"
+                    android:src="@drawable/map" />
+
+
+        </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-
-
-
-
-</RelativeLayout>

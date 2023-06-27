@@ -3,11 +3,15 @@ package com.example.nursingtemi;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,7 +67,9 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
 
-        ListView listView = findViewById(R.id.listview);
+        Spinner spinner = findViewById(R.id.spin);
+
+        //ListView listView = findViewById(R.id.listview);
         List<String> list = new ArrayList<>();
         list.add("simulation room 363");
         list.add("simulation room 364");
@@ -95,27 +101,56 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         list.add("learning lab 301");
         list.add("learning lab 302");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
-        listView.setAdapter(adapter);
+        // Create an ArrayAdapter using a string array and a default spinner layout
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapter.add(" Select which zone you would like to deliver"); // Add the prompt or title
+        adapter.add(" Zone 1");
+        adapter.add(" Zone 2");
+        adapter.add(" Zone 3");
+        adapter.add(" Zone 4");
+        adapter.add(" Zone 5");
+        adapter.add(" Zone 6");
+
+        spinner.setAdapter(adapter);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        ImageView map = findViewById(R.id.zoomable_image);
+        ScaleGestureDetector scaleGestureDetector;
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedLocation = (String) parent.getItemAtPosition(position);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String zone = parent.getItemAtPosition(position).toString();
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+                ((TextView) parent.getChildAt(0)).setTextSize(25);
 
+                if (zone == " Zone 1") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone1.class);
+                    startActivity(object);
+                }
+            }
 
-
-
-                Robot.getInstance().goTo(selectedLocation);
-
-                Toast.makeText(DeliveryContinuationActivity.this, "Recording in Progress. Please do not touch.", Toast.LENGTH_SHORT).show();
-
-
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle the case when nothing is selected
             }
         });
 
+
+        //String selectedLocation = (String) parent.getItemAtPosition(position).toString();
+        //Robot.getInstance().goTo(selectedLocation);
+        //Toast.makeText(DeliveryContinuationActivity.this, "Recording in Progress. Please do not touch.", Toast.LENGTH_SHORT).show();
+
         //Intent intent = new Intent(DeliveryContinuationActivity.this, ConfirmMessageActivity.class);
         //startActivity(intent);
+        ImageView backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener((v) ->
+        {
+            Intent obj = new Intent(this, DeliveryActivity.class);
+            startActivity(obj);
+        });
 
     }
 
@@ -142,7 +177,6 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
     protected void onStart() {
         super.onStart();
         Robot.getInstance().addOnRobotReadyListener(this);
-
     }
 
     @Override
