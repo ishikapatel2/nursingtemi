@@ -130,6 +130,26 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                     Intent object = new Intent(DeliveryContinuationActivity.this, Zone1.class);
                     startActivity(object);
                 }
+                if (zone == " Zone 2") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone2.class);
+                    startActivity(object);
+                }
+                if (zone == " Zone 3") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone3.class);
+                    startActivity(object);
+                }
+                if (zone == " Zone 4") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone4.class);
+                    startActivity(object);
+                }
+                if (zone == " Zone 5") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone5.class);
+                    startActivity(object);
+                }
+                if (zone == " Zone 6") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone6.class);
+                    startActivity(object);
+                }
             }
 
             @Override
