@@ -8,7 +8,7 @@
     tools:context=".Zone5">
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/room331"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -26,7 +26,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/room327"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -44,7 +44,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/room323"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -62,7 +62,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/room325"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -80,7 +80,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/room324"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -98,7 +98,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/room329"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FEFEFE"
@@ -116,7 +116,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/room322"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FEFEFE"
@@ -134,7 +134,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/room333"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -152,7 +152,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/room330"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -170,7 +170,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/room328"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -188,7 +188,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/room326"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"

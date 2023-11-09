@@ -12,6 +12,6 @@
         android:radius = "50dp"
         ></corners>
     <stroke
-        android:width="3dp"
+        android:width="13dp"
         android:color="#AB0520" />
 </shape>

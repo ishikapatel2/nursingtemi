@@ -10,54 +10,54 @@
 
     <Button
         android:id="@+id/tourButton"
-        android:layout_width="168dp"
-        android:layout_height="135dp"
+        android:layout_width="260dp"
+        android:layout_height="156dp"
         android:background="@drawable/gradient_list"
         android:fontFamily="@font/chewy"
         android:text="@string/tour"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="50sp"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.656" />
 
     <Button
         android:id="@+id/deliveryButton"
-        android:layout_width="168dp"
-        android:layout_height="135dp"
+        android:layout_width="260dp"
+        android:layout_height="156dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="@string/delivery"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="50sp"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.656" />
 
     <Button
         android:id="@+id/surveyButton"
-        android:layout_width="168dp"
-        android:layout_height="135dp"
+        android:layout_width="260dp"
+        android:layout_height="156dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="@string/survey"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="50sp"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintHorizontal_bias="0.711"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.656" />
 
     <TextView
         android:id="@+id/textView2"
@@ -77,19 +77,35 @@
 
     <Button
         android:id="@+id/exitButton"
-        android:layout_width="168dp"
-        android:layout_height="135dp"
+        android:layout_width="266dp"
+        android:layout_height="159dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="@string/exit"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="0.946"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.66" />
+
+    <Button
+        android:id="@+id/safetyButton"
+        android:layout_width="260dp"
+        android:layout_height="156dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/chewy"
+        android:text="Safety"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deliveryButton"
+        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintStart_toEndOf="@+id/tourButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.656" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

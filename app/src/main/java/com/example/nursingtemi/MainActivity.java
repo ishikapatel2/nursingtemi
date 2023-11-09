@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Button tourButton = findViewById(R.id.tourButton);
         tourButton.setOnClickListener((v) -> openActivity(TourActivity.class));
 
+        Button safetyButton = findViewById(R.id.safetyButton);
+        safetyButton.setOnClickListener((v) -> openActivity(SafetyProcedures.class));
+
         Button deliveryButton = findViewById(R.id.deliveryButton);
         deliveryButton.setOnClickListener((v)-> openActivity(DeliveryActivity.class));
 

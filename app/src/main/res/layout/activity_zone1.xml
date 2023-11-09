@@ -8,7 +8,7 @@
     tools:context=".Zone1">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/room367"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -26,7 +26,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/room365"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -44,7 +44,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/room366"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FEFEFE"
@@ -62,7 +62,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/room364"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
@@ -80,7 +80,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/room363"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="#FFFFFF"
