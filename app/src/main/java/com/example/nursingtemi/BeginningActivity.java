@@ -24,7 +24,7 @@ public class BeginningActivity extends AppCompatActivity {
         startButton.setOnClickListener((v) ->{
             progressBar.setVisibility(View.VISIBLE);
             try {
-                Thread.sleep(1500);
+                Thread.sleep(250);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

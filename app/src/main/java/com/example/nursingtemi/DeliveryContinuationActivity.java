@@ -61,47 +61,18 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             new TourLocation("Office 327", "office 327"),
     };
 
+    DeliveryItem deliveryItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
 
+        deliveryItem = (DeliveryItem) getIntent().getSerializableExtra("item");
+        //Robot.getInstance().speak(TtsRequest.create(deliveryItem.getQuantity(), false));
         Spinner spinner = findViewById(R.id.spin);
 
-        //ListView listView = findViewById(R.id.listview);
-        List<String> list = new ArrayList<>();
-        list.add("simulation room 363");
-        list.add("simulation room 364");
-        list.add("control room 365");
-        list.add("simulation room 366");
-        list.add("control room 367");
-        list.add("simulation room 368");
-        list.add("simulation room 369");
-        list.add("control room 370");
-        list.add("simulation room 371");
-        list.add("debriefing 372");
-        list.add("debriefing 373");
-        list.add("debriefing 374");
-        list.add("control room 375");
-        list.add("simulation room 376");
-        list.add("skills lab 334");
-        list.add("meeting room 333");
-        list.add("office 328");
-        list.add("office 327");
-        list.add("office 326");
-        list.add("office 325");
-        list.add("office 324");
-        list.add("office 323");
-        list.add("office 322");
-        list.add("conference room 321");
-        list.add("office 330");
-        list.add("office 331");
-        list.add("interactive lab 351");
-        list.add("learning lab 301");
-        list.add("learning lab 302");
-
-        // Create an ArrayAdapter using a string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
 
         adapter.add(" Select which zone you would like to deliver"); // Add the prompt or title
@@ -128,26 +99,32 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
 
                 if (zone == " Zone 1") {
                     Intent object = new Intent(DeliveryContinuationActivity.this, Zone1.class);
+                    object.putExtra("item", deliveryItem);
                     startActivity(object);
                 }
                 if (zone == " Zone 2") {
                     Intent object = new Intent(DeliveryContinuationActivity.this, Zone2.class);
+                    object.putExtra("item", deliveryItem);
                     startActivity(object);
                 }
                 if (zone == " Zone 3") {
                     Intent object = new Intent(DeliveryContinuationActivity.this, Zone3.class);
+                    object.putExtra("item", deliveryItem);
                     startActivity(object);
                 }
                 if (zone == " Zone 4") {
                     Intent object = new Intent(DeliveryContinuationActivity.this, Zone4.class);
+                    object.putExtra("item", deliveryItem);
                     startActivity(object);
                 }
                 if (zone == " Zone 5") {
                     Intent object = new Intent(DeliveryContinuationActivity.this, Zone5.class);
+                    object.putExtra("item", deliveryItem);
                     startActivity(object);
                 }
                 if (zone == " Zone 6") {
                     Intent object = new Intent(DeliveryContinuationActivity.this, Zone6.class);
+                    object.putExtra("item", deliveryItem);
                     startActivity(object);
                 }
             }
@@ -173,24 +150,6 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         });
 
     }
-
-
-
-
-        /*
-        locations.setOnItemClickListener((adapterView, view, i, l) -> {
-            Robot.getInstance().goTo(locationList[i].getLocation());
-            locations.setVisibility(View.INVISIBLE);
-            Robot.getInstance().setVolume(3);
-
-            Intent intent = new Intent(this,ConfirmMessageActivity.class);
-            intent.putExtra("item",item);
-            startActivity(intent);
-
-            //Robot.getInstance().speak(TtsRequest.create("Hello, we were ordered to deliver " + item.getQuantity() + " items of " + item.getItem() + " to this location.", false));
-        });
-
-         */
 
 
     @Override

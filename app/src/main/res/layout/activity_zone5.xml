@@ -206,7 +206,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/llounge"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="@drawable/gradient"
@@ -233,7 +233,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/wRoom"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="@drawable/gradient"
@@ -245,13 +245,13 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/offices"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="@drawable/gradient"
