@@ -53,7 +53,6 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
         EditText item = findViewById(R.id.item);
         EditText quantity = findViewById(R.id.quantity);
         ImageView backButton = findViewById(R.id.backButton);
-        
 
 
         backButton.setOnClickListener((v) ->
@@ -69,14 +68,14 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             if (!emptyCredentials(item,quantity))
             {
                 DeliveryItem deliveryItem = new DeliveryItem(item.getText().toString(),quantity.getText().toString());
-
                 // start delivery continuation activity
                 Intent obj = new Intent(this,DeliveryContinuationActivity.class);
-                //obj.putExtra("item", deliveryItem);
+                obj.putExtra("item", deliveryItem);
                 startActivity(obj);
             }
 
         });
+
     }
 
     @Override

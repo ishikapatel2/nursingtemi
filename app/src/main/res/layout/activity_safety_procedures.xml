@@ -7,6 +7,15 @@
     android:background="#0C234B"
     tools:context=".SafetyProcedures">
 
+    <ImageView
+        android:id="@+id/backButton4"
+        android:layout_width="150dp"
+        android:layout_height="73dp"
+        app:srcCompat="@drawable/arrow"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-34dp"
+        tools:layout_editor_absoluteY="2dp" />
+
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"

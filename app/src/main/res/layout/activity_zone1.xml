@@ -7,6 +7,24 @@
     android:background="#0C234B"
     tools:context=".Zone1">
 
+
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="926dp"
+        android:layout_height="212dp"
+        android:background="#FFF3F3F3"
+        android:visibility="invisible"
+        android:elevation="4dp"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="Status"
+        android:textColor="#FF000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/room367"
         android:layout_width="361dp"
@@ -98,7 +116,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/simORooms"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="@drawable/gradient"
@@ -125,7 +143,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/simRooms"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="@drawable/gradient"
@@ -143,7 +161,7 @@
         app:layout_constraintVertical_bias="0.251" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/cRooms"
         android:layout_width="361dp"
         android:layout_height="56dp"
         android:background="@drawable/gradient"

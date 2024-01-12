@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tourwallpaper"
+    android:background="#0C234B"
     tools:context=".SurveyActivity">
 
     <ImageView
@@ -15,4 +15,9 @@
         tools:layout_editor_absoluteX="-34dp"
         tools:layout_editor_absoluteY="2dp"
         tools:ignore="MissingConstraints" />
+
+    <WebView
+        android:id="@+id/surveyWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

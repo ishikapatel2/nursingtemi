@@ -7,13 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
+import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener;
+import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
 import java.util.Objects;
 
-public class Zone5 extends AppCompatActivity {
+public class Zone5 extends AppCompatActivity  implements OnRobotReadyListener, OnGoToLocationStatusChangedListener {
 
     private Button room329;
     private Button room330;
@@ -26,6 +29,11 @@ public class Zone5 extends AppCompatActivity {
     private Button room327;
     private Button room328;
     private Button room331;
+    private TextView wRoom;
+    private TextView llounge;
+    private TextView offices;
+    private String curLoc;
+    private DeliveryItem deliveryItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,8 @@ public class Zone5 extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zone5);
+
+        deliveryItem = (DeliveryItem) getIntent().getSerializableExtra("item");
 
         room329 = findViewById(R.id.room329);
         room330 = findViewById(R.id.room330);
@@ -45,6 +55,9 @@ public class Zone5 extends AppCompatActivity {
         room327 = findViewById(R.id.room327);
         room328 = findViewById(R.id.room328);
         room331 = findViewById(R.id.room331);
+        wRoom = findViewById(R.id.wRoom);
+        llounge = findViewById(R.id.llounge);
+        offices = findViewById(R.id.offices);
 
         ImageView backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener((v) ->{
@@ -55,8 +68,8 @@ public class Zone5 extends AppCompatActivity {
         room329.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 329!",false));
-                // fix name
                 Robot.getInstance().goTo("office 329");
             }
         });
@@ -64,8 +77,8 @@ public class Zone5 extends AppCompatActivity {
         room330.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 330!",false));
-                // fix name
                 Robot.getInstance().goTo("office 330");
             }
         });
@@ -73,8 +86,8 @@ public class Zone5 extends AppCompatActivity {
         room333.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to the meeting room!",false));
-                // fix name
                 Robot.getInstance().goTo("meeting room 333");
             }
         });
@@ -82,8 +95,8 @@ public class Zone5 extends AppCompatActivity {
         room322.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 322!",false));
-                // fix name
                 Robot.getInstance().goTo("office 322");
             }
         });
@@ -91,8 +104,8 @@ public class Zone5 extends AppCompatActivity {
         room323.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 323!",false));
-                // fix name
                 Robot.getInstance().goTo("office 323");
             }
         });
@@ -100,8 +113,8 @@ public class Zone5 extends AppCompatActivity {
         room324.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 324!",false));
-                // fix name
                 Robot.getInstance().goTo("office 324");
             }
         });
@@ -109,8 +122,8 @@ public class Zone5 extends AppCompatActivity {
         room325.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 325!",false));
-                // fix name
                 Robot.getInstance().goTo("office 325");
             }
         });
@@ -118,8 +131,8 @@ public class Zone5 extends AppCompatActivity {
         room326.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 326!",false));
-                // fix name
                 Robot.getInstance().goTo("office 326");
             }
         });
@@ -127,8 +140,8 @@ public class Zone5 extends AppCompatActivity {
         room327.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 327!",false));
-                // fix name
                 Robot.getInstance().goTo("office 327");
             }
         });
@@ -136,8 +149,8 @@ public class Zone5 extends AppCompatActivity {
         room328.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 328!",false));
-                // fix name
                 Robot.getInstance().goTo("office 328");
             }
         });
@@ -145,10 +158,65 @@ public class Zone5 extends AppCompatActivity {
         room331.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                curLoc = "simulation room 366";
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to office 331!",false));
-                // fix name
                 Robot.getInstance().goTo("office 331");
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Robot.getInstance().addOnRobotReadyListener(this);
+        Robot.getInstance().addOnGoToLocationStatusChangedListener(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Robot.getInstance().removeOnRobotReadyListener(this);
+        Robot.getInstance().removeOnGoToLocationStatusChangedListener(this);
+    }
+
+    @Override
+    public void onRobotReady(boolean isReady) {
+        if (isReady) {
+            Robot.getInstance().hideTopBar();
+            Robot.getInstance().setVolume(3);
+            Robot.getInstance().speak(TtsRequest.create("Please select a room", false));
+        }
+    }
+
+    @Override
+    public void onGoToLocationStatusChanged(String location, String status, int descriptionId, String description) {
+        switch (status) {
+            case "going":
+                room329.setVisibility(View.INVISIBLE);
+                room330.setVisibility(View.INVISIBLE);
+                room333.setVisibility(View.INVISIBLE);
+                room322.setVisibility(View.INVISIBLE);
+                room323.setVisibility(View.INVISIBLE);
+                room324.setVisibility(View.INVISIBLE);
+                room325.setVisibility(View.INVISIBLE);
+                room326.setVisibility(View.INVISIBLE);
+                room327.setVisibility(View.INVISIBLE);
+                room328.setVisibility(View.INVISIBLE);
+                room331.setVisibility(View.INVISIBLE);
+                wRoom.setVisibility(View.INVISIBLE);
+                llounge.setVisibility(View.INVISIBLE);
+                offices.setVisibility(View.INVISIBLE);
+                break;
+            case "complete":
+                Robot.getInstance().speak(TtsRequest.create("I have arrived with your order", false));
+                Intent intent = new Intent(Zone5.this, ConfirmMessageActivity.class);
+                intent.putExtra("previousLocation", curLoc);
+                intent.putExtra("item", deliveryItem);
+                startActivity(intent);
+                break;
+            case "abort":
+                Robot.getInstance().speak(TtsRequest.create("I am experiencing problems.", false));
+                break;
+        }
     }
 }

@@ -10,59 +10,127 @@
 
     <Button
         android:id="@+id/tourButton"
-        android:layout_width="260dp"
-        android:layout_height="156dp"
+        android:layout_width="350dp"
+        android:layout_height="224dp"
         android:background="@drawable/gradient_list"
+        android:drawableTop="@drawable/tour_icon"
+        android:drawablePadding="20dp"
         android:fontFamily="@font/chewy"
+        android:padding="20dp"
         android:text="@string/tour"
         android:textColor="@color/white"
         android:textSize="50sp"
+
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintEnd_toStartOf="@+id/patients"
+        app:layout_constraintHorizontal_bias="0.817"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656" />
+        app:layout_constraintVertical_bias="0.397" />
 
     <Button
-        android:id="@+id/deliveryButton"
-        android:layout_width="260dp"
-        android:layout_height="156dp"
+        android:id="@+id/staffButton"
+        android:layout_width="350dp"
+        android:layout_height="224dp"
         android:background="@drawable/gradient"
+        android:drawableTop="@drawable/staff_icon"
+        android:drawablePadding="20dp"
         android:fontFamily="@font/chewy"
-        android:text="@string/delivery"
+        android:padding="20dp"
+        android:text="Staff"
         android:textColor="@color/white"
         android:textSize="50sp"
-        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintStart_toEndOf="@+id/patients"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656" />
+        app:layout_constraintVertical_bias="0.397" />
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="350dp"
+        android:layout_height="224dp"
+        android:background="@drawable/gradient"
+        android:drawableTop="@drawable/exit_icon"
+        android:drawablePadding="20dp"
+        android:fontFamily="@font/chewy"
+        android:padding="30dp"
+        android:text="Exit"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toEndOf="@+id/safetyButton"
+        app:layout_constraintTop_toBottomOf="@+id/staffButton"
+        app:layout_constraintVertical_bias="0.26" />
 
     <Button
         android:id="@+id/surveyButton"
-        android:layout_width="260dp"
-        android:layout_height="156dp"
+        android:layout_width="350dp"
+        android:layout_height="224dp"
         android:background="@drawable/gradient"
+        android:drawableTop="@drawable/survey"
+        android:drawablePadding="30dp"
         android:fontFamily="@font/chewy"
+        android:padding="20dp"
         android:text="@string/survey"
         android:textColor="@color/white"
         android:textSize="50sp"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/exitButton"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toEndOf="@+id/safetyButton"
+        app:layout_constraintTop_toBottomOf="@+id/patients"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <Button
+        android:id="@+id/safetyButton"
+        android:layout_width="350dp"
+        android:layout_height="224dp"
+        android:background="@drawable/gradient"
+        android:drawableTop="@drawable/emergency_icon"
+        android:drawablePadding="20dp"
+        android:fontFamily="@font/chewy"
+        android:padding="20dp"
+        android:text="Emerg"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.711"
+        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tourButton"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <Button
+        android:id="@+id/patients"
+        android:layout_width="350dp"
+        android:layout_height="224dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/gradient"
+        android:drawableTop="@drawable/patient"
+        android:fontFamily="@font/chewy"
+        android:padding="20dp"
+        android:text="Patient"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:cornerRadius="30dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656" />
+        app:layout_constraintVertical_bias="0.397" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="700dp"
-        android:layout_height="361dp"
+        android:layout_width="839dp"
+        android:layout_height="137dp"
         android:fontFamily="@font/chewy"
         android:gravity="center_horizontal"
         android:text="@string/title"
@@ -70,42 +138,10 @@
         android:textSize="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.108" />
 
-    <Button
-        android:id="@+id/exitButton"
-        android:layout_width="266dp"
-        android:layout_height="159dp"
-        android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
-        android:text="@string/exit"
-        android:textColor="@color/white"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.946"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66" />
-
-    <Button
-        android:id="@+id/safetyButton"
-        android:layout_width="260dp"
-        android:layout_height="156dp"
-        android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
-        android:text="Safety"
-        android:textColor="@color/white"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/deliveryButton"
-        app:layout_constraintHorizontal_bias="0.585"
-        app:layout_constraintStart_toEndOf="@+id/tourButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.656" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

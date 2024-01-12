@@ -34,7 +34,6 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             new TourLocation("Learning Lab 301", "learning lab 301"),
             new TourLocation("Learning Lab 302", "learning lab 302"),
             new TourLocation("Interactive lab 351","interactive lab 351"),
-            new TourLocation("Offices", "offices"),
             new TourLocation("Skills lab 334", "skills lab 334"),
     };
 
@@ -88,7 +87,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             Robot.getInstance().hideTopBar();
             Robot.getInstance().setVolume(3);
             Robot.getInstance().speak(TtsRequest.create("Please follow me around the premises.", false));
-            Robot.getInstance().goTo(locations[curLoc].getLocation());
+            Robot.getInstance().goTo("control room 365");
            curLoc++;
         }
     }

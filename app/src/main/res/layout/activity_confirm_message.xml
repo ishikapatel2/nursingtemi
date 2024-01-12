@@ -13,28 +13,60 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/chewy"
         android:text=""
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintVertical_bias="0.396" />
 
     <Button
-        android:id="@+id/returnButton"
-        android:layout_width="153dp"
-        android:layout_height="69dp"
+        android:id="@+id/homeBase"
+        android:layout_width="269dp"
+        android:layout_height="111dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Return to Menu"
-        android:textSize="20dp"
+        android:text="Return to Pharmacy"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.843"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955" />
+        app:layout_constraintVertical_bias="0.766" />
+
+    <Button
+        android:id="@+id/homeMenu"
+        android:layout_width="269dp"
+        android:layout_height="111dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/chewy"
+        android:text="Main Menu"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.946" />
+
+    <Button
+        android:id="@+id/prevLoc"
+        android:layout_width="269dp"
+        android:layout_height="111dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/chewy"
+        android:text="Return to Previous Location"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.733" />
 </androidx.constraintlayout.widget.ConstraintLayout>
