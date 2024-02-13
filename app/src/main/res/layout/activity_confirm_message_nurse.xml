@@ -5,20 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0C234B"
-    tools:context=".ConfirmMessageActivity">
-
-    <ImageView
-        android:id="@+id/fingerprintScanner"
-        android:layout_width="179dp"
-        android:layout_height="198dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/fingerprint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441" />
+    tools:context=".ConfirmMessageActivityNurse">
 
     <TextView
         android:id="@+id/textMessage"
@@ -28,7 +15,7 @@
         android:text=""
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="80dp"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,15 +28,15 @@
         android:layout_height="160dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Return to Pharmacy"
+        android:text="Home Base"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.726" />
+        app:layout_constraintVertical_bias="0.943" />
 
     <Button
         android:id="@+id/homeMenu"
@@ -57,14 +44,15 @@
         android:layout_height="160dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Main Menu"
+        android:text="Cancel Order"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946" />
+        app:layout_constraintVertical_bias="0.726" />
 
     <Button
         android:id="@+id/prevLoc"

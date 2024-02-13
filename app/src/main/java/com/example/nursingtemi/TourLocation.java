@@ -3,16 +3,15 @@ package com.example.nursingtemi;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
-/**
- * This class represents a location in the demo tour
- */
 public class TourLocation {
 
-    /** Title of the location to display */
+    // Title of the location to display
     private String title;
-    /** Name of the location, as stored in the Temi */
+
+    // Name of the location, as stored in the Temi
     private String location;
 
+    // description of location
     private String message;
 
     /** Drawable ID of the QR code to show at this location */

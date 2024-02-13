@@ -17,11 +17,8 @@ public class DeliveryItem implements Serializable
 
     public String getItem()
     {
-        return item;
+        return this.item;
     }
 
-    public String getQuantity()
-    {
-        return quantity;
-    }
+//    public String getQuantity() { return this.quantity; }
 }

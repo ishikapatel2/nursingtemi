@@ -8,22 +8,22 @@
     tools:context=".Zone1">
 
 
-    <TextView
-        android:id="@+id/statusTextView"
-        android:layout_width="926dp"
-        android:layout_height="212dp"
-        android:background="#FFF3F3F3"
-        android:visibility="invisible"
-        android:elevation="4dp"
-        android:gravity="center_horizontal"
-        android:padding="16dp"
-        android:text="Status"
-        android:textColor="#FF000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/statusTextView"-->
+<!--        android:layout_width="926dp"-->
+<!--        android:layout_height="212dp"-->
+<!--        android:background="#FFF3F3F3"-->
+<!--        android:visibility="invisible"-->
+<!--        android:elevation="4dp"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:padding="16dp"-->
+<!--        android:text="Status"-->
+<!--        android:textColor="#FF000000"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <Button
         android:id="@+id/room367"
@@ -141,6 +141,34 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-19dp"
         tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/recording"
+        android:layout_width="374dp"
+        android:layout_height="264dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/recimg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anton"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/simRooms"

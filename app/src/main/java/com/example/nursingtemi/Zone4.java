@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,17 +15,20 @@ import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
+import com.robotemi.sdk.navigation.listener.OnCurrentPositionChangedListener;
+import com.robotemi.sdk.navigation.model.Position;
 
 import org.w3c.dom.Text;
 
 import java.util.Objects;
 
-public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener {
+public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener {
 
     private Button room334;
     private TextView sRooms;
-    private String curLoc;
-    private DeliveryItem deliveryItem;
+
+    private Position currentPosition;
+    private boolean updatePosition = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,6 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zone4);
 
-        deliveryItem = (DeliveryItem) getIntent().getSerializableExtra("item");
 
         room334 = findViewById(R.id.room334);
         sRooms = findViewById(R.id.sRooms);
@@ -46,7 +49,7 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
         room334.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                curLoc = "simulation room 366";
+                updatePosition = true;
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 334!",false));
                 Robot.getInstance().goTo("skills lab 334");
             }
@@ -59,6 +62,7 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
         super.onStart();
         Robot.getInstance().addOnRobotReadyListener(this);
         Robot.getInstance().addOnGoToLocationStatusChangedListener(this);
+        Robot.getInstance().addOnCurrentPositionChangedListener(this);
     }
 
     @Override
@@ -66,6 +70,14 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
         super.onStop();
         Robot.getInstance().removeOnRobotReadyListener(this);
         Robot.getInstance().removeOnGoToLocationStatusChangedListener(this);
+    }
+
+    @Override
+    public void onCurrentPositionChanged(Position position) {
+        if (updatePosition) {
+            currentPosition = position;
+            Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
+        }
     }
 
     @Override
@@ -81,17 +93,26 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
     public void onGoToLocationStatusChanged(String location, String status, int descriptionId, String description) {
         switch (status) {
             case "going":
+                updatePosition = false;
                 room334.setVisibility(View.INVISIBLE);
                 sRooms.setVisibility(View.INVISIBLE);
                 break;
             case "complete":
-                Robot.getInstance().speak(TtsRequest.create("I have arrived with your order", false));
-                Intent intent = new Intent(Zone4.this, ConfirmMessageActivity.class);
-                intent.putExtra("previousLocation", curLoc);
-                intent.putExtra("item", deliveryItem);
-                startActivity(intent);
+                if (currentPosition != null) {
+                    Intent intent = new Intent(Zone4.this, ConfirmMessageActivity.class);
+                    intent.putExtra("positionX", currentPosition.getX());
+                    intent.putExtra("positionY", currentPosition.getY());
+                    intent.putExtra("positionYaw", currentPosition.getYaw());
+                    intent.putExtra("positionTiltAngle", currentPosition.getTiltAngle());
+                    startActivity(intent);
+                }
+                else {
+                    Log.e("Zone1", "Current position is null");
+                }
+                updatePosition = true;
                 break;
             case "abort":
+                updatePosition = true;
                 Robot.getInstance().speak(TtsRequest.create("I am experiencing problems.", false));
                 break;
         }

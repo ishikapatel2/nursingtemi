@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
         android:allowBackup="true"
@@ -31,6 +30,11 @@
                 android:value="" />
         </activity>
 
+        <activity android:name=".DeliveryActivityNurse">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
         <activity
             android:name=".Vitals"
@@ -39,6 +43,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".PDFView"
             android:exported="false" />
@@ -104,6 +109,10 @@
         <meta-data
             android:name="com.robotemi.sdk.metadata.SKILL"
             android:value="@string/app_name" />
+        <activity
+            android:name=".ConfirmMessageActivityNurse"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".ConfirmMessageActivity"
@@ -121,6 +130,11 @@
             android:name=".TourActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DeliveryContinuationActivityNurse"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".DeliveryContinuationActivity"
             android:exported="false"

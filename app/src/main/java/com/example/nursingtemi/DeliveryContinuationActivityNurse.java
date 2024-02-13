@@ -1,23 +1,28 @@
 package com.example.nursingtemi;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 import com.robotemi.sdk.navigation.listener.OnCurrentPositionChangedListener;
 import com.robotemi.sdk.navigation.model.Position;
-import android.util.Log;
+
 import java.util.Objects;
 
-public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener {
+public class DeliveryContinuationActivityNurse extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener {
 
     private Button room366;
     private Button room364;
@@ -26,19 +31,28 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
     private Button room365;
     private TextView simRoomTextView;
     private TextView controlRTextVIew;
-    private TextView simORooms;
-    private TextView message;
+    private TextView officesTextView;
     private ImageView recordingImage;
+    private TextView message;
 
     private Position currentPosition;
     private boolean updatePosition = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Objects.requireNonNull(getSupportActionBar()).hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zone1);
+        Objects.requireNonNull(getSupportActionBar()).hide();
+        setContentView(R.layout.activity_delivery_continuation_nurse);
 
+        ImageView backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener((v) ->
+        {
+            Intent obj = new Intent(this, DeliveryActivity.class);
+            startActivity(obj);
+        });
+
+        message = findViewById(R.id.textMessage);
+        message.setVisibility(View.INVISIBLE);
         room366 = findViewById(R.id.room366);
         room364 = findViewById(R.id.room364);
         room363 = findViewById(R.id.room363);
@@ -46,18 +60,17 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
         room365 = findViewById(R.id.room365);
         simRoomTextView = findViewById(R.id.simRooms);
         controlRTextVIew = findViewById(R.id.cRooms);
-        simORooms = findViewById(R.id.simORooms);
-        message = findViewById(R.id.textMessage);
-        message.setVisibility(View.INVISIBLE);
+        officesTextView = findViewById(R.id.offices);
         recordingImage = findViewById(R.id.recording);
         recordingImage.setVisibility(View.INVISIBLE);
+
 
         room366.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 366!",false));
-                Robot.getInstance().goTo("simulation room 366");
+                Robot.getInstance().speak(TtsRequest.create("I will visit the pharmacy to retrieve your requested item ",false));
+                Robot.getInstance().goTo("pharmacy");
             }
         });
 
@@ -65,8 +78,8 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 364!",false));
-                Robot.getInstance().goTo("simulation room 364");
+                Robot.getInstance().speak(TtsRequest.create("I will visit the pharmacy to retrieve your requested item ",false));
+                Robot.getInstance().goTo("pharmacy");
             }
         });
 
@@ -74,16 +87,16 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 363!",false));
-                Robot.getInstance().goTo("simulation office 363");
+                Robot.getInstance().speak(TtsRequest.create("I will visit the pharmacy to retrieve your requested item ",false));
+                Robot.getInstance().goTo("pharmacy");
             }
         });
         room367.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 367!",false));
-                Robot.getInstance().goTo("simulation room 367");
+                Robot.getInstance().speak(TtsRequest.create("I will visit the pharmacy to retrieve your requested item ",false));
+                Robot.getInstance().goTo("pharmacy");
             }
         });
 
@@ -91,15 +104,9 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 365!",false));
-                Robot.getInstance().goTo("control room 365");
+                Robot.getInstance().speak(TtsRequest.create("I will visit the pharmacy to retrieve your requested item ",false));
+                Robot.getInstance().goTo("pharmacy");
             }
-        });
-
-        ImageView backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener((v) ->{
-            Intent obj = new Intent(this, DeliveryContinuationActivity.class);
-            startActivity(obj);
         });
     }
 
@@ -109,6 +116,7 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
         Robot.getInstance().addOnRobotReadyListener(this);
         Robot.getInstance().addOnGoToLocationStatusChangedListener(this);
         Robot.getInstance().addOnCurrentPositionChangedListener(this);
+
     }
 
     @Override
@@ -131,7 +139,7 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
         if (isReady) {
             Robot.getInstance().hideTopBar();
             Robot.getInstance().setVolume(3);
-            Robot.getInstance().speak(TtsRequest.create("Please select a room", false));
+            Robot.getInstance().speak(TtsRequest.create("Please select the room are you currently in?", false));
         }
     }
 
@@ -140,25 +148,21 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
         switch (status) {
             case "going":
                 updatePosition = false;
-                recordingImage.setVisibility(View.VISIBLE);
                 room366.setVisibility(View.INVISIBLE);
                 room364.setVisibility(View.INVISIBLE);
                 room363.setVisibility(View.INVISIBLE);
                 room367.setVisibility(View.INVISIBLE);
-
                 room365.setVisibility(View.INVISIBLE);
                 simRoomTextView.setVisibility(View.INVISIBLE);
                 controlRTextVIew.setVisibility(View.INVISIBLE);
-                simORooms.setVisibility(View.INVISIBLE);
-                message.setText("For security and monitoring: \n" +
-                        "Recording in Progress. ");
+                officesTextView.setVisibility(View.INVISIBLE);
+                message.setText("I am busy requesting a delivery.\n Please do not interrupt me.");
                 message.setVisibility(View.VISIBLE);
                 break;
             case "complete":
                 if (currentPosition != null) {
                     message.setVisibility(View.GONE);
-                    recordingImage.setVisibility(View.GONE);
-                    Intent intent = new Intent(Zone1.this, ConfirmMessageActivity.class);
+                    Intent intent = new Intent(DeliveryContinuationActivityNurse.this, ConfirmMessageActivityNurse.class);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());
                     intent.putExtra("positionYaw", currentPosition.getYaw());
@@ -166,14 +170,15 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
                     startActivity(intent);
                 }
                 else {
-                    Log.e("Zone1", "Current position is null");
+                    Log.e("Nursing Delivery", "Current position is null");
                 }
                 updatePosition = true;
                 break;
             case "abort":
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Delivery suddenly canceled.", false));
+                Robot.getInstance().speak(TtsRequest.create("I am experiencing problems.", false));
                 break;
         }
     }
+
 }
