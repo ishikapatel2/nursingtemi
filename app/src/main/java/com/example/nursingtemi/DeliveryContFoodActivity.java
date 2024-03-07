@@ -1,41 +1,28 @@
 package com.example.nursingtemi;
 
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
-import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class DeliveryContinuationActivity extends AppCompatActivity implements OnRobotReadyListener {
+public class DeliveryContFoodActivity extends AppCompatActivity implements OnRobotReadyListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_continuation);
-
-        String deliveryType = getIntent().getStringExtra("deliveryType");
 
         Spinner spinner = findViewById(R.id.spin);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
@@ -59,64 +46,32 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                 //((TextView) parent.getChildAt(0)).setTextSize(25);
 
                 if (zone == " Zone 1") {
-
-                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone1.class);
-                    if ("Food".equals(deliveryType)) {
-                        object.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        object.putExtra("deliveryType", "Medication");
-                    }
+                    Intent object = new Intent(DeliveryContFoodActivity.this, Zone1.class);
                     startActivity(object);
                 }
                 if (zone == " Zone 2") {
-                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone2.class);
-                    if ("Food".equals(deliveryType)) {
-                        object.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        object.putExtra("deliveryType", "Medication");
-                    }
+                    Intent object = new Intent(DeliveryContFoodActivity.this, Zone2.class);
+
                     startActivity(object);
                 }
                 if (zone == " Zone 3") {
-                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone3.class);
-                    if ("Food".equals(deliveryType)) {
-                        object.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        object.putExtra("deliveryType", "Medication");
-                    }
+                    Intent object = new Intent(DeliveryContFoodActivity.this, Zone3.class);
+
                     startActivity(object);
                 }
                 if (zone == " Zone 4") {
-                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone4.class);
-                    if ("Food".equals(deliveryType)) {
-                        object.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        object.putExtra("deliveryType", "Medication");
-                    }
+                    Intent object = new Intent(DeliveryContFoodActivity.this, Zone4.class);
+
                     startActivity(object);
                 }
                 if (zone == " Zone 5") {
-                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone5.class);
-                    if ("Food".equals(deliveryType)) {
-                        object.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        object.putExtra("deliveryType", "Medication");
-                    }
+                    Intent object = new Intent(DeliveryContFoodActivity.this, Zone5.class);
+
                     startActivity(object);
                 }
                 if (zone == " Zone 6") {
-                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone6.class);
-                    if ("Food".equals(deliveryType)) {
-                        object.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        object.putExtra("deliveryType", "Medication");
-                    }
+                    Intent object = new Intent(DeliveryContFoodActivity.this, Zone6.class);
+
                     startActivity(object);
                 }
             }

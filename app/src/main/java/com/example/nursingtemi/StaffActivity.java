@@ -25,6 +25,7 @@ public class StaffActivity extends AppCompatActivity{
         Button pharm = findViewById(R.id.pharmacy);
         Button nurse = findViewById(R.id.nurse);
         Button data = findViewById(R.id.data);
+        Button food = findViewById(R.id.meal);
         ImageView backButton = findViewById(R.id.backButton);
 
         data.setOnClickListener((v) -> {
@@ -41,6 +42,7 @@ public class StaffActivity extends AppCompatActivity{
             data.setVisibility(View.GONE);
             pharm.setVisibility(View.VISIBLE);
             nurse.setVisibility(View.VISIBLE);
+            food.setVisibility(View.VISIBLE);
 
             backButton.setOnClickListener((y) -> {
                 Intent obj = new Intent(this, StaffActivity.class);
@@ -57,6 +59,13 @@ public class StaffActivity extends AppCompatActivity{
             Intent obj = new Intent(this, DeliveryActivity.class);
             startActivity(obj);
         });
+
+        food.setOnClickListener((v) -> {
+            Intent obj = new Intent(this, FoodActivity.class);
+            startActivity(obj);
+        });
+
+
 
         // selecting vitals
         vitals.setOnClickListener((v) -> {

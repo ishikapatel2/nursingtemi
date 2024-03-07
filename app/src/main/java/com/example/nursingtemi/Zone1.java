@@ -29,6 +29,7 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
     private TextView simORooms;
     private TextView message;
     private ImageView recordingImage;
+    private String deliveryType;
 
     private Position currentPosition;
     private boolean updatePosition = true;
@@ -38,6 +39,8 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
         Objects.requireNonNull(getSupportActionBar()).hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zone1);
+
+        deliveryType = getIntent().getStringExtra("deliveryType");
 
         room366 = findViewById(R.id.room366);
         room364 = findViewById(R.id.room364);
@@ -51,6 +54,9 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
         message.setVisibility(View.INVISIBLE);
         recordingImage = findViewById(R.id.recording);
         recordingImage.setVisibility(View.INVISIBLE);
+
+
+
 
         room366.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +165,14 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
                     message.setVisibility(View.GONE);
                     recordingImage.setVisibility(View.GONE);
                     Intent intent = new Intent(Zone1.this, ConfirmMessageActivity.class);
+
+                    if ("Food".equals(deliveryType)) {
+                        intent.putExtra("deliveryType", "Food");
+                    }
+                    else {
+                        intent.putExtra("deliveryType", "Medication");
+                    }
+
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());
                     intent.putExtra("positionYaw", currentPosition.getYaw());

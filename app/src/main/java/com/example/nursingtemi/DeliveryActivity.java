@@ -68,8 +68,14 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
             if (!emptyCredentials(item,quantity))
             {
                 DeliveryItem deliveryItem = new DeliveryItem(item.getText().toString(),quantity.getText().toString());
+
                 // start delivery continuation activity
                 Intent obj = new Intent(this,DeliveryContinuationActivity.class);
+                obj.putExtra("deliveryType", "Medication");
+
+                // add this later
+                Button read = findViewById(R.id.sleep);
+
                 obj.putExtra("item", deliveryItem);
                 startActivity(obj);
             }
@@ -105,7 +111,6 @@ public class DeliveryActivity extends AppCompatActivity implements OnRobotReadyL
 
 
     public void handleServer () {
-
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + BRAND_COL + " TEXT,"

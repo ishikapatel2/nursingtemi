@@ -8,13 +8,159 @@
     tools:context=".PatientActivity">
 
 
+    <ScrollView
+        android:layout_width="1533dp"
+        android:layout_height="810dp"
+        android:background="#0C234B"
+        android:fillViewport="true"
+        android:padding="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709"
+        tools:ignore="MissingConstraints">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <Button
+                android:id="@+id/food"
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:width="100dp"
+                android:height="100dp"
+                android:background="@drawable/gradient"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="20dp"
+                android:text="I need food"
+                android:textColor="#FFFFFF"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40dp" />
+
+            <Button
+                android:id="@+id/water"
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:width="100dp"
+                android:height="100dp"
+                android:background="@drawable/gradient"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="I need water"
+                android:textColor="#FFFFFF"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40dp" />
+
+            <Button
+                android:id="@+id/bathroom"
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:width="100dp"
+                android:height="100dp"
+                android:background="@drawable/gradient"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="10dp"
+                android:text="I need to use the restroom"
+                android:textColor="#FFFFFF"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40dp" />
+
+            <Button
+                android:id="@+id/pain"
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:width="100dp"
+                android:height="100dp"
+                android:background="@drawable/gradient"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="I am in pain"
+                android:textColor="#FFFFFF"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40dp" />
+
+            <Button
+                android:id="@+id/sleep"
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:width="100dp"
+                android:height="100dp"
+                android:background="@drawable/gradient"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="I would like to sleep"
+                android:textColor="#FFFFFF"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40dp" />
+
+
+            <Button
+                android:id="@+id/call"
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:width="100dp"
+                android:height="100dp"
+                android:background="@drawable/gradient"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Please call my nurse"
+                android:textColor="#FFFFFF"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </ScrollView>
+
     <ImageView
         android:id="@+id/backButton"
-        android:layout_width="150dp"
-        android:layout_height="73dp"
+        android:layout_width="130dp"
+        android:layout_height="78dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@drawable/arrow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-34dp"
-        tools:layout_editor_absoluteY="2dp" />
+        tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="1066dp"
+        android:layout_height="82dp"
+        android:fontFamily="@font/chewy"
+        android:padding="1dp"
+        android:text="Please click on one of the options below:"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="55dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
 </androidx.constraintlayout.widget.ConstraintLayout>

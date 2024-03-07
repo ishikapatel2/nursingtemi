@@ -67,6 +67,21 @@
         app:layout_constraintVertical_bias="0.946" />
 
     <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="360dp"
+        android:layout_height="160dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/chewy"
+        android:text="Confirm"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <Button
         android:id="@+id/prevLoc"
         android:layout_width="360dp"
         android:layout_height="160dp"
@@ -82,4 +97,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.726" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="954dp"
+        android:layout_height="158dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:hint="Your Name"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="50dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
