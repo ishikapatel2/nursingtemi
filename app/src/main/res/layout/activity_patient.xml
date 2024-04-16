@@ -129,7 +129,10 @@
                 android:textColor="#FFFFFF"
                 android:textSize="48sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
+
+
 
     </ScrollView>
 
@@ -147,7 +150,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/caption"
         android:layout_width="1066dp"
         android:layout_height="82dp"
         android:fontFamily="@font/chewy"
@@ -163,4 +166,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.071" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

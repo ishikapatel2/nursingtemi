@@ -8,7 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.robotemi.sdk.Robot;
+import com.robotemi.sdk.TtsRequest;
+
 public class FoodActivity extends AppCompatActivity {
+
+    private EditText patient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,8 @@ public class FoodActivity extends AppCompatActivity {
             startActivity(obj);
        });
 
+        Robot.getInstance().speak(TtsRequest.create("Place the food tray on me, then press confirm to continue", false));
+
         Button confirmButton = findViewById(R.id.confirm_button);
         EditText item = findViewById(R.id.item);
         EditText quantity = findViewById(R.id.quantity);
@@ -32,9 +39,13 @@ public class FoodActivity extends AppCompatActivity {
             // makes sure all information has been given before confirming delivery
             if (!emptyCredentials(item,quantity))
             {
+                patient = findViewById(R.id.patient);
+                String text = patient.getText().toString();
+
                 DeliveryItem deliveryItem = new DeliveryItem(item.getText().toString(),quantity.getText().toString());
                 // start delivery continuation activity
                 Intent obj = new Intent(this,DeliveryContinuationActivity.class);
+                obj.putExtra("PatientName", text);
                 obj.putExtra("deliveryType", "Food");
                 obj.putExtra("item", deliveryItem);
                 startActivity(obj);

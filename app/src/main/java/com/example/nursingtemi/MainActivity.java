@@ -16,7 +16,7 @@ import com.robotemi.sdk.listeners.OnRobotReadyListener;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements OnRobotReadyListener {
-
+    private static int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,8 +117,12 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
     @Override
     protected void onResume() {
         super.onResume();
-        TtsRequest ttsRequest = TtsRequest.create("How may I assist you today?", false);
-        Robot.getInstance().speak(ttsRequest);
+        if (count == 0) {
+            TtsRequest ttsRequest = TtsRequest.create("How may I assist you today?", false);
+            Robot.getInstance().speak(ttsRequest);
+            count++;
+        }
+
     }
 
     @Override

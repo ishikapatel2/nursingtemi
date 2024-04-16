@@ -93,7 +93,7 @@
         app:layout_constraintVertical_bias="0.108" />
 
     <EditText
-        android:id="@+id/sender"
+        android:id="@+id/patient"
         android:layout_width="372dp"
         android:layout_height="wrap_content"
         android:ems="10"

@@ -31,12 +31,24 @@ public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, On
     private Position currentPosition;
     private boolean updatePosition = true;
 
+    private String deliveryType;
+    private String patient;
+    private TextView message;
+    private ImageView recordingImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zone6);
+
+        deliveryType = getIntent().getStringExtra("deliveryType");
+        patient = getIntent().getStringExtra("PatientName");
+        message = findViewById(R.id.textMessage);
+        message.setVisibility(View.INVISIBLE);
+        recordingImage = findViewById(R.id.recording);
+        recordingImage.setVisibility(View.INVISIBLE);
 
         room301 = findViewById(R.id.room301);
         room302 = findViewById(R.id.room302);
@@ -46,7 +58,7 @@ public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 301!",false));
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 301!",false));
                 Robot.getInstance().goTo("learning lab 301");
             }
         });
@@ -55,7 +67,7 @@ public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 302!",false));
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 302!",false));
                 Robot.getInstance().goTo("learning lab 302");
             }
         });
@@ -86,7 +98,7 @@ public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, On
     public void onCurrentPositionChanged(Position position) {
         if (updatePosition) {
             currentPosition = position;
-            Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
+            //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
         }
     }
 
@@ -107,11 +119,25 @@ public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, On
                 room301.setVisibility(View.INVISIBLE);
                 room302.setVisibility(View.INVISIBLE);
                 llab.setVisibility(View.INVISIBLE);
+                recordingImage.setVisibility(View.VISIBLE);
+                message.setText("For security and monitoring: \n" +
+                        "Recording in Progress. ");
+                message.setVisibility(View.VISIBLE);
                 break;
             case "complete":
                 if (currentPosition != null) {
+                    message.setVisibility(View.GONE);
+                    recordingImage.setVisibility(View.GONE);
                     Robot.getInstance().speak(TtsRequest.create("I have arrived with your order", false));
                     Intent intent = new Intent(Zone6.this, ConfirmMessageActivity.class);
+
+                    if ("Food".equals(deliveryType)) {
+                        intent.putExtra("deliveryType", "Food");
+                    }
+                    else {
+                        intent.putExtra("deliveryType", "Medication");
+                    }
+                    intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());
                     intent.putExtra("positionYaw", currentPosition.getYaw());

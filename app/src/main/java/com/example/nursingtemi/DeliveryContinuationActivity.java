@@ -36,6 +36,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
         setContentView(R.layout.activity_delivery_continuation);
 
         String deliveryType = getIntent().getStringExtra("deliveryType");
+        String patientName = getIntent().getStringExtra("PatientName");
 
         Spinner spinner = findViewById(R.id.spin);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
@@ -55,9 +56,9 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String zone = parent.getItemAtPosition(position).toString();
-                //((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-                //((TextView) parent.getChildAt(0)).setTextSize(25);
-
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+                ((TextView) parent.getChildAt(0)).setTextSize(25);
+                ((TextView) parent.getChildAt(0)).setPadding(15, 1, 1, 1);
                 if (zone == " Zone 1") {
 
                     Intent object = new Intent(DeliveryContinuationActivity.this, Zone1.class);
@@ -67,6 +68,8 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                     else {
                         object.putExtra("deliveryType", "Medication");
                     }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
                     startActivity(object);
                 }
                 if (zone == " Zone 2") {
@@ -77,6 +80,8 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                     else {
                         object.putExtra("deliveryType", "Medication");
                     }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
                     startActivity(object);
                 }
                 if (zone == " Zone 3") {
@@ -87,6 +92,8 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                     else {
                         object.putExtra("deliveryType", "Medication");
                     }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
                     startActivity(object);
                 }
                 if (zone == " Zone 4") {
@@ -97,6 +104,8 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                     else {
                         object.putExtra("deliveryType", "Medication");
                     }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
                     startActivity(object);
                 }
                 if (zone == " Zone 5") {
@@ -107,6 +116,8 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                     else {
                         object.putExtra("deliveryType", "Medication");
                     }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
                     startActivity(object);
                 }
                 if (zone == " Zone 6") {
@@ -117,6 +128,8 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                     else {
                         object.putExtra("deliveryType", "Medication");
                     }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
                     startActivity(object);
                 }
             }

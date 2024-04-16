@@ -29,7 +29,10 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
     private TextView cRooms;
     private TextView mRoom;
     private TextView sRooms;
-
+    private String deliveryType;
+    private String patient;
+    private ImageView recordingImage;
+    private TextView message;
     private Position currentPosition;
     private boolean updatePosition = true;
 
@@ -39,6 +42,13 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
         Objects.requireNonNull(getSupportActionBar()).hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zone2);
+
+        deliveryType = getIntent().getStringExtra("deliveryType");
+        patient = getIntent().getStringExtra("PatientName");
+        message = findViewById(R.id.textMessage);
+        message.setVisibility(View.INVISIBLE);
+        recordingImage = findViewById(R.id.recording);
+        recordingImage.setVisibility(View.INVISIBLE);
 
         room368 = findViewById(R.id.room368);
         room369 = findViewById(R.id.room369);
@@ -59,7 +69,7 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 368!",false));
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 368!",false));
                 Robot.getInstance().goTo("simulation room 368");
             }
         });
@@ -68,7 +78,7 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 369!",false));
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 369!",false));
                 Robot.getInstance().goTo("simulation room 369");
             }
         });
@@ -77,7 +87,7 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 365!",false));
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 365!",false));
                 Robot.getInstance().goTo("simulation room 376");
             }
         });
@@ -86,7 +96,7 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 370!",false));
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 370!",false));
                 Robot.getInstance().goTo("control room 370");
             }
         });
@@ -95,7 +105,7 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 360!",false));
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 360!",false));
                 Robot.getInstance().goTo("medication room 360");
             }
         });
@@ -121,7 +131,7 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
     public void onCurrentPositionChanged(Position position) {
         if (updatePosition) {
             currentPosition = position;
-            Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
+            //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
         }
     }
 
@@ -147,10 +157,24 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
                 sRooms.setVisibility(View.INVISIBLE);
                 cRooms.setVisibility(View.INVISIBLE);
                 mRoom.setVisibility(View.INVISIBLE);
+                recordingImage.setVisibility(View.VISIBLE);
+                message.setText("For security and monitoring: \n" +
+                        "Recording in Progress. ");
+                message.setVisibility(View.VISIBLE);
                 break;
             case "complete":
                 if (currentPosition != null) {
+                    message.setVisibility(View.GONE);
+                    recordingImage.setVisibility(View.GONE);
                     Intent intent = new Intent(Zone2.this, ConfirmMessageActivity.class);
+
+                    if ("Food".equals(deliveryType)) {
+                        intent.putExtra("deliveryType", "Food");
+                    }
+                    else {
+                        intent.putExtra("deliveryType", "Medication");
+                    }
+                    intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());
                     intent.putExtra("positionYaw", currentPosition.getYaw());

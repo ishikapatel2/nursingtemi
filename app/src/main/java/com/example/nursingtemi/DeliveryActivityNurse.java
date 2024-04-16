@@ -69,7 +69,7 @@ public class DeliveryActivityNurse extends AppCompatActivity implements OnRobotR
         {
             Robot.getInstance().hideTopBar();
             Robot.getInstance().setVolume(3);
-            Robot.getInstance().speak(TtsRequest.create("Fill out this form to request an item", false));
+            Robot.getInstance().speak(TtsRequest.create("Please fill out this form to request a delivery", false));
         }
     }
 

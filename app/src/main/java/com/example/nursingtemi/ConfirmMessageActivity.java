@@ -22,6 +22,7 @@ public class ConfirmMessageActivity extends AppCompatActivity implements OnRobot
 
     private EditText name;
     private Button confirm;
+    private String patient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,6 +38,7 @@ public class ConfirmMessageActivity extends AppCompatActivity implements OnRobot
         int angle = getIntent().getIntExtra("positionTiltAngle", 0);
 
         String deliveryType = getIntent().getStringExtra("deliveryType");
+        patient = getIntent().getStringExtra("PatientName");
 
         Position previousLocation = new Position(x, y, yaw, angle);
 
@@ -60,7 +62,10 @@ public class ConfirmMessageActivity extends AppCompatActivity implements OnRobot
             Robot.getInstance().speak(TtsRequest.create("Knock knock, this is Temi. I am here with your food", false));
             message.setText("Please confirm you received your food by entering your full name below.");
             Robot.getInstance().speak(TtsRequest.create("Please confirm you received your food by entering your name below. Select confirm to continue.", false));
+            confirm.setVisibility(View.VISIBLE);
             name.setVisibility(View.VISIBLE);
+
+
         }
         else {
             Robot.getInstance().speak(TtsRequest.create("Knock knock, Temi here. Your order of is here.", false));
@@ -82,7 +87,8 @@ public class ConfirmMessageActivity extends AppCompatActivity implements OnRobot
         });
 
         confirm.setOnClickListener((v)-> {
-            if (!emptyCredentials(name)) {
+            String text = name.getText().toString();
+            if (!emptyCredentials(name) && text.equals(patient)) {
                 Robot.getInstance().speak(TtsRequest.create("Thank you. If you no longer need any more assistance, " +
                         "please send me back to my previous location. Enjoy your meal! ", false));
                 message.setText("Please click on one of the following options to send me back.");
@@ -91,6 +97,13 @@ public class ConfirmMessageActivity extends AppCompatActivity implements OnRobot
                 prevLoc.setVisibility(View.VISIBLE);
                 confirm.setVisibility(View.GONE);
             }
+            if (!text.equals(patient)) {
+                Robot.getInstance().speak(TtsRequest.create("This does not appear to be your order. Please send me back " +
+                        "to my previous location so the nurse can fix your order", false));
+                prevLoc.setVisibility(View.VISIBLE);
+            }
+
+
         });
 
         homeMenu.setOnClickListener((v)->{
@@ -118,7 +131,7 @@ public class ConfirmMessageActivity extends AppCompatActivity implements OnRobot
             return true;
         }
         return false;
-}
+    }
 
 
     @Override

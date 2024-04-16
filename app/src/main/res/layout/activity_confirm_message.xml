@@ -73,6 +73,7 @@
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="Confirm"
+        android:visibility="invisible"
         android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"

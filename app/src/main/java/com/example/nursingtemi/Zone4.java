@@ -29,6 +29,10 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
 
     private Position currentPosition;
     private boolean updatePosition = true;
+    private String deliveryType;
+    private String patient;
+    private TextView message;
+    private ImageView recordingImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,12 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zone4);
 
+        deliveryType = getIntent().getStringExtra("deliveryType");
+        patient = getIntent().getStringExtra("PatientName");
+        message = findViewById(R.id.textMessage);
+        message.setVisibility(View.INVISIBLE);
+        recordingImage = findViewById(R.id.recording);
+        recordingImage.setVisibility(View.INVISIBLE);
 
         room334 = findViewById(R.id.room334);
         sRooms = findViewById(R.id.sRooms);
@@ -50,7 +60,7 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to deliver your resource right now to room 334!",false));
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 334!",false));
                 Robot.getInstance().goTo("skills lab 334");
             }
         });
@@ -76,7 +86,7 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
     public void onCurrentPositionChanged(Position position) {
         if (updatePosition) {
             currentPosition = position;
-            Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
+            //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
         }
     }
 
@@ -96,10 +106,24 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
                 updatePosition = false;
                 room334.setVisibility(View.INVISIBLE);
                 sRooms.setVisibility(View.INVISIBLE);
+                recordingImage.setVisibility(View.VISIBLE);
+                message.setText("For security and monitoring: \n" +
+                        "Recording in Progress. ");
+                message.setVisibility(View.VISIBLE);
                 break;
             case "complete":
                 if (currentPosition != null) {
+                    message.setVisibility(View.GONE);
+                    recordingImage.setVisibility(View.GONE);
                     Intent intent = new Intent(Zone4.this, ConfirmMessageActivity.class);
+
+                    if ("Food".equals(deliveryType)) {
+                        intent.putExtra("deliveryType", "Food");
+                    }
+                    else {
+                        intent.putExtra("deliveryType", "Medication");
+                    }
+                    intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());
                     intent.putExtra("positionYaw", currentPosition.getYaw());
@@ -113,7 +137,7 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
                 break;
             case "abort":
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("I am experiencing problems.", false));
+                Robot.getInstance().speak(TtsRequest.create("Delivery suddenly canceled.", false));
                 break;
         }
     }
