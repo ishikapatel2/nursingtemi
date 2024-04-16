@@ -15,17 +15,21 @@ import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
+import com.robotemi.sdk.navigation.listener.OnCurrentPositionChangedListener;
+import com.robotemi.sdk.navigation.model.Position;
 
 import org.w3c.dom.Text;
 
 import java.util.Objects;
 
-public class TourActivity extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener {
+public class TourActivity extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener {
 
     private int curLoc;
     private TextView description;
     private TextView locationName;
     private TextView locationText;
+    private Position currentPosition;
+
     private final TourLocation[] locations = {
             new TourLocation("debriefing 372", "This is one of three of our " +
                     "debriefing rooms. It is a comfortable safe space to observe other " +
@@ -76,6 +80,13 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_tour);
 
+        // Reconstruct the Position object (as previously described)
+        float x = getIntent().getFloatExtra("positionX", 0.0f);
+        float y = getIntent().getFloatExtra("positionY", 0.0f);
+        float yaw = getIntent().getFloatExtra("positionYaw", 0.0f);
+        int angle = getIntent().getIntExtra("positionTiltAngle", 0);
+        currentPosition = new Position(x, y, yaw, angle);
+
         curLoc = 0;
         description = findViewById(R.id.description);
         locationName = findViewById(R.id.locationName);
@@ -109,6 +120,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
         super.onStart();
         Robot.getInstance().addOnRobotReadyListener(this);
         Robot.getInstance().addOnGoToLocationStatusChangedListener(this);
+        Robot.getInstance().addOnCurrentPositionChangedListener(this);
 
     }
 
@@ -117,6 +129,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
         super.onStop();
         Robot.getInstance().removeOnRobotReadyListener(this);
         Robot.getInstance().removeOnGoToLocationStatusChangedListener(this);
+        Robot.getInstance().removeOnCurrentPositionChangedListener(this);
     }
 
     @Override
@@ -129,6 +142,13 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
             description.setTextSize(90);
             Robot.getInstance().speak(TtsRequest.create("Let's take a tour! Please click continue, then follow me around the premises.", false));
         }
+    }
+
+    @Override
+    public void onCurrentPositionChanged(Position position) {
+        currentPosition = position;
+        //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
+
     }
 
     @Override
@@ -151,9 +171,14 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
                 curLoc++;
 
 
-                if (curLoc > locations.length) {
-                    Intent obj = new Intent(this, MainActivity.class);
-                    startActivity(obj);
+                if (curLoc >= locations.length) {
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.putExtra("positionX", currentPosition.getX());
+                    intent.putExtra("positionY", currentPosition.getY());
+                    intent.putExtra("positionYaw", currentPosition.getYaw());
+                    intent.putExtra("positionTiltAngle", currentPosition.getTiltAngle());
+
+                    startActivity(intent);
                     break;
                 }
                 else {

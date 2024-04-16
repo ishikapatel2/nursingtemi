@@ -12,16 +12,29 @@ import android.widget.Button;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
+import com.robotemi.sdk.navigation.listener.OnCurrentPositionChangedListener;
+import com.robotemi.sdk.navigation.model.Position;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements OnRobotReadyListener {
+public class MainActivity extends AppCompatActivity implements OnRobotReadyListener, OnCurrentPositionChangedListener {
     private static int count = 0;
+    private Position currentPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
+
+        // Reconstruct the Position object (as previously described)
+        float x = getIntent().getFloatExtra("positionX", 0.0f);
+        float y = getIntent().getFloatExtra("positionY", 0.0f);
+        float yaw = getIntent().getFloatExtra("positionYaw", 0.0f);
+        int angle = getIntent().getIntExtra("positionTiltAngle", 0);
+        currentPosition = new Position(x, y, yaw, angle);
+
+
 
         // tour
         Button tourButton = findViewById(R.id.tourButton);
@@ -103,15 +116,35 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         });
     }
 
+    @Override
+    public void onCurrentPositionChanged(Position position) {
+        currentPosition = position;
+        //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
+
+    }
+
     public void openActivity(Class a){
-        Intent obj = new Intent(this,a);
-        startActivity(obj);
+        Intent intent = new Intent(this,a);
+        intent.putExtra("positionX", currentPosition.getX());
+        intent.putExtra("positionY", currentPosition.getY());
+        intent.putExtra("positionYaw", currentPosition.getYaw());
+        intent.putExtra("positionTiltAngle", currentPosition.getTiltAngle());
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Robot.getInstance().addOnRobotReadyListener(this);
+        Robot.getInstance().addOnCurrentPositionChangedListener(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Robot.getInstance().removeOnRobotReadyListener(this);
+        Robot.getInstance().removeOnCurrentPositionChangedListener(this);
+
     }
 
     @Override

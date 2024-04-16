@@ -15,13 +15,16 @@ import com.robotemi.sdk.UserInfo;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 import com.robotemi.sdk.listeners.OnTelepresenceEventChangedListener;
 import com.robotemi.sdk.model.CallEventModel;
+import com.robotemi.sdk.navigation.listener.OnCurrentPositionChangedListener;
+import com.robotemi.sdk.navigation.model.Position;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CallActivity extends AppCompatActivity implements OnRobotReadyListener, ContactsAdapter.OnItemClickListener, OnTelepresenceEventChangedListener {
+public class CallActivity extends AppCompatActivity implements OnRobotReadyListener, ContactsAdapter.OnItemClickListener, OnTelepresenceEventChangedListener, OnCurrentPositionChangedListener {
 
     RecyclerView contactsList;
+    private Position currentPosition = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,7 @@ public class CallActivity extends AppCompatActivity implements OnRobotReadyListe
         super.onStart();
         Robot.getInstance().addOnRobotReadyListener(this);
         Robot.getInstance().addOnTelepresenceEventChangedListener(this);
+        Robot.getInstance().addOnCurrentPositionChangedListener(this);
     }
 
     @Override
@@ -71,11 +75,18 @@ public class CallActivity extends AppCompatActivity implements OnRobotReadyListe
         super.onStop();
         Robot.getInstance().removeOnRobotReadyListener(this);
         Robot.getInstance().removeOnTelepresenceEventChangedListener(this);
+        Robot.getInstance().removeOnCurrentPositionChangedListener(this);
     }
 
     @Override
     public void onRobotReady(boolean b) {
 
+    }
+
+    @Override
+    public void onCurrentPositionChanged(Position position) {
+        currentPosition = position;
+        //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
     }
 
     @Override

@@ -44,8 +44,19 @@ public class BeginningActivity extends AppCompatActivity implements OnRobotReady
     }
 
    public void loadActivity(Class a){
-       Intent obj = new Intent(this,a);
-       startActivity(obj);
+       Intent intent = new Intent(this,a);
+       if (currentPosition == null) {
+           intent.putExtra("positionY", 0.0f);
+           intent.putExtra("positionYaw", 0.0f);
+           intent.putExtra("positionTiltAngle", 0.0f);
+           intent.putExtra("positionTiltAngle", 0);      }
+       else {
+           intent.putExtra("positionX", currentPosition.getX());
+           intent.putExtra("positionY", currentPosition.getY());
+           intent.putExtra("positionYaw", currentPosition.getYaw());
+           intent.putExtra("positionTiltAngle", currentPosition.getTiltAngle());
+       }
+       startActivity(intent);
    }
 
     @Override
