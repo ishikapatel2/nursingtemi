@@ -1,8 +1,5 @@
 package com.example.nursingtemi;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
@@ -20,13 +19,10 @@ import com.robotemi.sdk.navigation.model.Position;
 
 import java.util.Objects;
 
-public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener {
+public class Zone9 extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener {
 
-    private Button room368;
-    private Button room367;
-    private TextView cRooms;
-    private TextView sRooms;
-
+    private Button room351;
+    private TextView lab;
     private Position currentPosition;
     private boolean updatePosition = true;
 
@@ -37,9 +33,10 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         Objects.requireNonNull(getSupportActionBar()).hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zone3);
+        setContentView(R.layout.activity_zone9);
 
         deliveryType = getIntent().getStringExtra("deliveryType");
         patient = getIntent().getStringExtra("PatientName");
@@ -48,33 +45,22 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
         recordingImage = findViewById(R.id.recording);
         recordingImage.setVisibility(View.INVISIBLE);
 
-        room368 = findViewById(R.id.room368);
-        room367 = findViewById(R.id.room367);
-        cRooms = findViewById(R.id.cRooms);
-        sRooms = findViewById(R.id.sRooms);
+        room351 = findViewById(R.id.room351);
+        lab = findViewById(R.id.lab);
+
+        room351.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updatePosition = true;
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 351!",false));
+                Robot.getInstance().goTo("skills lab 351");
+            }
+        });
 
         ImageView backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener((v) ->{
             Intent obj = new Intent(this, DeliveryContinuationActivity.class);
             startActivity(obj);
-        });
-
-        room368.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 368!",false));
-                Robot.getInstance().goTo("simulation room 368");
-            }
-        });
-
-        room367.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 367!",false));
-                Robot.getInstance().goTo("control room 367");
-            }
         });
     }
 
@@ -84,7 +70,6 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
         Robot.getInstance().addOnRobotReadyListener(this);
         Robot.getInstance().addOnGoToLocationStatusChangedListener(this);
         Robot.getInstance().addOnCurrentPositionChangedListener(this);
-
     }
 
     @Override
@@ -92,6 +77,14 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
         super.onStop();
         Robot.getInstance().removeOnRobotReadyListener(this);
         Robot.getInstance().removeOnGoToLocationStatusChangedListener(this);
+    }
+
+    @Override
+    public void onCurrentPositionChanged(Position position) {
+        if (updatePosition) {
+            currentPosition = position;
+            //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
+        }
     }
 
     @Override
@@ -108,10 +101,8 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
         switch (status) {
             case "going":
                 updatePosition = false;
-                room368.setVisibility(View.INVISIBLE);
-                room367.setVisibility(View.INVISIBLE);
-                sRooms.setVisibility(View.INVISIBLE);
-                cRooms.setVisibility(View.INVISIBLE);
+                room351.setVisibility(View.INVISIBLE);
+                lab.setVisibility(View.INVISIBLE);
                 recordingImage.setVisibility(View.VISIBLE);
                 message.setText("For security and monitoring: \n" +
                         "Recording in Progress. ");
@@ -121,7 +112,8 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
                 if (currentPosition != null) {
                     message.setVisibility(View.GONE);
                     recordingImage.setVisibility(View.GONE);
-                    Intent intent = new Intent(Zone3.this, ConfirmMessageActivity.class);
+                    Robot.getInstance().speak(TtsRequest.create("I have arrived with your order", false));
+                    Intent intent = new Intent(Zone9.this, ConfirmMessageActivity.class);
 
                     if ("Food".equals(deliveryType)) {
                         intent.putExtra("deliveryType", "Food");
@@ -137,23 +129,14 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
                     startActivity(intent);
                 }
                 else {
-                    Log.e("Zone3", "Current position is null");
+                    Log.e("Zone6", "Current position is null");
                 }
                 updatePosition = true;
                 break;
-
             case "abort":
                 updatePosition = true;
                 Robot.getInstance().speak(TtsRequest.create("I am experiencing problems.", false));
                 break;
-        }
-    }
-
-    @Override
-    public void onCurrentPositionChanged(Position position) {
-        if (updatePosition) {
-            currentPosition = position;
-            //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
         }
     }
 }

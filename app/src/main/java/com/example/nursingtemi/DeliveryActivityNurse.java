@@ -24,8 +24,6 @@ public class DeliveryActivityNurse extends AppCompatActivity implements OnRobotR
         setContentView(R.layout.activity_delivery_nurse);
 
         Button confirmButton = findViewById(R.id.confirm_button);
-        EditText item = findViewById(R.id.item);
-        EditText quantity = findViewById(R.id.quantity);
         ImageView backButton = findViewById(R.id.backButton);
 
         backButton.setOnClickListener((v) ->
@@ -37,12 +35,20 @@ public class DeliveryActivityNurse extends AppCompatActivity implements OnRobotR
         // when the confirm button is pressed
         confirmButton.setOnClickListener((v) ->
         {
+
+            EditText sender = findViewById(R.id.sender);
+            EditText item = findViewById(R.id.item);
+            EditText quantity = findViewById(R.id.quantity);
+
             // makes sure all information has been given before confirming delivery
             if (!emptyCredentials(item,quantity))
             {
                 DeliveryItem deliveryItem = new DeliveryItem(item.getText().toString(),quantity.getText().toString());
                 Intent obj = new Intent(this,DeliveryContinuationActivityNurse.class);
-                obj.putExtra("item", deliveryItem);
+                obj.putExtra("temp", deliveryItem);
+                obj.putExtra("item", item.getText().toString());
+                obj.putExtra("quantity", quantity.getText().toString());
+                obj.putExtra("sender", sender.getText().toString());
                 startActivity(obj);
             }
         });

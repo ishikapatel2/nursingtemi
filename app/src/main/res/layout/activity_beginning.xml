@@ -11,13 +11,14 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="762dp"
-        android:layout_height="345dp"
-        android:fontFamily="@font/chewy"
+        android:layout_width="855dp"
+        android:layout_height="331dp"
+        android:fontFamily="@font/sulphur_point_bold"
         android:gravity="center_horizontal"
         android:text="@string/welcome"
         android:textColor="@color/white"
         android:textSize="80sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,18 +27,19 @@
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="246dp"
-        android:layout_height="79dp"
+        android:layout_width="278dp"
+        android:layout_height="100dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/sulphur_point_bold"
         android:text="@string/start"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.882" />
 
     <ImageView
         android:id="@+id/logo"

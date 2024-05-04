@@ -7,8 +7,44 @@
     android:background="#0C234B"
     tools:context=".SafetyProcedures">
 
+    <Button
+        android:id="@+id/map"
+        android:layout_width="365dp"
+        android:layout_height="218dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/acme"
+        android:text="Map"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.302" />
+
+    <Button
+        android:id="@+id/nav"
+        android:layout_width="365dp"
+        android:layout_height="218dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/acme"
+        android:text="Navigation Assistance"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.773"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303" />
+
     <ImageView
-        android:id="@+id/backButton4"
+        android:id="@+id/backButton"
         android:layout_width="150dp"
         android:layout_height="73dp"
         app:srcCompat="@drawable/arrow"
@@ -18,35 +54,35 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/chewy"
-        android:text="Safety Procedures"
-        android:textColor="@color/white"
-        android:textSize="40dp"
+        android:layout_width="401dp"
+        android:layout_height="79dp"
+        android:fontFamily="@font/acme"
+        android:text="To view a map of all emergency features and their locations"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.522" />
 
-    <Button
-        android:id="@+id/pdfButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Management Procedures"
-        android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="389dp"
+        android:layout_height="80dp"
+        android:fontFamily="@font/acme"
+        android:text="Get help navigating to nearest emergency feature"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintHorizontal_bias="0.788"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.526" />
+        app:layout_constraintVertical_bias="0.521" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

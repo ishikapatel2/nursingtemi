@@ -40,14 +40,20 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
 
         Spinner spinner = findViewById(R.id.spin);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
-
-        adapter.add(" Select which zone you would like to deliver");
+        if (deliveryType.equals("Nurse")) {
+            adapter.add("Please click the room you are currently in.");
+        }
+        adapter.add(" Click here to select a zone from this drop down menu");
         adapter.add(" Zone 1");
         adapter.add(" Zone 2");
         adapter.add(" Zone 3");
         adapter.add(" Zone 4");
         adapter.add(" Zone 5");
         adapter.add(" Zone 6");
+        adapter.add(" Zone 7");
+        adapter.add(" Zone 8");
+        adapter.add(" Zone 9");
+        adapter.add(" Zone 10");
         spinner.setAdapter(adapter);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -66,7 +72,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                         object.putExtra("deliveryType", "Food");
                     }
                     else {
-                        object.putExtra("deliveryType", "Medication");
+                        object.putExtra("deliveryType", deliveryType);
                     }
                     String patientName = getIntent().getStringExtra("PatientName");
                     object.putExtra("PatientName", patientName);
@@ -78,7 +84,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                         object.putExtra("deliveryType", "Food");
                     }
                     else {
-                        object.putExtra("deliveryType", "Medication");
+                        object.putExtra("deliveryType", deliveryType);
                     }
                     String patientName = getIntent().getStringExtra("PatientName");
                     object.putExtra("PatientName", patientName);
@@ -90,7 +96,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                         object.putExtra("deliveryType", "Food");
                     }
                     else {
-                        object.putExtra("deliveryType", "Medication");
+                        object.putExtra("deliveryType", deliveryType);
                     }
                     String patientName = getIntent().getStringExtra("PatientName");
                     object.putExtra("PatientName", patientName);
@@ -102,7 +108,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                         object.putExtra("deliveryType", "Food");
                     }
                     else {
-                        object.putExtra("deliveryType", "Medication");
+                        object.putExtra("deliveryType", deliveryType);
                     }
                     String patientName = getIntent().getStringExtra("PatientName");
                     object.putExtra("PatientName", patientName);
@@ -114,7 +120,7 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                         object.putExtra("deliveryType", "Food");
                     }
                     else {
-                        object.putExtra("deliveryType", "Medication");
+                        object.putExtra("deliveryType", deliveryType);
                     }
                     String patientName = getIntent().getStringExtra("PatientName");
                     object.putExtra("PatientName", patientName);
@@ -126,7 +132,55 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
                         object.putExtra("deliveryType", "Food");
                     }
                     else {
-                        object.putExtra("deliveryType", "Medication");
+                        object.putExtra("deliveryType", deliveryType);
+                    }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
+                    startActivity(object);
+                }
+                if (zone == " Zone 7") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone7.class);
+                    if ("Food".equals(deliveryType)) {
+                        object.putExtra("deliveryType", "Food");
+                    }
+                    else {
+                        object.putExtra("deliveryType", deliveryType);
+                    }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
+                    startActivity(object);
+                }
+                if (zone == " Zone 8") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone8.class);
+                    if ("Food".equals(deliveryType)) {
+                        object.putExtra("deliveryType", "Food");
+                    }
+                    else {
+                        object.putExtra("deliveryType", deliveryType);
+                    }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
+                    startActivity(object);
+                }
+                if (zone == " Zone 9") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone9.class);
+                    if ("Food".equals(deliveryType)) {
+                        object.putExtra("deliveryType", "Food");
+                    }
+                    else {
+                        object.putExtra("deliveryType", deliveryType);
+                    }
+                    String patientName = getIntent().getStringExtra("PatientName");
+                    object.putExtra("PatientName", patientName);
+                    startActivity(object);
+                }
+                if (zone == " Zone 10") {
+                    Intent object = new Intent(DeliveryContinuationActivity.this, Zone10.class);
+                    if ("Food".equals(deliveryType)) {
+                        object.putExtra("deliveryType", "Food");
+                    }
+                    else {
+                        object.putExtra("deliveryType", deliveryType);
                     }
                     String patientName = getIntent().getStringExtra("PatientName");
                     object.putExtra("PatientName", patientName);

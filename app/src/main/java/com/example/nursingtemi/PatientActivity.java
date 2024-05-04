@@ -42,6 +42,13 @@ public class PatientActivity extends AppCompatActivity implements OnRobotReadyLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
 
+        // Reconstruct the Position object (as previously described)
+        float x = getIntent().getFloatExtra("positionX", 0.0f);
+        float y = getIntent().getFloatExtra("positionY", 0.0f);
+        float yaw = getIntent().getFloatExtra("positionYaw", 0.0f);
+        int angle = getIntent().getIntExtra("positionTiltAngle", 0);
+        currentPosition = new Position(x, y, yaw, angle);
+
         intent = new Intent(PatientActivity.this, PatientAssistance.class);
 
         ImageView backButton = findViewById(R.id.backButton);
@@ -58,8 +65,6 @@ public class PatientActivity extends AppCompatActivity implements OnRobotReadyLi
         call = findViewById(R.id.call);
         caption = findViewById(R.id.caption);
         updatePosition = true;
-
-        Robot.getInstance().speak(TtsRequest.create("Before you click on one of the buttons, please tap on my head to move me around.", false));
 
         food.setOnClickListener((v) ->
         {

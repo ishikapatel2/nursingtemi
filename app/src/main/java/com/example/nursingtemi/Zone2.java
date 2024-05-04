@@ -21,13 +21,10 @@ import java.util.Objects;
 
 public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener{
 
-    private Button room368;
     private Button room369;
-    private Button room376;
     private Button room370;
-    private Button room360;
+    private Button room371;
     private TextView cRooms;
-    private TextView mRoom;
     private TextView sRooms;
     private String deliveryType;
     private String patient;
@@ -50,28 +47,16 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
         recordingImage = findViewById(R.id.recording);
         recordingImage.setVisibility(View.INVISIBLE);
 
-        room368 = findViewById(R.id.room368);
         room369 = findViewById(R.id.room369);
-        room376 = findViewById(R.id.room376);
         room370 = findViewById(R.id.room370);
-        room360 = findViewById(R.id.room360);
+        room371 = findViewById(R.id.room371);
         cRooms = findViewById(R.id.cRooms);
         sRooms = findViewById(R.id.sRooms);
-        mRoom = findViewById(R.id.mRoom);
 
         ImageView backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener((v) ->{
             Intent obj = new Intent(this, DeliveryContinuationActivity.class);
             startActivity(obj);
-        });
-
-        room368.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 368!",false));
-                Robot.getInstance().goTo("simulation room 368");
-            }
         });
 
         room369.setOnClickListener(new View.OnClickListener() {
@@ -80,15 +65,6 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
                 updatePosition = true;
                 Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 369!",false));
                 Robot.getInstance().goTo("simulation room 369");
-            }
-        });
-
-        room376.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 365!",false));
-                Robot.getInstance().goTo("simulation room 376");
             }
         });
 
@@ -101,15 +77,14 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
             }
         });
 
-        room360.setOnClickListener(new View.OnClickListener() {
+        room371.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 360!",false));
-                Robot.getInstance().goTo("medication room 360");
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 371!",false));
+                Robot.getInstance().goTo("simulation room 371");
             }
         });
-
     }
 
     @Override
@@ -149,14 +124,11 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
         switch (status) {
             case "going":
                 updatePosition = false;
-                room368.setVisibility(View.INVISIBLE);
                 room369.setVisibility(View.INVISIBLE);
-                room376.setVisibility(View.INVISIBLE);
                 room370.setVisibility(View.INVISIBLE);
-                room360.setVisibility(View.INVISIBLE);
+                room371.setVisibility(View.INVISIBLE);
                 sRooms.setVisibility(View.INVISIBLE);
                 cRooms.setVisibility(View.INVISIBLE);
-                mRoom.setVisibility(View.INVISIBLE);
                 recordingImage.setVisibility(View.VISIBLE);
                 message.setText("For security and monitoring: \n" +
                         "Recording in Progress. ");
@@ -192,8 +164,4 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
                 break;
         }
     }
-
-
-
-
 }

@@ -8,29 +8,133 @@
     tools:context=".ConfirmMessageActivityNurse">
 
     <TextView
+        android:id="@+id/senderName"
+        android:layout_width="wrap_content"
+        android:layout_height="139dp"
+        android:fontFamily="@font/acme"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.309" />
+
+    <TextView
+        android:id="@+id/labelNurse"
+        android:layout_width="688dp"
+        android:layout_height="139dp"
+        android:fontFamily="@font/acme"
+        android:text="Nurse: "
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.309" />
+
+    <TextView
+        android:id="@+id/itemlabel"
+        android:layout_width="688dp"
+        android:layout_height="139dp"
+        android:fontFamily="@font/acme"
+        android:text="Item Requested"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
+
+    <TextView
+        android:id="@+id/quantitylabel"
+        android:layout_width="688dp"
+        android:layout_height="139dp"
+        android:fontFamily="@font/acme"
+        android:text="Quantity Requested"
+        android:textColor="#FFF9F9"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.581" />
+
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="139dp"
+        android:fontFamily="@font/acme"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
+
+    <TextView
+        android:id="@+id/quantityAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="139dp"
+        android:fontFamily="@font/acme"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.581" />
+
+    <ImageView
+        android:id="@+id/recording"
+        android:layout_width="374dp"
+        android:layout_height="264dp"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:src="@drawable/recimg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
         android:id="@+id/textMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/anton"
         android:text=""
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="50dp"
+        android:textSize="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.167" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/homeBase"
-        android:layout_width="360dp"
-        android:layout_height="160dp"
+        android:layout_width="424dp"
+        android:layout_height="176dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
-        android:text="Home Base"
+        android:fontFamily="@font/acme"
+        android:text="Home   Base"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
@@ -40,34 +144,35 @@
 
     <Button
         android:id="@+id/homeMenu"
-        android:layout_width="360dp"
-        android:layout_height="160dp"
+        android:layout_width="424dp"
+        android:layout_height="176dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
-        android:text="Cancel Order"
+        android:fontFamily="@font/acme"
+        android:text="Cancel   Order"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.787"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.726" />
+        app:layout_constraintVertical_bias="0.761" />
 
     <Button
         android:id="@+id/prevLoc"
-        android:layout_width="360dp"
-        android:layout_height="160dp"
+        android:layout_width="424dp"
+        android:layout_height="176dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
-        android:text="Return to Previous Location"
+        android:fontFamily="@font/acme"
+        android:text="Make   Delivery"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.726" />
+        app:layout_constraintVertical_bias="0.761" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

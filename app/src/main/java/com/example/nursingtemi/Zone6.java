@@ -24,9 +24,11 @@ import java.util.Objects;
 
 public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener {
 
-    private Button room301;
-    private Button room302;
-    private TextView llab;
+    private Button room366;
+    private Button room365;
+    private Button room364;
+    private TextView sRooms;
+    private TextView cRooms;
 
     private Position currentPosition;
     private boolean updatePosition = true;
@@ -50,25 +52,36 @@ public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, On
         recordingImage = findViewById(R.id.recording);
         recordingImage.setVisibility(View.INVISIBLE);
 
-        room301 = findViewById(R.id.room301);
-        room302 = findViewById(R.id.room302);
-        llab = findViewById(R.id.llab);
+        room364 = findViewById(R.id.room364);
+        room365 = findViewById(R.id.room365);
+        room366 = findViewById(R.id.room366);
+        sRooms = findViewById(R.id.sRooms);
+        cRooms = findViewById(R.id.cRooms);
 
-        room301.setOnClickListener(new View.OnClickListener() {
+        room364.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 301!",false));
-                Robot.getInstance().goTo("learning lab 301");
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 364!",false));
+                Robot.getInstance().goTo("simulation room 364");
             }
         });
 
-        room302.setOnClickListener(new View.OnClickListener() {
+        room365.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 302!",false));
-                Robot.getInstance().goTo("learning lab 302");
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 365!",false));
+                Robot.getInstance().goTo("control room 365");
+            }
+        });
+
+        room366.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updatePosition = true;
+                Robot.getInstance().speak(TtsRequest.create("Alrighty. I am about to make a delivery to room 366!",false));
+                Robot.getInstance().goTo("simulation room 366");
             }
         });
 
@@ -116,9 +129,11 @@ public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, On
         switch (status) {
             case "going":
                 updatePosition = false;
-                room301.setVisibility(View.INVISIBLE);
-                room302.setVisibility(View.INVISIBLE);
-                llab.setVisibility(View.INVISIBLE);
+                room364.setVisibility(View.INVISIBLE);
+                room365.setVisibility(View.INVISIBLE);
+                room366.setVisibility(View.INVISIBLE);
+                sRooms.setVisibility(View.INVISIBLE);
+                cRooms.setVisibility(View.INVISIBLE);
                 recordingImage.setVisibility(View.VISIBLE);
                 message.setText("For security and monitoring: \n" +
                         "Recording in Progress. ");

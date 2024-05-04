@@ -33,8 +33,6 @@ public class StaffActivity extends AppCompatActivity{
             startActivity(obj);
         });
 
-
-
         // selecting delivery
         delivery.setOnClickListener((v) -> {
             delivery.setVisibility(View.GONE);
@@ -65,14 +63,11 @@ public class StaffActivity extends AppCompatActivity{
             startActivity(obj);
         });
 
-
-
         // selecting vitals
         vitals.setOnClickListener((v) -> {
             Intent obj = new Intent(this, Vitals.class);
             startActivity(obj);
         });
-
 
         backButton.setOnClickListener((v) -> {
             Intent obj = new Intent(this, MainActivity.class);

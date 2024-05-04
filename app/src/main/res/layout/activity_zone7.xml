@@ -5,9 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0C234B"
-    tools:context=".Zone3">
+    tools:context=".Zone6">
 
-
+    <Button
+        android:id="@+id/room334"
+        android:layout_width="494dp"
+        android:layout_height="92dp"
+        android:background="#FEFEFE"
+        android:fontFamily="sans-serif-black"
+        android:text="334"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.391"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/recording"
@@ -37,42 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/room368"
-        android:layout_width="494dp"
-        android:layout_height="92dp"
-        android:background="#FEFEFE"
-        android:fontFamily="sans-serif-black"
-        android:text="368"
-        android:textColor="#AA0620"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room367"
-        android:layout_width="494dp"
-        android:layout_height="92dp"
-        android:background="#FEFEFE"
-        android:fontFamily="sans-serif-black"
-        android:text="367"
-        android:textColor="#AA0620"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.734"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388"
-        tools:ignore="MissingConstraints" />
-
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="150dp"
@@ -83,37 +63,20 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <Button
-        android:id="@+id/sRooms"
+        android:id="@+id/lab"
         android:layout_width="496dp"
         android:layout_height="146dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Simulation Rooms"
+        android:text="Skills Lab"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.194" />
-
-    <Button
-        android:id="@+id/cRooms"
-        android:layout_width="496dp"
-        android:layout_height="146dp"
-        android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
-        android:text="Control Rooms"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.736"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintVertical_bias="0.191" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

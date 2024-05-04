@@ -35,222 +35,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <Button
-        android:id="@+id/room331"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="331"
-        android:textColor="#AA0620"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.888"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room327"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="327"
-        android:textColor="#AA0620"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.697"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room323"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="323"
-        android:textColor="#A80621"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room325"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="325"
-        android:textColor="#A80621"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room324"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="324"
-        android:textColor="#A80621"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room329"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
+        android:id="@+id/room363"
+        android:layout_width="494dp"
+        android:layout_height="92dp"
         android:background="#FEFEFE"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="329"
+        android:fontFamily="sans-serif-black"
+        android:text="363"
         android:textColor="#AA0620"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room322"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FEFEFE"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="322"
-        android:textColor="#AA0620"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room333"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="333"
-        android:textColor="#AA0620"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room330"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="330"
-        android:textColor="#AA0620"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.443"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room328"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="328"
-        android:textColor="#AA0620"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.794"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/room326"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="326"
-        android:textColor="#AA0620"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/llounge"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
-        android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
-        android:text="Lavender Lounge"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.187"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintVertical_bias="0.448"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/center"
+        android:layout_width="494dp"
+        android:layout_height="92dp"
+        android:background="#FEFEFE"
+        android:fontFamily="sans-serif-black"
+        android:text="front desk"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/backButton"
@@ -261,40 +80,41 @@
         tools:layout_editor_absoluteX="-19dp"
         tools:layout_editor_absoluteY="16dp" />
 
-    <TextView
-        android:id="@+id/wRoom"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
+    <Button
+        android:id="@+id/simOffice"
+        android:layout_width="496dp"
+        android:layout_height="146dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Workroom/XR"
+        android:text="Simulation Office"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.194" />
 
-    <TextView
-        android:id="@+id/offices"
-        android:layout_width="361dp"
-        android:layout_height="56dp"
+    <Button
+        android:id="@+id/nstation"
+        android:layout_width="496dp"
+        android:layout_height="146dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Offices"
+        android:text="Nurse's Station"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.742"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintVertical_bias="0.194" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

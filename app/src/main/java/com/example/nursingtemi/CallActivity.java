@@ -43,7 +43,7 @@ public class CallActivity extends AppCompatActivity implements OnRobotReadyListe
         ArrayList<UserInfo> contacts = new ArrayList<UserInfo>();
 
         for (UserInfo user : allUsers) {
-            if (user.getName().equals("Hintonje")) {
+            if (user.getName().equals("SIMSRESEARCH")) {
                 contacts.add(user);
 
             }

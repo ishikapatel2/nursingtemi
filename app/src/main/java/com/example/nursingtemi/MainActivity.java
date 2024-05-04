@@ -34,10 +34,9 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         int angle = getIntent().getIntExtra("positionTiltAngle", 0);
         currentPosition = new Position(x, y, yaw, angle);
 
-
-
         // tour
         Button tourButton = findViewById(R.id.tourButton);
+
 
         Drawable originalDrawable = getResources().getDrawable(R.drawable.tour_icon);
         Bitmap originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();

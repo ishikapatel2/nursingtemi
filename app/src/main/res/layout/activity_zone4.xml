@@ -45,39 +45,73 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/room334"
-        android:layout_width="440dp"
-        android:layout_height="65dp"
+        android:id="@+id/room376"
+        android:layout_width="494dp"
+        android:layout_height="92dp"
         android:background="#FEFEFE"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="334"
+        android:fontFamily="sans-serif-black"
+        android:text="376"
         android:textColor="#AA0620"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.356"
+        app:layout_constraintVertical_bias="0.396"
         tools:ignore="MissingConstraints" />
 
-    <TextView
+    <Button
+        android:id="@+id/room375"
+        android:layout_width="494dp"
+        android:layout_height="92dp"
+        android:background="#FEFEFE"
+        android:fontFamily="sans-serif-black"
+        android:text="375"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.741"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.395"
+        tools:ignore="MissingConstraints" />
+
+    <Button
         android:id="@+id/sRooms"
-        android:layout_width="443dp"
-        android:layout_height="61dp"
+        android:layout_width="496dp"
+        android:layout_height="146dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="Simulation Rooms"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.246" />
+        app:layout_constraintVertical_bias="0.194" />
+
+    <Button
+        android:id="@+id/cRooms"
+        android:layout_width="496dp"
+        android:layout_height="146dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/chewy"
+        android:text="Control Rooms"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.742"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

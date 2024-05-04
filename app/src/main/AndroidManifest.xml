@@ -63,13 +63,38 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".PDFView"
-            android:exported="false" />
-        <activity
             android:name=".SafetyProcedures"
             android:exported="false" />
         <activity
             android:name=".Zone6"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Zone10"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Zone9"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Zone8"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Zone7"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -116,13 +141,6 @@
         <activity
             android:name=".PatientActivity"
             android:exported="false" />
-        <activity
-            android:name=".Testing"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
 
         <meta-data
             android:name="com.robotemi.sdk.metadata.SKILL"
