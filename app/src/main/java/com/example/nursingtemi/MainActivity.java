@@ -1,6 +1,8 @@
 package com.example.nursingtemi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         Button tourButton = findViewById(R.id.tourButton);
 
 
-        Drawable originalDrawable = getResources().getDrawable(R.drawable.tour_icon);
+        Drawable originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.tour_icon);
         Bitmap originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
 
         int width = 120;
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         // safety
         Button safetyButton = findViewById(R.id.safetyButton);
 
-        originalDrawable = getResources().getDrawable(R.drawable.emergency_icon);
+        originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.emergency_icon);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
 
         resizedBitmap = Bitmap.createScaledBitmap(originalBitmap, width, height, false);
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         safetyButton.setOnClickListener((v) -> openActivity(SafetyProcedures.class));
 
         Button patientButton = findViewById(R.id.patients);
-        originalDrawable = getResources().getDrawable(R.drawable.patient);
+        originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.patient);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
         width = 130;
         height = 130;
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         // staff
         Button staffButton = findViewById(R.id.staffButton);
 
-        originalDrawable = getResources().getDrawable(R.drawable.staff_icon);
+        originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.staff_icon);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
         resizedBitmap = Bitmap.createScaledBitmap(originalBitmap, width, height, false);
         resizedDrawable = new BitmapDrawable(getResources(), resizedBitmap);
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         // survey
         Button surveyButton = findViewById(R.id.surveyButton);
 
-        originalDrawable = getResources().getDrawable(R.drawable.survey);
+        originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.survey);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
 
         resizedBitmap = Bitmap.createScaledBitmap(originalBitmap, width, height, false);
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         Button exitButton = findViewById(R.id.exitButton);
 
 
-        originalDrawable = getResources().getDrawable(R.drawable.exit_icon);
+        originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.exit_icon);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
         resizedBitmap = Bitmap.createScaledBitmap(originalBitmap, width, height, false);
         resizedDrawable = new BitmapDrawable(getResources(), resizedBitmap);

@@ -8,6 +8,35 @@
     tools:context=".ConfirmMessageActivity">
 
     <ImageView
+        android:id="@+id/recording"
+        android:layout_width="374dp"
+        android:layout_height="264dp"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:src="@drawable/recimg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/goMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anton"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/fingerprintScanner"
         android:layout_width="179dp"
         android:layout_height="198dp"
@@ -22,7 +51,7 @@
 
     <TextView
         android:id="@+id/textMessage"
-        android:layout_width="wrap_content"
+        android:layout_width="1250dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/chewy"
         android:text=""
@@ -41,7 +70,7 @@
         android:layout_height="160dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Return to Pharmacy"
+        android:text="Home Base"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,9 +91,10 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946" />
+        app:layout_constraintVertical_bias="0.725" />
 
     <Button
         android:id="@+id/confirm_button"
@@ -73,14 +103,15 @@
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
         android:text="Confirm"
-        android:visibility="invisible"
         android:textColor="@color/white"
         android:textSize="40sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/prevLoc"
@@ -88,16 +119,15 @@
         android:layout_height="160dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/chewy"
-        android:text="Return to Previous Location"
+        android:text="Return to Nurse"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+        app:layout_constraintVertical_bias="0.946" />
 
     <EditText
         android:id="@+id/name"
@@ -114,6 +144,8 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 </androidx.constraintlayout.widget.ConstraintLayout>

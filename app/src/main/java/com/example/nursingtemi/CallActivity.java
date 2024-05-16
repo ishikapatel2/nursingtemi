@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.UserInfo;
 
+import com.robotemi.sdk.constants.Platform;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
 import com.robotemi.sdk.listeners.OnTelepresenceEventChangedListener;
 import com.robotemi.sdk.model.CallEventModel;
@@ -60,6 +61,7 @@ public class CallActivity extends AppCompatActivity implements OnRobotReadyListe
     @Override
     public void onItemClick(UserInfo contact) {
         Robot.getInstance().startTelepresence(contact.getName(), contact.getUserId());
+
     }
 
     @Override

@@ -140,12 +140,8 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
                     recordingImage.setVisibility(View.GONE);
                     Intent intent = new Intent(Zone2.this, ConfirmMessageActivity.class);
 
-                    if ("Food".equals(deliveryType)) {
-                        intent.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        intent.putExtra("deliveryType", "Medication");
-                    }
+
+                    intent.putExtra("deliveryType", deliveryType);
                     intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());
@@ -160,7 +156,9 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
                 break;
             case "abort":
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("I am experiencing problems.", false));
+                Robot.getInstance().speak(TtsRequest.create("Delivery suddenly canceled. Please try again. " +
+                        "If you see a retry button on my screen, click on it, then reorient me, and give me a " +
+                        "little push in the right direction so that I can be on my way.", false));
                 break;
         }
     }

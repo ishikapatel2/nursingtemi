@@ -1,0 +1,227 @@
+<!-- res/layout/activity_floor_plan.xml -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapActivity">
+
+
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/photoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="210dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/arrow"
+            android:layout_gravity="top|left" />
+
+        <ImageView
+            android:id="@+id/robot"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/robot"
+            android:layout_gravity="top|left"
+            android:visibility="invisible"/>
+
+
+
+        <ImageView
+            android:id="@+id/fe1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/fireicon" />
+
+        <ImageView
+            android:id="@+id/fe2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/fireicon" />
+
+        <ImageView
+            android:id="@+id/fe3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/fireicon" />
+
+        <ImageView
+            android:id="@+id/fe4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/fireicon" />
+
+        <ImageView
+            android:id="@+id/db"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/duressicon" />
+
+        <ImageView
+            android:id="@+id/book1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/bookicon" />
+
+        <ImageView
+            android:id="@+id/book2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/bookicon" />
+
+        <ImageView
+            android:id="@+id/book3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/bookicon" />
+
+        <ImageView
+            android:id="@+id/book4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/bookicon" />
+
+        <ImageView
+            android:id="@+id/fe5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/fireicon" />
+
+        <ImageView
+            android:id="@+id/bag1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/bagicon" />
+
+        <ImageView
+            android:id="@+id/bag2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/bagicon" />
+
+        <ImageView
+            android:id="@+id/aed1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/aedicon" />
+
+        <ImageView
+            android:id="@+id/aed2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/aedicon" />
+
+        <ImageView
+            android:id="@+id/db2"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/duressicon" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/infoCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/card_border"
+            android:visibility="gone"
+            android:layout_margin="16dp"
+            android:elevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="450dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/closeButton"
+                            android:layout_width="33dp"
+                            android:layout_height="33dp"
+                            android:src="@drawable/x_icon"
+                            android:background="@drawable/imageview_border"
+                            android:layout_margin="8dp"
+                            android:paddingBottom="10dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="16dp"
+                            android:contentDescription="Close CardView" />
+
+
+                        <Button
+                            android:id="@+id/goButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/go_border"
+                            android:layout_margin="10dp"
+                            android:text="Go!"
+                            android:textSize="28dp"
+                            android:textStyle="bold"
+                            android:textAppearance="@font/acme"/>
+
+                        <TextView
+                            android:id="@+id/info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/acme"
+                            android:padding="5dp"
+                            android:paddingTop="50dp"
+                            android:text="Use fire extinguishers on small (waste basket size) fires only if safe to do so."
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

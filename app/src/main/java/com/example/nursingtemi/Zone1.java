@@ -154,7 +154,9 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
                 break;
             case "abort":
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("Delivery suddenly canceled.", false));
+                Robot.getInstance().speak(TtsRequest.create("Delivery suddenly canceled. Please try again. " +
+                        "If you see a retry button on my screen, click on it, then reorient me, and give me a " +
+                        "little push in the right direction so that I can be on my way.", false));
                 break;
         }
     }

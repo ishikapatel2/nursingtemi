@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 

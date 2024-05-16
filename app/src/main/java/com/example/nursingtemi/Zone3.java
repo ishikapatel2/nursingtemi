@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.icu.text.LocaleDisplayNames;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,7 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
         setContentView(R.layout.activity_zone3);
 
         deliveryType = getIntent().getStringExtra("deliveryType");
+        Log.d("DeliveryProblem", deliveryType);
         patient = getIntent().getStringExtra("PatientName");
         message = findViewById(R.id.textMessage);
         message.setVisibility(View.INVISIBLE);
@@ -144,8 +146,9 @@ public class Zone3 extends AppCompatActivity implements OnRobotReadyListener, On
 
             case "abort":
                 updatePosition = true;
-                Robot.getInstance().speak(TtsRequest.create("I am experiencing problems.", false));
-                break;
+                Robot.getInstance().speak(TtsRequest.create("Delivery suddenly canceled. Please try again. " +
+                        "If you see a retry button on my screen, click on it, then reorient me, and give me a " +
+                        "little push in the right direction so that I can be on my way.", false));                break;
         }
     }
 

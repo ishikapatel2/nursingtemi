@@ -1,30 +1,20 @@
 package com.example.nursingtemi;
 
-import android.app.Dialog;
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
-import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class DeliveryContinuationActivity extends AppCompatActivity implements OnRobotReadyListener {
@@ -40,9 +30,6 @@ public class DeliveryContinuationActivity extends AppCompatActivity implements O
 
         Spinner spinner = findViewById(R.id.spin);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
-        if (deliveryType.equals("Nurse")) {
-            adapter.add("Please click the room you are currently in.");
-        }
         adapter.add(" Click here to select a zone from this drop down menu");
         adapter.add(" Zone 1");
         adapter.add(" Zone 2");
