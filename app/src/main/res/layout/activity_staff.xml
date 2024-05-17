@@ -11,10 +11,10 @@
 
     <Button
         android:id="@+id/delivery"
-        android:layout_width="365dp"
+        android:layout_width="370dp"
         android:layout_height="218dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/acme"
         android:text="@string/delivery"
         android:textColor="@color/white"
         android:textSize="48sp"
@@ -28,10 +28,10 @@
 
     <Button
         android:id="@+id/nurse"
-        android:layout_width="369dp"
+        android:layout_width="370dp"
         android:layout_height="218dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/acme"
         android:text="nurse order"
         android:textColor="@color/white"
         android:textSize="48sp"
@@ -46,10 +46,10 @@
 
     <Button
         android:id="@+id/meal"
-        android:layout_width="369dp"
+        android:layout_width="370dp"
         android:layout_height="218dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/acme"
         android:text="Food Delivery"
         android:textColor="@color/white"
         android:textSize="48sp"
@@ -63,10 +63,10 @@
 
     <Button
         android:id="@+id/pharmacy"
-        android:layout_width="369dp"
+        android:layout_width="370dp"
         android:layout_height="218dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/acme"
         android:text="pharmacy order"
         android:textColor="@color/white"
         android:textSize="48sp"
@@ -81,10 +81,10 @@
 
     <Button
         android:id="@+id/vitals"
-        android:layout_width="365dp"
+        android:layout_width="370dp"
         android:layout_height="218dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/acme"
         android:text="Vitals"
         android:textColor="@color/white"
         android:textSize="48sp"
@@ -97,10 +97,10 @@
 
     <Button
         android:id="@+id/data"
-        android:layout_width="365dp"
+        android:layout_width="370dp"
         android:layout_height="218dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/acme"
         android:text="Vitals Records"
         android:textColor="@color/white"
         android:textSize="48sp"
@@ -113,14 +113,14 @@
 
     <ImageView
         android:id="@+id/backButton"
-        android:layout_width="130dp"
-        android:layout_height="78dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
+        app:layout_constraintVertical_bias="0.046"
         app:srcCompat="@drawable/arrow"
         tools:ignore="MissingConstraints" />
 

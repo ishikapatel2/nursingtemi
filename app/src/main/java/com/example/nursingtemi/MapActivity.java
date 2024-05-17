@@ -25,9 +25,12 @@ import com.github.chrisbanes.photoview.OnViewDragListener;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
+import com.robotemi.sdk.listeners.OnGoToLocationStatusChangedListener;
 import com.robotemi.sdk.listeners.OnRobotReadyListener;
+import com.robotemi.sdk.navigation.listener.OnCurrentPositionChangedListener;
+import com.robotemi.sdk.navigation.model.Position;
 
-public class MapActivity extends AppCompatActivity  implements OnRobotReadyListener {
+public class MapActivity extends AppCompatActivity  implements OnRobotReadyListener, OnGoToLocationStatusChangedListener, OnCurrentPositionChangedListener {
     Icon fe1;
     Icon fe2;
     Icon fe3;
@@ -43,12 +46,18 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
     Icon bag2;
     Icon aed1;
     Icon aed2;
+    Icon exit1;
+    Icon exit2;
+    Icon exit3;
     PhotoView photoView;
     ImageView closeButton;
     Icon backButton;
     TextView info;
     CardView infoCardView;
     Button goButton;
+
+    private Position currentPosition;
+    private boolean updatePosition = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +85,9 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
         aed1 = new Icon(findViewById(R.id.aed1), 1082, 395);
         aed2 = new Icon(findViewById(R.id.aed2), 1058, 860);
         backButton = new Icon(findViewById(R.id.backButton), 10, 50);
+        exit1 = new Icon(findViewById(R.id.exit1), 260, 490);
+        exit2 = new Icon(findViewById(R.id.exit2), 1453, 485);
+        exit3 = new Icon(findViewById(R.id.exit3), 1478, 320);
 
         info = findViewById(R.id.info);
 
@@ -83,7 +95,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
         goButton = findViewById(R.id.goButton);
         closeButton = findViewById(R.id.closeButton);
 
-        Robot.getInstance().speak(TtsRequest.create("Tap on any of the icons on the map to get more information or to navigate to each emergency feature.",false));
+        Robot.getInstance().speak(TtsRequest.create("Tap on any of the icons on the map to get more information or to navigate to your desired emergency feature.",false));
 
         photoView.post(new Runnable() {
             @Override
@@ -104,6 +116,9 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 setInitialIconPosition(aed1);
                 setInitialIconPosition(aed2);
                 setInitialIconPosition(backButton);
+                setInitialIconPosition(exit1);
+                setInitialIconPosition(exit2);
+                setInitialIconPosition(exit3);
 
                 updateIconPosition(fe1);
                 updateIconPosition(fe2);
@@ -121,6 +136,9 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 updateIconPosition(aed1);
                 updateIconPosition(aed2);
                 updateIconPosition(backButton);
+                updateIconPosition(exit1);
+                updateIconPosition(exit2);
+                updateIconPosition(exit3);
             }
         });
 
@@ -144,7 +162,9 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 updateIconPosition(aed1);
                 updateIconPosition(aed2);
                 updateIconPosition(backButton);
-
+                updateIconPosition(exit1);
+                updateIconPosition(exit2);
+                updateIconPosition(exit3);
             }
         });
 
@@ -153,11 +173,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             startActivity(intent);
         });
 
-        fe1.getImageView().setOnClickListener(new View.OnClickListener() {
+        exit1.getImageView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                info.setText("Use fire extinguishers on small (waste basket size) fires only if safe to do so. Instructions on how to use it are attached to it.");
+                info.setText("This is the west emergency exit located near the nurses station.");
+                Robot.getInstance().speak(TtsRequest.create("This is the emergency exit near the double doors. Click 'go,' and I will take you there.",false));
+
 
                 Drawable background = ContextCompat.getDrawable(MapActivity.this, R.drawable.card_border);
                 infoCardView.setBackground(background);
@@ -169,6 +191,95 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int y = location[1];
 
                 showCardViewAtPosition(x, y, v);
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("west emergency exit");
+                    }
+                });
+            }
+        });
+
+        exit3.getImageView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                info.setText("This is the first east side emergency exit located by the restrooms.");
+                Robot.getInstance().speak(TtsRequest.create("This is the emergency exit near the restrooms. Click 'go,' and I will take you there.",false));
+
+                Drawable background = ContextCompat.getDrawable(MapActivity.this, R.drawable.card_border);
+                infoCardView.setBackground(background);
+
+                int[] location = new int[2];
+                v.getLocationOnScreen(location); // gets the location of the icon on the screen
+
+                int x = location[0];
+                int y = location[1];
+
+                showCardViewAtPosition(x, y, v);
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("east emergency exit 1");
+                    }
+                });
+            }
+        });
+
+        exit2.getImageView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                info.setText("This is the second east side emergency exit located near the skills labs.");
+                Robot.getInstance().speak(TtsRequest.create("This is the emergency exit near the learning labs. Click 'go,' and I will take you there.",false));
+                Drawable background = ContextCompat.getDrawable(MapActivity.this, R.drawable.card_border);
+                infoCardView.setBackground(background);
+
+                int[] location = new int[2];
+                v.getLocationOnScreen(location); // gets the location of the icon on the screen
+
+                int x = location[0];
+                int y = location[1];
+
+                showCardViewAtPosition(x, y, v);
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("east emergency exit 2");
+                    }
+                });
+            }
+        });
+
+
+
+        fe1.getImageView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                info.setText("Use fire extinguishers on small (waste basket size) fires only if safe to do so. Instructions on how to use it are attached to it.");
+                Robot.getInstance().speak(TtsRequest.create("This is the fire extinguisher near the lavender lounge. Click 'go,' and I will take you there.",false));
+
+                Drawable background = ContextCompat.getDrawable(MapActivity.this, R.drawable.card_border);
+                infoCardView.setBackground(background);
+
+                int[] location = new int[2];
+                v.getLocationOnScreen(location); // gets the location of the icon on the screen
+
+                int x = location[0];
+                int y = location[1];
+
+                showCardViewAtPosition(x, y, v);
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("fire extinguisher 4");
+                    }
+                });
             }
         });
 
@@ -177,6 +288,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("Use fire extinguishers on small (waste basket size) fires only if safe to do so. Instructions on how to use it are attached to it.");
+                Robot.getInstance().speak(TtsRequest.create("This is the fire extinguisher between the debriefing room and the double doors. Click 'go,' and I will take you there.",false));
 
                 Drawable background = ContextCompat.getDrawable(MapActivity.this, R.drawable.card_border);
                 infoCardView.setBackground(background);
@@ -188,6 +300,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int y = location[1];
 
                 showCardViewAtPosition(x, y, v);
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("fire extinguisher 3");
+                    }
+                });
             }
         });
 
@@ -196,6 +315,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("Use fire extinguishers on small (waste basket size) fires only if safe to do so. Instructions on how to use it are attached to it.");
+                Robot.getInstance().speak(TtsRequest.create("This is the fire extinguisher near the learning lab. Click 'go,' and I will take you there.",false));
 
                 Drawable background = ContextCompat.getDrawable(MapActivity.this, R.drawable.card_border);
                 infoCardView.setBackground(background);
@@ -207,6 +327,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int y = location[1];
 
                 showCardViewAtPosition(x, y, v);
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("fire extinguisher 2");
+                    }
+                });
             }
         });
 
@@ -215,6 +342,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("Use fire extinguishers on small (waste basket size) fires only if safe to do so. Instructions on how to use it are attached to it.");
+                Robot.getInstance().speak(TtsRequest.create("This is the fire extinguisher near the restrooms. Click 'go,' and I will take you there.",false));
 
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
@@ -225,6 +353,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int x = location[0]; // The x-coordinate of the tapped view
                 int y = location[1]; // The y-coordinate of the tapped view
                 showCardViewAtPosition(x, y, v); // Pass the view itself for width calculation
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("fire extinguisher 1");
+                    }
+                });
             }
         });
 
@@ -233,6 +368,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("This button will notify the police department when pressed. It is located underneath the counter.");
+                Robot.getInstance().speak(TtsRequest.create("This button is under the counter at the nurse's desk by the offices. Click 'go,' and I will take you there.",false));
 
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
@@ -243,6 +379,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int x = location[0]; // The x-coordinate of the tapped view
                 int y = location[1]; // The y-coordinate of the tapped view
                 showCardViewAtPosition(x, y, v); // Pass the view itself for width calculation
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("duress button");
+                    }
+                });
             }
         });
 
@@ -251,6 +394,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("This physical booklet is in a binder and contains all of the safety and emergency information. This can also be accessed via the QR code if you click the back arrow.");
+                Robot.getInstance().speak(TtsRequest.create("This is the incident procedures booklet located inside the simulation office room 363. Click 'go,' and I will take you there.",false));
 
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
@@ -261,6 +405,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int x = location[0]; // The x-coordinate of the tapped view
                 int y = location[1]; // The y-coordinate of the tapped view
                 showCardViewAtPosition(x, y, v); // Pass the view itself for width calculation
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("incident booklet 2");
+                    }
+                });
             }
         });
 
@@ -269,6 +420,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("This physical booklet is in a binder and contains all of the safety and emergency information. This can also be accessed via the QR code if you click the back arrow.");
+                Robot.getInstance().speak(TtsRequest.create("This is the incident procedures booklet located by the nurse's desk by the offices. Click 'go,' and I will take you there.",false));
 
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
@@ -279,6 +431,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int x = location[0]; // The x-coordinate of the tapped view
                 int y = location[1]; // The y-coordinate of the tapped view
                 showCardViewAtPosition(x, y, v); // Pass the view itself for width calculation
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("incident booklet 3");
+                    }
+                });
             }
         });
 
@@ -287,6 +446,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("This physical booklet is in a binder and contains all of the safety and emergency information. This can also be accessed via the QR code if you click the back arrow.");
+                Robot.getInstance().speak(TtsRequest.create("This is the incident procedures booklet located in learning lounge. Click 'go,' and I will take you there.",false));
 
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
@@ -297,6 +457,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int x = location[0]; // The x-coordinate of the tapped view
                 int y = location[1]; // The y-coordinate of the tapped view
                 showCardViewAtPosition(x, y, v); // Pass the view itself for width calculation
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("incident booklet 1");
+                    }
+                });
             }
         });
 
@@ -305,6 +472,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("This bag is like a first aid kit and contains necessary equipment for serious injuries such as gun shot wounds.");
+                Robot.getInstance().speak(TtsRequest.create("This go bag is located by the nurse's desk by the offices on the wall. Click 'go,' and I will take you there.",false));
 
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
@@ -315,6 +483,13 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int x = location[0]; // The x-coordinate of the tapped view
                 int y = location[1]; // The y-coordinate of the tapped view
                 showCardViewAtPosition(x, y, v); // Pass the view itself for width calculation
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("go bag");
+                    }
+                });
             }
         });
 
@@ -323,6 +498,8 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             public void onClick(View v) {
 
                 info.setText("This is used for people who have sudden cardiac arrest.");
+                Robot.getInstance().speak(TtsRequest.create("The AED is located by the elevators. Click 'go,' and I will take you there.",false));
+
 
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
@@ -333,17 +510,16 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 int x = location[0]; // The x-coordinate of the tapped view
                 int y = location[1]; // The y-coordinate of the tapped view
                 showCardViewAtPosition(x, y, v); // Pass the view itself for width calculation
+
+                goButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Robot.getInstance().goTo("aed");
+                    }
+                });
             }
         });
 
-
-        goButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Assuming you have a method to send the robot to a specific location
-                Robot.getInstance().goTo("Home Base");
-            }
-        });
 
         closeButton.setOnClickListener(v -> closeCardView());
     }
@@ -451,16 +627,60 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
     public void onRobotReady(boolean b) {
 
     }
+    @Override
+    public void onCurrentPositionChanged(Position position) {
+        if (updatePosition) {
+            currentPosition = position;
+            //Log.d("PositionUpdate", "X: " + currentPosition.getX() + ", Y: " + currentPosition.getY() + ", Yaw: " + currentPosition.getYaw());
+        }
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
         Robot.getInstance().addOnRobotReadyListener(this);
+        Robot.getInstance().addOnGoToLocationStatusChangedListener(this);
+        Robot.getInstance().addOnCurrentPositionChangedListener(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Robot.getInstance().removeOnRobotReadyListener(this);
+        Robot.getInstance().removeOnGoToLocationStatusChangedListener(this);
+    }
+
+    @Override
+    public void onGoToLocationStatusChanged(String location, String status, int descriptionId, String description) {
+        Intent intent;
+        switch (status) {
+            case "going":
+                updatePosition = false;
+                Robot.getInstance().speak(TtsRequest.create("Follow me!", false));
+                //intent = new Intent(MapActivity.this, DestinationActivity.class);
+                //startActivity(intent);
+
+                break;
+            case "complete":
+                if (currentPosition != null) {
+                    intent = new Intent(MapActivity.this, MainActivity.class);
+
+                    intent.putExtra("positionX", currentPosition.getX());
+                    intent.putExtra("positionY", currentPosition.getY());
+                    intent.putExtra("positionYaw", currentPosition.getYaw());
+                    intent.putExtra("positionTiltAngle", currentPosition.getTiltAngle());
+                    startActivity(intent);
+                }
+                else {
+                    Log.e("MapActivity", "Current position is null");
+                }
+                updatePosition = true;
+                break;
+            case "abort":
+                updatePosition = true;
+                Robot.getInstance().speak(TtsRequest.create("I am having trouble reaching my destination," +
+                        " please try again or call 911 if this is a life threatening emergency.", false));
+                break;
+        }
     }
 }

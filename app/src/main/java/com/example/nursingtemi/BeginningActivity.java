@@ -39,8 +39,7 @@ public class BeginningActivity extends AppCompatActivity implements OnRobotReady
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-//            loadActivity(MainActivity.class);
-            loadActivity(MapActivity.class);
+            loadActivity(MainActivity.class);
         });
     }
 

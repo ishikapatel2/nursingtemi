@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapActivity">
+    tools:context=".MapActivity"
+    android:id="@+id/frame">
 
 
 
@@ -13,14 +14,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+
         <ImageView
             android:id="@+id/backButton"
-            android:layout_width="210dp"
-            android:layout_height="160dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:src="@drawable/arrow"
-            android:layout_gravity="top|left" />
+            android:src="@drawable/arrow" />
 
         <ImageView
             android:id="@+id/robot"
@@ -29,6 +31,33 @@
             android:src="@drawable/robot"
             android:layout_gravity="top|left"
             android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/exit1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/exit" />
+
+        <ImageView
+            android:id="@+id/exit2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/exit" />
+
+        <ImageView
+            android:id="@+id/exit3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/exit" />
 
 
 

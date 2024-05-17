@@ -31,7 +31,7 @@
         android:layout_width="307dp"
         android:layout_height="119dp"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/chewy"
+        android:fontFamily="@font/acme"
         android:text="Continue"
         android:layout_margin="10dp"
         android:textColor="@color/white"
@@ -77,16 +77,14 @@
 
     <ImageView
         android:id="@+id/backButton"
-        android:layout_width="150dp"
-        android:layout_height="73dp"
-        android:layout_margin="10dp"
-
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintVertical_bias="0.046"
         app:srcCompat="@drawable/arrow"
         tools:ignore="MissingConstraints" />
 

@@ -40,12 +40,16 @@
 
     <ImageView
         android:id="@+id/backButton"
-        android:layout_width="150dp"
-        android:layout_height="73dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046"
         app:srcCompat="@drawable/arrow"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-34dp"
-        tools:layout_editor_absoluteY="2dp" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/title"
