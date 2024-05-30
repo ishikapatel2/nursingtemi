@@ -2,6 +2,7 @@ package com.example.nursingtemi;
 
 import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -78,6 +80,11 @@ public class ConfirmMessageActivity extends AppCompatActivity implements OnRobot
         homeBase.setVisibility(View.INVISIBLE);
         prevLoc.setVisibility(View.INVISIBLE);
 
+        ImageView tutorial = findViewById(R.id.tutorial);
+        tutorial.setOnClickListener((v) ->{
+            playVideo();
+        });
+
 
         if ("Food".equals(deliveryType)) {
             fingerprintScanner.setVisibility(View.GONE);
@@ -140,6 +147,39 @@ public class ConfirmMessageActivity extends AppCompatActivity implements OnRobot
         homeBase.setOnClickListener(v -> {
             // Send robot to its home base
             Robot.getInstance().goTo("home base");
+        });
+    }
+
+    private void playVideo() {
+        VideoView videoView = findViewById(R.id.videoView);
+        Button closeVideoButton = findViewById(R.id.closeVideoButton);
+        String videoPath;
+        if ("Food".equals(deliveryType)) {
+            videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video_foodconfirm;
+            confirm.setVisibility(View.INVISIBLE);
+        }
+        else {
+            videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video_confirm;
+        }
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        videoView.start();
+
+        videoView.setVisibility(View.VISIBLE);
+        closeVideoButton.setVisibility(View.VISIBLE);
+
+
+
+
+        closeVideoButton.setOnClickListener(v -> {
+            videoView.stopPlayback();
+            videoView.setVisibility(View.GONE);
+            closeVideoButton.setVisibility(View.GONE);
+
+            if ("Food".equals(deliveryType)) {
+                confirm.setVisibility(View.VISIBLE);
+            }
+
         });
     }
 

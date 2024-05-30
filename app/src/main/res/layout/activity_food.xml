@@ -111,4 +111,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.282" />
+
+    <ImageView
+        android:id="@+id/tutorial"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933"
+        app:srcCompat="@drawable/play_icon"
+        tools:ignore="ContentDescription" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="1500dp"
+        android:layout_height="1500dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Button to close the video -->
+    <Button
+        android:id="@+id/closeVideoButton"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:text="Close"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/videoView"
+        app:layout_constraintTop_toTopOf="@id/videoView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

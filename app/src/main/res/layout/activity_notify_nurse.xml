@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="#0C234B"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotifyNurseActivity">
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anton"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/recording"
+        android:layout_width="374dp"
+        android:layout_height="264dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/recimg"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <Button
+        android:id="@+id/label"
+        android:layout_width="1022dp"
+        android:layout_height="109dp"
+        android:backgroundTint="#0D234B"
+        android:fontFamily="@font/acme"
+        android:text="What is your room number?"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <Button
+        android:id="@+id/room369"
+        android:layout_width="475dp"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="369"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.653"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/room376"
+        android:layout_width="475dp"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="376"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/room371"
+        android:layout_width="475dp"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="371"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.794"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/room368"
+        android:layout_width="475dp"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="368"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.514"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/room366"
+        android:layout_width="475dp"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="366"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.376"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/room364"
+        android:layout_width="475dp"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="364"
+        android:textColor="#AA0620"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.236"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046"
+        app:srcCompat="@drawable/arrow"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

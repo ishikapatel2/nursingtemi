@@ -41,6 +41,7 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
         setContentView(R.layout.activity_zone2);
 
         deliveryType = getIntent().getStringExtra("deliveryType");
+        //Log.d("FOODELIVERY", deliveryType);
         patient = getIntent().getStringExtra("PatientName");
         message = findViewById(R.id.textMessage);
         message.setVisibility(View.INVISIBLE);
@@ -139,8 +140,6 @@ public class Zone2 extends AppCompatActivity implements OnRobotReadyListener, On
                     message.setVisibility(View.GONE);
                     recordingImage.setVisibility(View.GONE);
                     Intent intent = new Intent(Zone2.this, ConfirmMessageActivity.class);
-
-
                     intent.putExtra("deliveryType", deliveryType);
                     intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());

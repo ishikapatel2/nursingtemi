@@ -25,7 +25,7 @@ import java.util.List;
 public class CallActivity extends AppCompatActivity implements OnRobotReadyListener, ContactsAdapter.OnItemClickListener, OnTelepresenceEventChangedListener, OnCurrentPositionChangedListener {
 
     RecyclerView contactsList;
-    private Position currentPosition = null;
+    private Position currentPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +95,10 @@ public class CallActivity extends AppCompatActivity implements OnRobotReadyListe
     public void onTelepresenceEventChanged(CallEventModel callEventModel) {
         if (callEventModel.getType() == CallEventModel.TYPE_OUTGOING && callEventModel.getState() == CallEventModel.STATE_ENDED) {
             Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("positionX", currentPosition.getX());
+            intent.putExtra("positionY", currentPosition.getY());
+            intent.putExtra("positionYaw", currentPosition.getYaw());
+            intent.putExtra("positionTiltAngle", currentPosition.getTiltAngle());
             startActivity(intent);
             finish();
         }

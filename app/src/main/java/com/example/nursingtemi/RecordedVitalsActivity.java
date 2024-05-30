@@ -5,15 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.system.StructUtsname;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.VideoView;
 
 import java.util.List;
 
@@ -24,11 +28,16 @@ public class RecordedVitalsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recorded_vitals);
 
+        ImageView tutorial = findViewById(R.id.tutorial);
+        tutorial.setOnClickListener((v) ->{
+            playVideo();
+        });
+
         ImageView backButton = findViewById(R.id.backButton);
         ListView vitalsListView = findViewById(R.id.vitalsListView);
 
         // gets the list of all vitals
-        List<String> vitals = DatabaseHelper.getInstance(getApplicationContext()).getAllVitals();
+        List<Record> vitals = DatabaseHelper.getInstance(getApplicationContext()).getAllVitals();
 
         View headerView = getLayoutInflater().inflate(R.layout.list_header_vital, vitalsListView, false);
         vitalsListView.addHeaderView(headerView, null, false);
@@ -37,19 +46,14 @@ public class RecordedVitalsActivity extends AppCompatActivity {
         vitalsListView.setAdapter(adapter);
 
         // Searching the database
-
         SearchView searchView = findViewById(R.id.searchView);
+
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (query.isEmpty()) {
-                    adapter.resetData();
-                }
-                else {// Reset the adapter's data
-                    adapter.getFilter().filter(query);
-                }
-                return true;
+                return false;
             }
 
             @Override
@@ -59,7 +63,7 @@ public class RecordedVitalsActivity extends AppCompatActivity {
                 } else {
                     adapter.getFilter().filter(newText);
                 }
-                return false;
+                return true;
             }
         });
 
@@ -87,15 +91,27 @@ public class RecordedVitalsActivity extends AppCompatActivity {
 
     }
 
-    public void refreshListView() {
-        ListView vitalsListView = findViewById(R.id.vitalsListView);
+    private void playVideo() {
+        VideoView videoView = findViewById(R.id.videoView);
+        Button closeVideoButton = findViewById(R.id.closeVideoButton);
 
-        List<String> vitals = DatabaseHelper.getInstance(getApplicationContext()).getAllVitals();
-        VitalsAdapter adapter = new VitalsAdapter(this, vitals);
-        vitalsListView.setAdapter(adapter);
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video_recordedvitals;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        videoView.start();
+
+        videoView.setVisibility(View.VISIBLE);
+        closeVideoButton.setVisibility(View.VISIBLE);
+
+
+
+
+        closeVideoButton.setOnClickListener(v -> {
+            videoView.stopPlayback();
+            videoView.setVisibility(View.GONE);
+            closeVideoButton.setVisibility(View.GONE);
+
+
+        });
     }
-
-
-
-
 }

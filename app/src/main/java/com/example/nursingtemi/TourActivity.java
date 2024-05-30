@@ -35,7 +35,7 @@ public class TourActivity extends AppCompatActivity implements OnRobotReadyListe
                     "debriefing rooms. It is a comfortable safe space to observe other " +
                     "students during simulations and discuss what they learned to apply " +
                     "to care of real patients in the future.", "Debriefing Room"),
-            new TourLocation("simulation room 376", "This is one of four of our simulated " +
+            new TourLocation("simulation room 376", "This is one of 6 of our simulated " +
                     "hospital room equipped with hospital furniture, patient bedside monitor, " +
                     "simulated medical headwall, medical equipment, simulated EHR and barcode scanner, " +
                     "and video and audio media system.", "Simulation Room"),

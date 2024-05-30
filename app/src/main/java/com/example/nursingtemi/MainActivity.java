@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.VideoView;
 
 import com.robotemi.sdk.Robot;
 import com.robotemi.sdk.TtsRequest;
@@ -22,6 +25,14 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity implements OnRobotReadyListener, OnCurrentPositionChangedListener {
     private static int count = 0;
     private Position currentPosition;
+    private ImageView tutorial;
+    private Button tourButton;
+    private Button staffButton;
+    private Button exitButton;
+    private Button surveyButton;
+    private Button safetyButton;
+    private Button patientButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +47,15 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         int angle = getIntent().getIntExtra("positionTiltAngle", 0);
         currentPosition = new Position(x, y, yaw, angle);
 
+        tutorial = findViewById(R.id.tutorial);
+
+        tutorial.setOnClickListener((v) ->{
+            playVideo();
+        });
+
+
         // tour
-        Button tourButton = findViewById(R.id.tourButton);
+        tourButton = findViewById(R.id.tourButton);
 
 
         Drawable originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.tour_icon);
@@ -52,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         tourButton.setOnClickListener((v) -> openActivity(TourActivity.class));
 
         // safety
-        Button safetyButton = findViewById(R.id.safetyButton);
+        safetyButton = findViewById(R.id.safetyButton);
 
         originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.emergency_icon);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
@@ -64,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         safetyButton.setCompoundDrawablesWithIntrinsicBounds(resizedDrawable, null, null, null);
         safetyButton.setOnClickListener((v) -> openActivity(SafetyProcedures.class));
 
-        Button patientButton = findViewById(R.id.patients);
+        patientButton = findViewById(R.id.patients);
         originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.patient);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
         width = 130;
@@ -78,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
 
 
         // staff
-        Button staffButton = findViewById(R.id.staffButton);
+        staffButton = findViewById(R.id.staffButton);
 
         originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.staff_icon);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
@@ -89,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         staffButton.setOnClickListener((v)-> openActivity(StaffActivity.class));
 
         // survey
-        Button surveyButton = findViewById(R.id.surveyButton);
+        surveyButton = findViewById(R.id.surveyButton);
 
         originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.survey);
         originalBitmap = ((BitmapDrawable) originalDrawable).getBitmap();
@@ -102,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
 
 
         // exit
-        Button exitButton = findViewById(R.id.exitButton);
+        exitButton = findViewById(R.id.exitButton);
 
 
         originalDrawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.exit_icon);
@@ -114,6 +132,38 @@ public class MainActivity extends AppCompatActivity implements OnRobotReadyListe
         exitButton.setOnClickListener((v) ->{
             finishAffinity();
             System.exit(0);
+        });
+    }
+
+    private void playVideo() {
+        VideoView videoView = findViewById(R.id.videoView);
+        Button closeVideoButton = findViewById(R.id.closeVideoButton);
+
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video_beginning;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        videoView.start();
+
+        videoView.setVisibility(View.VISIBLE);
+        closeVideoButton.setVisibility(View.VISIBLE);
+        tourButton.setVisibility(View.INVISIBLE);
+        patientButton.setVisibility(View.INVISIBLE);
+        staffButton.setVisibility(View.INVISIBLE);
+        safetyButton.setVisibility(View.INVISIBLE);
+        surveyButton.setVisibility(View.INVISIBLE);
+        exitButton.setVisibility(View.INVISIBLE);
+
+
+        closeVideoButton.setOnClickListener(v -> {
+            videoView.stopPlayback();
+            videoView.setVisibility(View.GONE);
+            closeVideoButton.setVisibility(View.GONE);
+            tourButton.setVisibility(View.VISIBLE);
+            patientButton.setVisibility(View.VISIBLE);
+            staffButton.setVisibility(View.VISIBLE);
+            safetyButton.setVisibility(View.VISIBLE);
+            surveyButton.setVisibility(View.VISIBLE);
+            exitButton.setVisibility(View.VISIBLE);
         });
     }
 

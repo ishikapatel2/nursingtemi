@@ -145,13 +145,7 @@ public class Zone6 extends AppCompatActivity implements OnRobotReadyListener, On
                     recordingImage.setVisibility(View.GONE);
                     Robot.getInstance().speak(TtsRequest.create("I have arrived with your order", false));
                     Intent intent = new Intent(Zone6.this, ConfirmMessageActivity.class);
-
-                    if ("Food".equals(deliveryType)) {
-                        intent.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        intent.putExtra("deliveryType", "Medication");
-                    }
+                    intent.putExtra("deliveryType", deliveryType);
                     intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());

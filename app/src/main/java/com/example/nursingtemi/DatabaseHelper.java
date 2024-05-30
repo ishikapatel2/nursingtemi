@@ -60,8 +60,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<String> getAllVitals() {
-        List<String> vitalsList = new ArrayList<>();
+    public List<Record> getAllVitals() {
+        List<Record> vitalsList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query("vitals", null, null, null, null, null, null);
 
@@ -82,7 +82,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         ", ID: " + id;
 
                 Log.d("DatabaseHelper", "Retrieved record: " + vitalRecord);
-                vitalsList.add(vitalRecord);
+
+                Record record = new Record(vitalRecord);
+
+                vitalsList.add(record);
 
             } while (cursor.moveToNext());
         }
@@ -90,4 +93,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return vitalsList;
     }
+
+
 }

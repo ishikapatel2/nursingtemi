@@ -1,10 +1,13 @@
 package com.example.nursingtemi;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +19,7 @@ import java.util.Objects;
 
 public class DeliveryActivityNurse extends AppCompatActivity implements OnRobotReadyListener
 {
+    private Button confirmButton;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -23,7 +27,12 @@ public class DeliveryActivityNurse extends AppCompatActivity implements OnRobotR
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_delivery_nurse);
 
-        Button confirmButton = findViewById(R.id.confirm_button);
+        ImageView tutorial = findViewById(R.id.tutorial);
+        tutorial.setOnClickListener((v) ->{
+            playVideo();
+        });
+
+        confirmButton = findViewById(R.id.confirm_button);
         ImageView backButton = findViewById(R.id.backButton);
 
         backButton.setOnClickListener((v) ->
@@ -51,6 +60,30 @@ public class DeliveryActivityNurse extends AppCompatActivity implements OnRobotR
                 obj.putExtra("sender", sender.getText().toString());
                 startActivity(obj);
             }
+        });
+    }
+
+    private void playVideo() {
+        VideoView videoView = findViewById(R.id.videoView);
+        Button closeVideoButton = findViewById(R.id.closeVideoButton);
+
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video_nurse;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        videoView.start();
+
+        videoView.setVisibility(View.VISIBLE);
+        closeVideoButton.setVisibility(View.VISIBLE);
+        confirmButton.setVisibility(View.INVISIBLE);
+
+
+
+        closeVideoButton.setOnClickListener(v -> {
+            videoView.stopPlayback();
+            videoView.setVisibility(View.GONE);
+            closeVideoButton.setVisibility(View.GONE);
+            confirmButton.setVisibility(View.VISIBLE);
+
         });
     }
 

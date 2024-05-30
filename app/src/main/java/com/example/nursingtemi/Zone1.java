@@ -38,6 +38,7 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
         setContentView(R.layout.activity_zone1);
 
         deliveryType = getIntent().getStringExtra("deliveryType");
+        //Log.d("FOODELIVERY", deliveryType);
         patient = getIntent().getStringExtra("PatientName");
         room372 = findViewById(R.id.room372);
         room373 = findViewById(R.id.room373);
@@ -134,12 +135,7 @@ public class Zone1 extends AppCompatActivity implements OnRobotReadyListener, On
                     recordingImage.setVisibility(View.GONE);
                     Intent intent = new Intent(Zone1.this, ConfirmMessageActivity.class);
 
-                    if ("Food".equals(deliveryType)) {
-                        intent.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        intent.putExtra("deliveryType", "Medication");
-                    }
+                    intent.putExtra("deliveryType", deliveryType);
                     intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());

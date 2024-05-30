@@ -10,6 +10,7 @@ import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.github.chrisbanes.photoview.OnMatrixChangedListener;
 import com.github.chrisbanes.photoview.OnScaleChangedListener;
@@ -63,8 +65,6 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
-
         photoView = findViewById(R.id.photoView);
         photoView.setImageResource(R.drawable.emergencymap);
 
@@ -139,6 +139,7 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
                 updateIconPosition(exit1);
                 updateIconPosition(exit2);
                 updateIconPosition(exit3);
+
             }
         });
 
@@ -524,6 +525,30 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
         closeButton.setOnClickListener(v -> closeCardView());
     }
 
+    private void playVideo() {
+        VideoView videoView = findViewById(R.id.videoView);
+        Button closeVideoButton = findViewById(R.id.closeVideoButton);
+
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video_map;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        videoView.start();
+
+        videoView.setVisibility(View.VISIBLE);
+        closeVideoButton.setVisibility(View.VISIBLE);
+
+
+
+
+        closeVideoButton.setOnClickListener(v -> {
+            videoView.stopPlayback();
+            videoView.setVisibility(View.GONE);
+            closeVideoButton.setVisibility(View.GONE);
+
+
+        });
+    }
+
     private void showCardViewAtPosition(int x, int y, View tappedView) {
         // Get location and size of the PhotoView
         int[] photoViewLocation = new int[2];
@@ -657,8 +682,6 @@ public class MapActivity extends AppCompatActivity  implements OnRobotReadyListe
             case "going":
                 updatePosition = false;
                 Robot.getInstance().speak(TtsRequest.create("Follow me!", false));
-                //intent = new Intent(MapActivity.this, DestinationActivity.class);
-                //startActivity(intent);
 
                 break;
             case "complete":

@@ -38,8 +38,6 @@ public class DeliveryContinuationActivityNurse extends AppCompatActivity impleme
     private String quantity;
     private String item;
     private ImageView recording;
-
-    private String room;
     private Position currentPosition;
     private boolean updatePosition = true;
 

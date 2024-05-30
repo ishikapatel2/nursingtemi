@@ -1,10 +1,12 @@
 package com.example.nursingtemi;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Objects;
 
 public class StaffActivity extends AppCompatActivity{
+
+    private Button nurse;
+    private Button pharm;
+    private Button food;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -22,11 +28,16 @@ public class StaffActivity extends AppCompatActivity{
 
         Button delivery = findViewById(R.id.delivery);
         Button vitals = findViewById(R.id.vitals);
-        Button pharm = findViewById(R.id.pharmacy);
-        Button nurse = findViewById(R.id.nurse);
+        pharm = findViewById(R.id.pharmacy);
+        nurse = findViewById(R.id.nurse);
         Button data = findViewById(R.id.data);
-        Button food = findViewById(R.id.meal);
+        food = findViewById(R.id.meal);
         ImageView backButton = findViewById(R.id.backButton);
+        ImageView tutorial = findViewById(R.id.tutorial);
+
+        tutorial.setOnClickListener((v) ->{
+            playVideo();
+        });
 
         data.setOnClickListener((v) -> {
             Intent obj = new Intent(this, RecordedVitalsActivity.class);
@@ -41,6 +52,7 @@ public class StaffActivity extends AppCompatActivity{
             pharm.setVisibility(View.VISIBLE);
             nurse.setVisibility(View.VISIBLE);
             food.setVisibility(View.VISIBLE);
+            tutorial.setVisibility(View.VISIBLE);
 
             backButton.setOnClickListener((y) -> {
                 Intent obj = new Intent(this, StaffActivity.class);
@@ -70,8 +82,36 @@ public class StaffActivity extends AppCompatActivity{
         });
 
         backButton.setOnClickListener((v) -> {
+            tutorial.setVisibility(View.INVISIBLE);
             Intent obj = new Intent(this, MainActivity.class);
             startActivity(obj);
+        });
+    }
+    private void playVideo() {
+        VideoView videoView = findViewById(R.id.videoView);
+        Button closeVideoButton = findViewById(R.id.closeVideoButton);
+
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video_delivery;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        videoView.start();
+
+        videoView.setVisibility(View.VISIBLE);
+        closeVideoButton.setVisibility(View.VISIBLE);
+        pharm.setVisibility(View.INVISIBLE);
+        food.setVisibility(View.INVISIBLE);
+        nurse.setVisibility(View.INVISIBLE);
+
+
+
+        closeVideoButton.setOnClickListener(v -> {
+            videoView.stopPlayback();
+            videoView.setVisibility(View.GONE);
+            closeVideoButton.setVisibility(View.GONE);
+            pharm.setVisibility(View.VISIBLE);
+            food.setVisibility(View.VISIBLE);
+            nurse.setVisibility(View.VISIBLE);
+
         });
     }
 

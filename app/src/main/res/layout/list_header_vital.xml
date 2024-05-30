@@ -10,8 +10,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textColor="#D82B2B"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:text="Patient Name" />
 
@@ -19,8 +19,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textColor="#D82B2B"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:text="Heart Rate" />
 
@@ -28,8 +28,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textColor="#D82B2B"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:text="Temperature" />
 
@@ -37,8 +37,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textColor="#D82B2B"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:text="Blood Pressure" />
 
@@ -46,8 +46,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textColor="#D82B2B"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:text="Oxygen Saturation" />
 

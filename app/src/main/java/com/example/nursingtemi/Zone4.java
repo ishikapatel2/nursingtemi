@@ -130,13 +130,7 @@ public class Zone4 extends AppCompatActivity implements OnRobotReadyListener, On
                     message.setVisibility(View.GONE);
                     recordingImage.setVisibility(View.GONE);
                     Intent intent = new Intent(Zone4.this, ConfirmMessageActivity.class);
-
-                    if ("Food".equals(deliveryType)) {
-                        intent.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        intent.putExtra("deliveryType", "Medication");
-                    }
+                    intent.putExtra("deliveryType", deliveryType);
                     intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());

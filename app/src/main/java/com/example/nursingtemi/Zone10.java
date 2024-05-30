@@ -128,13 +128,7 @@ public class Zone10 extends AppCompatActivity implements OnRobotReadyListener, O
                     recordingImage.setVisibility(View.GONE);
                     Robot.getInstance().speak(TtsRequest.create("I have arrived with your order", false));
                     Intent intent = new Intent(Zone10.this, ConfirmMessageActivity.class);
-
-                    if ("Food".equals(deliveryType)) {
-                        intent.putExtra("deliveryType", "Food");
-                    }
-                    else {
-                        intent.putExtra("deliveryType", "Medication");
-                    }
+                    intent.putExtra("deliveryType", deliveryType);
                     intent.putExtra("PatientName", patient);
                     intent.putExtra("positionX", currentPosition.getX());
                     intent.putExtra("positionY", currentPosition.getY());
