@@ -101,7 +101,7 @@ public class NotifyNurseActivity extends AppCompatActivity  implements OnRobotRe
                 else if (Objects.equals(action, "sleepy")) {
                     Robot.getInstance().speak(TtsRequest.create("I will go find your nurse and let her know that you would like to sleep.", false));
                 }
-                Robot.getInstance().goTo("simulation room 364");
+                Robot.getInstance().goTo("control room 365");
             }
 
         });
@@ -127,7 +127,7 @@ public class NotifyNurseActivity extends AppCompatActivity  implements OnRobotRe
                 else if (Objects.equals(action, "sleepy")) {
                     Robot.getInstance().speak(TtsRequest.create("I will go find your nurse and let her know that you would like to sleep.", false));
                 }
-                Robot.getInstance().goTo("simulation room 366");
+                Robot.getInstance().goTo("control room 365");
             }
         });
 
@@ -152,7 +152,7 @@ public class NotifyNurseActivity extends AppCompatActivity  implements OnRobotRe
                 else if (Objects.equals(action, "sleepy")) {
                     Robot.getInstance().speak(TtsRequest.create("I will go find your nurse and let her know that you would like to sleep.", false));
                 }
-                Robot.getInstance().goTo("simulation room 368");
+                Robot.getInstance().goTo("control room 367");
             }
         });
 
@@ -177,7 +177,7 @@ public class NotifyNurseActivity extends AppCompatActivity  implements OnRobotRe
                 else if (Objects.equals(action, "sleepy")) {
                     Robot.getInstance().speak(TtsRequest.create("I will go find your nurse and let her know that you would like to sleep.", false));
                 }
-                Robot.getInstance().goTo("simulation room 369");
+                Robot.getInstance().goTo("control room 370");
             }
         });
 
@@ -202,7 +202,7 @@ public class NotifyNurseActivity extends AppCompatActivity  implements OnRobotRe
                 else if (Objects.equals(action, "sleepy")) {
                     Robot.getInstance().speak(TtsRequest.create("I will go find your nurse and let her know that you would like to sleep.", false));
                 }
-                Robot.getInstance().goTo("simulation room 371");
+                Robot.getInstance().goTo("control room 370");
             }
         });
 
@@ -227,7 +227,7 @@ public class NotifyNurseActivity extends AppCompatActivity  implements OnRobotRe
                 else if (Objects.equals(action, "sleepy")) {
                     Robot.getInstance().speak(TtsRequest.create("I will go find your nurse and let her know that you would like to sleep.", false));
                 }
-                Robot.getInstance().goTo("simulation room 376");
+                Robot.getInstance().goTo("control room 375");
             }
         });
     }
